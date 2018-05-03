@@ -52,7 +52,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({
                     to: channelID,
                     message: '',
-                    file:["sally/1.png"]
+                    embed: {
+                        image: {
+                            url: "sally/1.png"
+                        }
+                    }
                 });
             break;
             case '2':
@@ -60,8 +64,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: '',
                     embed: {
-                        "image:": {
-                            "url": "sally/2.png"
+                        image:: {
+                            url: "sally/2.png"
                         }
                     }
                 });
