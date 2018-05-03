@@ -53,7 +53,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: '',
                     file:["sally/1.png"]
-                    }
                 });
             break;
             case '2':
