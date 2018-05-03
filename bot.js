@@ -64,7 +64,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: '',
                     embed: {
-                        image:: {
+                        image: {
                             url: "sally/2.png"
                         }
                     }
