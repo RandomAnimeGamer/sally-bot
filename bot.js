@@ -103,6 +103,28 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     }
                 });
             break;
+            case 'delet':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: {
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/6.png"
+                        }
+                    }
+                });
+            break;
+            case 'deletin':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: {
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/7.png"
+                        }
+                    }
+                });
+            break;
 
             // Just add any case commands if you want to..
          }
