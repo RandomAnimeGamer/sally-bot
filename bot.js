@@ -48,6 +48,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
+            case '1':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: 'sally/1.png'
+                    }
+                });
+            break;
+            case '2':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: 'sally/2.png'
+                    }
+                });
+            break;
 
             // Just add any case commands if you want to..
          }
