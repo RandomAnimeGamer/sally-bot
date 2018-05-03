@@ -54,7 +54,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '',
                     embed: {
                         image: {
-                            url: "sally/1.png"
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/1.png"
                         }
                     }
                 });
@@ -65,7 +65,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '',
                     embed: {
                         image: {
-                            url: "sally/2.png"
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/2.png"
                         }
                     }
                 });
