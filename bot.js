@@ -19,10 +19,6 @@ bot.on('ready', function (evt) {
     refresh = true;
     logger.info('Connected');
     logger.info('Logged in as: ' + bot.username + ' - (' + bot.id + ')\n');
-    bot.sendMessage({
-        to: ownerid,
-        message: "Connected."
-    });    
 });
 
 bot.on('disconnect', function(erMsg, code) {
