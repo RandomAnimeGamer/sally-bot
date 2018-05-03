@@ -53,7 +53,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: '',
                     embed: {
-                        image: 'sally/1.png'
+                        "image:": {
+                            "url": "sally/2.png"
+                        }
                     }
                 });
             break;
@@ -62,7 +64,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: '',
                     embed: {
-                        image: 'sally/2.png'
+                        "image:": {
+                            "url": "sally/2.png"
+                        }
                     }
                 });
             break;
