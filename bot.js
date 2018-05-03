@@ -48,7 +48,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
-            case '1':
+            case 'sally':
                 bot.sendMessage({
                     to: channelID,
                     message: '',
@@ -59,13 +59,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     }
                 });
             break;
-            case '2':
+            case 'realsally':
                 bot.sendMessage({
                     to: channelID,
                     message: '',
                     embed: {
                         image: {
                             url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/2.png"
+                        }
+                    }
+                });
+            break;
+            case 'calmsally':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: {
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/calmsally.png"
                         }
                     }
                 });
