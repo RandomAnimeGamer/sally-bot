@@ -52,7 +52,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({
                     to: channelID,
                     message: '',
-                    {file:["sally/1.png"]}
+                    file:["sally/1.png"]
                     }
                 });
             break;
