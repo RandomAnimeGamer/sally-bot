@@ -76,7 +76,29 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '',
                     embed: {
                         image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/calmsally.png"
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/3.png"
+                        }
+                    }
+                });
+            break;
+            case 'madsally':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: {
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/4.png"
+                        }
+                    }
+                });
+            break;
+            case 'rnrsally':
+                bot.sendMessage({
+                    to: channelID,
+                    message: '',
+                    embed: {
+                        image: {
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/5.png"
                         }
                     }
                 });
