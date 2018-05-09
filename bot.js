@@ -41,92 +41,140 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
 
         switch(cmd) {
-            // !ping
-            case 'ping':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Pong!'
-                });
-            break;
             case 'sally':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/1.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/1.png" } }
                 });
             break;
             case 'realsally':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/2.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/2.png" } }
                 });
             break;
             case 'calmsally':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/3.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/3.png" } }
                 });
             break;
             case 'madsally':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/4.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/4.png" } }
                 });
             break;
             case 'rnrsally':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/5.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/5.png" } }
                 });
             break;
             case 'delet':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/6.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/6.png" } }
                 });
             break;
             case 'deletin':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '',
-                    embed: {
-                        image: {
-                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/7.png"
-                        }
-                    }
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/7.png" } }
                 });
             break;
-
-            // Just add any case commands if you want to..
+                
+            case 'gen':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/Gen.jpg"
+                                    } }
+                });
+            break;
+            case 'maskedgod':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/MaskedGod.png"
+                               } }
+                });
+            break;
+            case 'classic':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/classic.gif"
+                               } }
+                });
+            break;
+            case 'ACD':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ACD.gif"
+                               } }
+                });
+            break;
+            case 'dissagree':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/dissagree.png"
+                               } }
+                });
+            break;
+            case 'hanzoumad':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/hanzoumad.jpg"
+                               } }
+                });
+            break;
+            case 'ibuse':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuse.png"
+                               } }
+                });
+            break;
+            case 'ibuseback':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuseback.png"
+                               } }
+                });
+            break;
+            case 'ibusecheeks':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: {
+                            url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibusecheeks.png"
+                               } }
+                });
+            break;
+            case 'ibusefull':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibusefull.png"
+                               } }
+                });
+            break;
+            case 'ibuselel':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuselel.png"
+                               } }
+                });
+            break;
+            case 'ibusespit':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibusespit.png"
+                               } }
+                });
+            break;
+            case 'ibuseu2':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuseu2.png"
+                               } }
+                });
+            break;
+            case 'ibusewat':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibusewat.png"
+                               } }
+                });
+            break;
          }
      }
 });
