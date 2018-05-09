@@ -175,6 +175,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                } }
                 });
             break;
+            case 'rq':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/rq.png"
+                               } }
+                });
+            break;
          }
      }
 });
