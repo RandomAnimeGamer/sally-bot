@@ -46,7 +46,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '```Sally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!delet\n!deletin```'
                                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```Storm:\n!gen\n!maskedgod\n!classic\n!rq\n!ACD\n!dissagree\!nhanzoumad```'
+                    message: '```Storm:\n!gen\n!maskedgod\n!classic\n!rq\n!ACD\n!dissagree\n!hanzoumad```'
                 });
                 bot.sendMessage({ to: channelID,
                     message: '```Ibuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
