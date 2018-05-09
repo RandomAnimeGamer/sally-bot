@@ -41,6 +41,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
 
         switch(cmd) {
+            case 'list':
+                bot.sendMessage({ to: channelID,
+                    message: '```Sally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!delet\n!deletin```'
+                                });
+                bot.sendMessage({ to: channelID,
+                    message: '```Storm:\n!gen\n!maskedgod\n!classic\n!rq\n!ACD\n!dissagree\!nhanzoumad```'
+                });
+                bot.sendMessage({ to: channelID,
+                    message: '```Ibuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
+                });
+            break;
             case 'sally':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/1.png" } }
