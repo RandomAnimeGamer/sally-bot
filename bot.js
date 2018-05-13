@@ -46,10 +46,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '```Sally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!delet\n!deletin```'
                                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```Storm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!dissagree\n!amodesauce\n!coolstorybro\n!dab\n!trumeta\n!kuroshika\n!narumad\n!thatsenough\n!mmgg```'
+                    message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!narutodab\n!madshirama```'
                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!narutodab\n!madshirama```'
+                    message: '```Storm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!dissagree\n!amodesauce\n!coolstorybro\n!dab\n!trumeta\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3```'
                 });
                 bot.sendMessage({ to: channelID,
                     message: '```Ibuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
@@ -352,6 +352,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
                         image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/bbtag.png"
+                               } }
+                });
+            break;
+            case 's3':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/s3.png"
                                } }
                 });
             break;
