@@ -351,7 +351,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'bbtag':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
-                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/bbtag stick.png"
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/bbtag.png"
                                } }
                 });
             break;
