@@ -539,7 +539,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'nothingpersonell':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
-                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/nothingpersonell.png"
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/nothinpersonell.png"
                                } }
                 });
             break;
