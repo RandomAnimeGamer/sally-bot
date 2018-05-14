@@ -43,16 +43,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         switch(cmd) {
             case 'list':
                 bot.sendMessage({ to: channelID,
-                    message: '```Sally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!delet\n!deletin\n\nIbuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
-                                });
-                bot.sendMessage({ to: channelID,
-                    message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!narutodab\n!madshirama\n\nStorm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!fullACD\n!amodesauce\n!coolstorybro\n!dab\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3\n\nCommunity:\n!dissagree\n!trumeta\n!jonah1\n!jonah2\nhimiko\n\nS4:\n!amode\n!bromance1\n!bromance2\n!calmkabuto\n!chidori\n!doubleamode\n!kakU2\n!jubi\n!khronoskutsus\n!lowtier\n!mad2\n!madbito1\n!madbito2\n!noobcrusher\n!nostalgiablind1\n!nostalgiablind2\n!nothingpersonell\n!playings4\n!madguy\n!rasengan\n!srssauce\n!talknojutsu\n!U3\n!yellowfucked```'
+message: '```Sally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!delet\n!deletin\n\nIbuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```Etc:\n!list2\n!drugckles\n!itshappenin\n!tru\n!bbtag\n!bestgirl```'
+message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!narutodab\n!madshirama\n!wat\n\nStorm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!fullACD\n!amodesauce\n!coolstorybro\n!dab\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3\n\nCommunity:\n!dissagree\n!trumeta\n!jonah1\n!jonah2\nhimiko\n\nS4:\n!amode\n!bromance1\n!bromance2\n!calmkabuto\n!chidori\n!doubleamode\n!kakU2\n!jubi\n!khronoskutsus\n!lowtier\n!mad2\n!madbito1\n!madbito2\n!noobcrusher\n!nostalgiablind1\n!nostalgiablind2\n!nothingpersonell\n!playings4\n!madguy\n!rasengan\n!srssauce\n!talknojutsu\n!U3\n!yellowfucked```'
                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```srs:\n!youtube\n!cKunai\n!tier\n!MU\n!term```'
+message: '```Etc:\n!list2\n!drugckles\n!itshappenin\n!tru\n!bbtag\n!bestgirl```'
+                });
+                bot.sendMessage({ to: channelID,
+message: '```srs:\n!youtube\n!cKunai\n!tier\n!MU\n!term```'
                 });
             break;
             case 'youtube':
@@ -603,6 +603,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
                         image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/list2.PNG"
+                               } }
+                });
+            break;
+            case 'wat':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/wat.png"
                                } }
                 });
             break;
