@@ -52,12 +52,17 @@ message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!d
 message: '```Etc:\n!list2\n!drugckles\n!itshappenin\n!tru\n!bbtag\n!bestgirl```'
                 });
                 bot.sendMessage({ to: channelID,
-message: '```srs:\n!youtube\n!cKunai\n!tier\n!MU\n!term```'
+message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tier\n!MU\n!term```'
                 });
             break;
             case 'youtube':
                 bot.sendMessage({ to: channelID,
                     message: 'https://www.youtube.com/channel/UC1KwFgwFSygLQ6bP3Ga8pEg'
+                });
+            break;
+            case 'twitch':
+                bot.sendMessage({ to: channelID,
+                    message: 'https://www.twitch.tv/UNSGCommunity'
                 });
             break;
             case 'cKunai':
