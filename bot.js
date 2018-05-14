@@ -49,7 +49,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!narutodab\n!madshirama```'
                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```Storm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!dissagree\n!amodesauce\n!coolstorybro\n!dab\n!trumeta\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3```'
+                    message: '```Storm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!fullACD\n!amodesauce\n!coolstorybro\n!dab\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3```'
+                });
+                bot.sendMessage({ to: channelID,
+                    message: '```Community:\n!dissagree\n!trumeta\n!jonah1\n!jonah2\nhimiko```'
                 });
                 bot.sendMessage({ to: channelID,
                     message: '```Ibuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
@@ -359,6 +362,36 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
                         image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/s3.png"
+                               } }
+                });
+            break;
+                
+                
+            case 'jonah1':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/jonah1.jpg"
+                               } }
+                });
+            break;
+            case 'jonah2':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/jonah2.png"
+                               } }
+                });
+            break;
+            case 'himiko':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/himiko.png"
+                               } }
+                });
+            break;
+            case 'fullACD':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/fullACD.gif"
                                } }
                 });
             break;
