@@ -391,7 +391,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'fullACD':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
-                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/fullACD.gif"
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/fullACD2.gif"
                                } }
                 });
             break;
