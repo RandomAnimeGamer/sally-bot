@@ -49,7 +49,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!narutodab\n!madshirama\n\nStorm:\n!gen\n!gen2\n!maskedgod\n!classic\n!rq\n!ACD\n!fullACD\n!amodesauce\n!coolstorybro\n!dab\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3\n\nCommunity:\n!dissagree\n!trumeta\n!jonah1\n!jonah2\nhimiko\n\nS4:\n!amode\n!bromance1\n!bromance2\n!calmkabuto\n!chidori\n!doubleamode\n!kakU2\n!jubi\n!khronoskutsus\n!lowtier\n!mad2\n!madbito1\n!madbito2\n!noobcrusher\n!nostalgiablind1\n!nostalgiablind2\n!nothingpersonell\n!playings4\n!madguy\n!rasengan\n!srssauce\n!talknojutsu\n!U3\n!yellowfucked```'
                 });
                 bot.sendMessage({ to: channelID,
-                    message: '```Etc:\n!drugckles\n!itshappenin\n!tru\n!bbtag\n!bestgirl```'
+                    message: '```Etc:\n!list2\n!drugckles\n!itshappenin\n!tru\n!bbtag\n!bestgirl```'
                 });
                 bot.sendMessage({ to: channelID,
                     message: '```srs:\n!youtube\n!cKunai\n!tier\n!MU\n!term```'
@@ -596,6 +596,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
                         image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/shizuku_excited.png"
+                               } }
+                });
+            break;
+            case 'list2':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: {
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/list2.png"
                                } }
                 });
             break;
