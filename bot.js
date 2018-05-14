@@ -602,7 +602,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'list2':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: {
-                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/list2.png"
+                        image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/list2.PNG"
                                } }
                 });
             break;
