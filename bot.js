@@ -124,7 +124,7 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
             case 'bbtag3':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/bbtag3.png"
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/bbtag3.PNG"
                     } }
                 });
             break;
@@ -138,7 +138,7 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
             case 'justminatothings':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/justminatothings.png"
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/justminatothings.PNG"
                     } }
                 });
             break;
