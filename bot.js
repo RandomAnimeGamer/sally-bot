@@ -198,7 +198,7 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
             case 'kek':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/kek.png"
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/kek3.png"
                     } }
                 });
             break;
