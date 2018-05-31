@@ -333,7 +333,7 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
             case 'madbito':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/madbito.jpg"
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/madbito.png"
                     } }
                 });
             break;
