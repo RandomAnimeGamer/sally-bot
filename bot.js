@@ -123,6 +123,49 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
                 
                 
                 
+                
+                
+                
+                
+                
+                                
+
+                
+                
+                
+
+            case 'fullpain':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/fullpain.gif"
+                    } }
+                });
+            break;
+            case 'grip':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/grip.PNG"
+                    } }
+                });
+            break;
+            case 'maskedprimate':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/maskedprimate.png"
+                    } }
+                });
+            break;
+            case 'technoparty':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/technoparty.gif"
+                    } }
+                });
+            break;
+                
+                
+                
+                
             case 'crucify':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
@@ -384,7 +427,7 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
                     } }
                 });
             break;
-            case 'playco.png':
+            case 'playco':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
                         url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/playco.png"
