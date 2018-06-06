@@ -121,19 +121,67 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
                 });
             break;
                 
-                
-                
-                
-                
-                
-                
-                
-                                
-
-                
-                
-                
-
+				
+				
+				
+				
+				
+				
+				
+            case 'bkank':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/bkank.jpg"
+                    } }
+                });
+			break;
+            case 'bkankrf':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/bkankrf.png"
+                    } }
+                });
+			break;
+            case 'charge':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/charge.jpg"
+                    } }
+                });
+			break;
+            case 'ggez':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/ggez.gif"
+                    } }
+                });
+			break;
+            case 'kankrf':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/kankrf.png"
+                    } }
+                });
+			break;
+            case 'lachance':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/lachance.jpeg"
+                    } }
+                });
+			break;
+            case 'okkekoi':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/okkekoi.png"
+                    } }
+                });
+			break;
+				
+				
+				
+				
+				
             case 'fullpain':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
@@ -1625,6 +1673,7 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
                 });
             break;
             case 'ec':
+				logger.info('!ec');
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
                         url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/eloquent contempt.png"
