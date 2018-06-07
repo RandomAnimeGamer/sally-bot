@@ -43,16 +43,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         switch(cmd.toLowerCase()) {
             case 'list':
                 bot.sendMessage({ to: channelID,
-message: '```Sally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!rnrsally2\n!delet\n!deletin\n!ripinsally1\n!ripinsally2\n!sallygud\n!sallystance\n!sallyumad\n!ubsally\n!thirstysally\n!thirst\n\nIbuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat```'
-                });
-                bot.sendMessage({ to: channelID,
-message: '```Naruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!allpain\n!technoparty\n!narutodab\n!madshirama\n!wat\n!madbito\n!madsauce\n!orop\n\nStorm:\n!gen\n!gen2\n!gen3\n!s4\n!maskedgod\n!classic\n!rq\n!ACD\n!fullACD\n!amodesauce\n!coolstorybro\n!dab\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3\n!ottekoi\n!nocounter\n!noneutral\n!dc\n!legitking\n!maskedprimate\n\nCommunity:\n!dissagree\n!trumeta\n!jonah1\n!jonah2\n!himiko\n!legit\n!loicksama\n!ninjaGBA\n!und3\n!council4\n!comments\n!justminatothings\n!tryhards\n!s2meta\n!funskill\n!crim\n!kalathegod\n!playco\n!s3scrubs\n!thoseshits\n!advancedmechanics\n!crimfection\n!drant1s\n!iguess\n!iguess2\n!legitburial\n!legithanzo\n!legitraze\n!nikus4\n!pussylmao\n!razebar\n!trilogy\n!crucify\n!grip\n\nS4:\n!amode\n!bromance1\n!bromance2\n!calmkabuto\n!chidori\n!doubleamode\n!kakU2\n!jubi\n!khronoskutsus\n!lowtier\n!mad2\n!madbito1\n!madbito2\n!noobcrusher\n!nostalgiablind1\n!nostalgiablind2\n!nothingpersonell\n!playings4\n!madguy\n!rasengan\n!srssauce\n!talknojutsu\n!U3\n!mevsnewgens\n!yellowfucked```'
-                });
-                bot.sendMessage({ to: channelID,
-message: '```AB:\n\n!hyperqr\n!hyperlum\n!(insert AB emote)\n!minatoidfa\n\nEtc:\n!list2\n!hyperthink\n!hyperthonk\n!drugckles\n!itshappenin\n!tru\n!same\n!bbtag\n!bbtag2\n!bbtag3\n!mood\n!10outta10\n!360A\n!dancingallnight\n!dancingallnight2\n!donkeyraped\n!falcodab\n!granddad\n!moviegames\n!mute\n!rufr\n!tomfucked\n!watermark\n!kek\n!kek2\n!kekatsuki\n!ashkekchem\n!lilkek\n!elkek\n!eyes\n!fuckingsame\n!keikaku\n!kekaku\n!mayurirf\n!discord\n!suzumebachi1-4\n!bestgirl```'
-                });
-                bot.sendMessage({ to: channelID,
-message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
+					message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes\n\nSally:\n!sally\n!realsally\n!calmsally\n!madsally\n!rnrsally\n!rnrsally2\n!delet\n!deletin\n!ripinsally1\n!ripinsally2\n!sallygud\n!sallystance\n!sallyumad\n!ubsally\n!thirstysally\n!thirst\n\nIbuse:\n!ibuse\n!ibuseback\n!ibusecheeks\n!ibusefull\n!ibuselel\n!ibusespit\n!ibuseu2\n!ibusewat\n\nNaruto:\n!hanzoumad\n!mad\n!umff\n!sakuratilt\n!sauce\n!midtier\n!dashgud\n!thesepain\n!allpain\n!technoparty\n!narutodab\n!madshirama\n!wat\n!madbito\n!madsauce\n!orop\n\nStorm:\n!gen\n!gen2\n!gen3\n!s4\n!maskedgod\n!classic\n!rq\n!ACD\n!fullACD\n!amodesauce\n!coolstorybro\n!dab\n!kuroshika\n!narumad\n!thatsenough\n!mmgg\n!s3\n!ottekoi\n!nocounter\n!noneutral\n!dc\n!legitking\n!maskedprimate\n!bkank\n!bkankrf\n!charge\n!kankrf\n!lachance\n!s4mechanics\n!snowfield\n\nCommunity:\n!dissagree\n!trumeta\n!jonah1\n!jonah2\n!himiko\n!legit\n!loicksama\n!ninjaGBA\n!und3\n!council4\n!comments\n!justminatothings\n!tryhards\n!s2meta\n!funskill\n!crim\n!kalathegod\n!playco\n!s3scrubs\n!thoseshits\n!advancedmechanics\n!crimfection\n!drant1s\n!iguess\n!iguess2\n!legitburial\n!legithanzo\n!legitraze\n!nikus4\n!pussylmao\n!razebar\n!trilogy\n!crucify\n!grip\n!ragbanhammer\n!usabanhammer\n\nS4:\n!amode\n!bromance1\n!bromance2\n!calmkabuto\n!chidori\n!doubleamode\n!kakU2\n!jubi\n!khronoskutsus\n!lowtier\n!mad2\n!madbito1\n!madbito2\n!noobcrusher\n!nostalgiablind1\n!nostalgiablind2\n!nothingpersonell\n!playings4\n!madguy\n!rasengan\n!srssauce\n!talknojutsu\n!U3\n!mevsnewgens\n!yellowfucked\n\nAB:\n\n!hyperqr\n!hyperlum\n!(insert AB emote)\n!minatoidfa\n\nEtc:\n!list2\n!hyperthink\n!hyperthonk\n!drugckles\n!itshappenin\n!tru\n!same\n!bbtag\n!bbtag2\n!bbtag3\n!mood\n!10outta10\n!360A\n!dancingallnight\n!dancingallnight2\n!donkeyraped\n!falcodab\n!granddad\n!moviegames\n!mute\n!rufr\n!tomfucked\n!watermark\n!kek\n!kek2\n!kekatsuki\n!ashkekchem\n!lilkek\n!elkek\n!eyes\n!fuckingsame\n!keikaku\n!kekaku\n!okkekoi\n!mayurirf\n!discord\n!suzumebachi1-4\n!ggez\n!psn\n!rekt\n!bestgirl```'
                 });
             break;
             case 'youtube':
@@ -123,6 +114,53 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
                 
 				
 				
+				
+				
+				
+				
+				
+            case 'psn':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/psn.png"
+                    } }
+                });
+			break;
+            case 'ragbanhammer':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/ragbanhammer.png"
+                    } }
+                });
+			break;
+            case 'usabanhammer':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/usabanhammer.png"
+                    } }
+                });
+			break;
+            case 's4mechanics':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/s4mechanics.jpg"
+                    } }
+                });
+			break;
+            case 'snowfield':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/snowfield.png"
+                    } }
+                });
+			break;
+            case 'rekt':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/rekt.png"
+                    } }
+                });
+			break;
 				
 				
 				
@@ -326,14 +364,14 @@ message: '```srs:\n!youtube\n!twitch\n!cKunai\n!tiers\n!MUs\n!terms\n!quotes```'
                     } }
                 });
             break;
-            case 'suzumebachi3':
+            case 'suzumebachi4':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
                         url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/suzumebachi3.png"
                     } }
                 });
             break;
-            case 'suzumebachi4':
+            case 'suzumebachi3':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
                         url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/suzumebachi4.png"
