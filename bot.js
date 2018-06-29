@@ -1923,7 +1923,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     } }
                 });
             break;
-            case 'ec':
+            case 'ecquite':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
                         url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/eloquent-contempt.png"
@@ -1937,7 +1937,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     } }
                 });
             break;
-            case 'ed3':
+            case 'ec':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
                         url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/eloquentdisdan3.png"
