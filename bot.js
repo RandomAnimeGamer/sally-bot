@@ -2718,7 +2718,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'srsnga':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/srsnga.png"
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/srsnga.jpg"
                     } }
                 });
             break;
