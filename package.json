@@ -5,7 +5,8 @@
     "main": "bot.js",
     "author": "RandomAnimeGamer",
     "dependencies": {
-        "discord.io": "github:woor/discord.io#gateway_v6",
-        "winston": "^2.4.1"
+        "discord.io": "^2.5.3",
+        "winston": "^2.4.1",
+        "ws": "^7.1.2"
     }
 }
