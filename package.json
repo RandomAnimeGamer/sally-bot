@@ -1,11 +1,11 @@
 {
     "name": "Sally",
-    "version": "1",
+    "version": "1.0.0",
     "description": "Sally Image Bot",
     "main": "bot.js",
     "author": "RandomAnimeGamer",
     "dependencies": {
-        "discord.io": "^2.5.3",
+        "discord.io": "github:woor/discord.io#gateway_v6",
         "winston": "^2.4.1",
         "ws": "^7.1.2"
     }
