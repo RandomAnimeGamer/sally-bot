@@ -543,13 +543,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     } }
                 });
             break;
-            case 'legitburial':
-                bot.sendMessage({ to: channelID, message: '',
-                    embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/legitburial.png"
-                    } }
-                });
-            break;
+            //case 'legitburial':
+                //bot.sendMessage({ to: channelID, message: '',
+                    //embed: { image: {
+                        //url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/legitburial.png"
+                    //} }
+                //});
+            //break;
             case 'legithanzo':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
