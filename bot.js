@@ -120,6 +120,55 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
 
 
+            case 'crimgev':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/crimgev.png"
+                    } }
+                });
+            break;
+            case 'psally':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/pSally.gif"
+                    } }
+                });
+            break;
+            case 'perfectsally':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/pSally.gif"
+                    } }
+                });
+            break;
+            case 'psallyfull':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/pSallyFull.gif"
+                    } }
+                });
+            break;
+            case 'perfectsallyfull':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/pSallyFull.gif"
+                    } }
+                });
+            break;
+            case 'polotrying1':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/polotrying1.png"
+                    } }
+                });
+            break;
+            case 'polotrying2':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: {
+                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/polotrying2.png"
+                    } }
+                });
+            break;
             case 'danzogasm':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
