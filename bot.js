@@ -983,6 +983,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hyperqr.png" } }
                 });
             break;
+            case 'hqr':
+                bot.sendMessage({ to: channelID, message: '',
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hqr.png" } }
+                });
+            break;
             case 'hyperthink':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hyperthink.png" } }
