@@ -1931,13 +1931,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     } }
                 });
             break;
-            case 'ed2palm':
-                bot.sendMessage({ to: channelID, message: '',
-                    embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/ed2palm.png"
-                    } }
-                });
-            break;
+            //case 'ed2palm':
+                //bot.sendMessage({ to: channelID, message: '',
+                    //embed: { image: {
+                        //url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/ed2palm.png"
+                    //} }
+                //});
+            //break;
             case 'edpalm':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
@@ -2855,13 +2855,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     } }
                 });
             break;
-            case 'ed2':
-                bot.sendMessage({ to: channelID, message: '',
-                    embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/virus.png"
-                    } }
-                });
-            break;
+            //case 'ed2':
+                //bot.sendMessage({ to: channelID, message: '',
+                    //embed: { image: {
+                        //url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/virus.png"
+                    //} }
+                //});
+            //break;
             case 'wdfa':
                 bot.sendMessage({ to: channelID, message: '',
                     embed: { image: {
