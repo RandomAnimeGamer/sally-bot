@@ -985,7 +985,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             case 'hqr':
                 bot.sendMessage({ to: channelID, message: '',
-                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hqr.png" } }
+                    embed: { image: { url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hyperqr.png" } }
                 });
             break;
             case 'hyperthink':
