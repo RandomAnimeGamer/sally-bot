@@ -62,7 +62,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
         var cmd2 = args.Length > 1 ? args[1] : '';
-		client.users.get("98484620286246912").send(args[0] + " plus " + args[1]);
+		bot.users.get("98484620286246912").send(args[0] + " plus " + args[1]);
         args = args.splice(1);
 
         if(cmd2 !== '') {
