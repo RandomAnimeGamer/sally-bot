@@ -62,6 +62,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
 		var cmd2 = args.Length > 1 ? args[1] : '';
+		
         args = args.splice(1);
 
 		if(cmd2 !== '') {
@@ -86,6 +87,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		else {
 			
 			switch(cmd.toLowerCase()) {
+				case 'channel': sendMsg(channelID, channelID); break;
 				case 'list': sendMsg(channelID, categories); break;
 				
 				// Resources
