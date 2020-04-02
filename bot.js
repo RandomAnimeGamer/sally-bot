@@ -5,7 +5,7 @@ var logger = require('winston');
 var refresh = true;
 
 
-var categories = 'Please select a category:\n```\nNaruto\nStorm\nCommunity\nS4\nArashi Boards\nBleach\nOther```\n\nExample command: `!list Storm`';
+var categories = 'Please select a category:\n```\nNaruto\nStorm\nCommunity\nS4\nArashi Boards\nBleach\nOther```\nExample command: `!list Storm`';
 var naruto = '';
 var storm = '';
 var community = '';
@@ -2329,16 +2329,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     } }
                 });
             break;
-            case 'wessanbus':
-                bot.sendMessage({ to: channelID, message: '',
-                    embed: { image: {
-                        url: "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/wessanbus.png"
-                    } }
-                });
-            break;
-            case 'yugidfa':
-				sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/yugidfa.png")
-            break;
+            case 'wessanbus':sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/wessanbus.png"); break;
+            case 'yugidfa': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/yugidfa.png"); break;
 			
 			
 			
