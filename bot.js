@@ -11,7 +11,7 @@ var sally = '```\n Sally: \n calmsally/csally \n delet - deletin \n madsally/msa
 
 var naruto = '```\n Naruto: \n bkank \n bkankrf \n charge \n ggez \n kankrf \n laternerd \n madbito \n madsauce \n madshirama \n narutodab \n orop \n otk \n saucewat \n sausage \n technoparty \n tobithink/tt \n tooeasy \n umff/crow \n wat```';
 
-var storm = '```\n Storm: \n acd \n amodesauce/parryjb \n bluebar \n classic \n dab \n dc \n fullacd \n gen - gen2 - gen3 \n hanzoumad \n howmad \n kuroshika/ks \n list2 \n maskedprimate/mp \n midtier \n mm \n mmgg \n narumad \n nocounter \n noneutral \n ottekoi \n parry \n prereq \n rq \n s3 \n s4 \n s4mechanics \n sakuratilt \n snowfield \n thatsenough/te \n trollzo - trollzo2 ```';
+var storm = '```\n Storm: \n acd \n amodesauce/parryjb \n bluebar \n classic \n dab \n dc \n fullacd \n gen - gen2 - gen3 \n hanzoumad \n howmad \n kuroshika/ks \n list2 \n maskedprimate/mp \n midtier \n mm \n mmgg \n narumad \n nocounter \n noneutral \n ottekoi \n parry \n prereq \n rev \n rq \n s1 \n s3 \n s4 \n s4mash \n s4mechanics \n sakuratilt \n snowfield \n thatsenough/te \n trollzo - trollzo2 ```';
 
 var community = '```\n Community: \n advancedmechanics \n comments \n council4 \n crim \n crimfection \n crimgev \n crucify \n dissagree \n drant1s \n funskill \n gkunaigrab \n grip - grip2 \n himiko \n iguess - iguess2 \n jonah1 - jonah2 \n justminatothings \n lachance \n legit \n legithanzo \n legitking \n legitraze \n loicksama \n meidogg \n nikus4 \n ninjagba \n playco \n polotrying1 - polotrying2 \n poornoobtrash \n ragbanhammer \n razebar \n s2meta \n s3scrubs \n trilogy \n trumeta \n usabanhammer \n und3 \n victory```';
 
@@ -69,13 +69,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			if(cmd3 !== '') {
 				switch(cmd.toLowerCase()) {
 					case 'list':
-						switch(cmd2.toLowerCase()) {
-							case 'uns':
-								switch(cmd3.toLowerCase()) {
-									case 'community': sendMsg(channelID, unsc); break;
-								}
-						}
-						break;
+						switch(cmd2.toLowerCase()) { case 'uns': switch(cmd3.toLowerCase()) { case 'community': sendMsg(channelID, unsc); break; } break; } break;
 				}
 			}
             switch(cmd.toLowerCase()) {
@@ -217,9 +211,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'ottekoi': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/ottekoi.gif"); break;
                 case 'parry': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/parry.png"); break;
                 case 'prereq': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/prereq.jpg"); break;
+                case 'rev': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/rev.png"); break;
                 case 'rq': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/rq.png"); break;
+                case 's1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/s1.jpg"); break;
                 case 's3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/s3.png"); break;
                 case 's4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/s4.png"); break;
+                case 's4mash': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/s4mash.jpg"); break;
                 case 's4mechanics': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/s4mechanics.jpg"); break;
                 case 'sakuratilt': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/sakuratilt.png"); break;
                 case 'snowfield': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/snowfield.png"); break;
