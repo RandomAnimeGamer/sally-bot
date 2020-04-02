@@ -5,7 +5,7 @@ var logger = require('winston');
 var refresh = true;
 
 
-var categories = 'Please select a category: \n```\n Sally \n Naruto \n Storm \n Community \n S4 \n UNSGCommunity Emotes \n ArashiBoards \n Bleach \n Other```\nExample command: `!list Storm`';
+var categories = 'Please select a category: \n```\n Sally \n Naruto \n Storm \n Community \n S4 \n UNSCommunity Emotes \n ArashiBoards \n Bleach \n Other```\nExample command: `!list Storm`';
 
 var sally = '```\n Sally: \n calmsally/csally \n delet - deletin \n madsally/msally \n perfectsally/psally - perfectsallyfull/psallyfull \n realsally \n ripinsally1 - ripinsally2 \n rnrsally - rnrsally2 \n sally \n sallygud \n sallymirror \n sallystance \n sallyumad \n thirstysally/thirst - thirstysally2/thirst2 \n ubsally \n \n ibuse \n ibuseback \n ibusecheeks \n ibusefull \n ibuselel \n ibusespit \n ibuseu2 \n ibusewat```';
 
@@ -17,7 +17,7 @@ var community = '```\n Community: \n advancedmechanics \n comments \n council4 \
 
 var s4 = '```\n Storm: \n amode \n bromance1 - bromance2 \n calmkabuto/calmbuto \n chidori \n doubleamode \n frenemies \n kaku2 \n jubi \n obidara \n lowtier \n madbito1 - madbito2 \n madteam7 \n mwink \n noobcrusher \n nostalgiablind1 - nostalgiablind2 \n nothingpersonell \n playings4 \n madguy \n rasengan \n srssauce \n talknojutsu \n mevsnewgens/mmvsm/yellowfooled111';
 
-var unsgc = '```\n UNSGCommunity Emotes \n ashkekchem \n dashgud \n doge \n elkek \n eyes - eyes2 \n frenchdara \n froge \n fullpain \n hyperlum/hlum \n hyperqr/hqr \n hyperthink/hthink \n hyperthonk/hthonk \n kek - kek2 \n kekaku \n kekatsuki \n kyle \n lilkek \n minatodfa/mdfa \n okkekoi \n qrs \n realum \n same - same2 \n thesepain \n uhuh - uhuhuh```';
+var unsc = '```\n UNSGCommunity Emotes \n ashkekchem \n dashgud \n doge \n elkek \n eyes - eyes2 \n frenchdara \n froge \n fullpain \n hyperlum/hlum \n hyperqr/hqr \n hyperthink/hthink \n hyperthonk/hthonk \n kek - kek2 \n kekaku \n kekatsuki \n kyle \n lilkek \n minatodfa/mdfa \n okkekoi \n qrs \n realum \n same - same2 \n thesepain \n uhuh - uhuhuh```';
 
 var arashi = '```\n  ArashiBoards: \n 98 \n backhand \n blackguy \n bsnsguy \n bsnsidfa \n calmghost \n calmguy \n carltonplz \n clap \n cmon \n comeatme \n coolgal \n coolguy \n coolidfa \n coolpalm \n coorguy \n cry \n danzoqr \n deadchatcat - deadchatcat2 \n desk \n despeh \n disdarui \n docqr \n fallenmoment \n freezypop \n ecsalute \n edpalm \n edpipe \n ecquite \n ed \n ec \n full98 \n fuuma \n grannyplz \n hyes \n idfa \n itachifacepalm \n japqr \n lightrf \n lum/lutherumad \n mad \n madghost \n madkuzu \n matsumad \n matsurf \n mkidfa \n music \n narahaha \n naruqr \n ninja \n no \n nokashi \n o \n obiorb \n ouch \n pipeguy \n plzguy \n plzkarin \n qr/quantitativereasoning \n rage \n ragequit \n reirf \n scatman \n sekiei \n slowbito \n slowburn \n slowguy \n slowidfa \n slowsuji - slowsuji2 \n slowzo \n smugguy \n snaking \n srsgal \n srsguy \n thatguy \n thatpain \n thisguy \n thisidfa \n thispalm \n thispain \n thissmile \n trollnoki \n uwat \n victory \n victorypalm \n wessanbus \n yugidfa```';
 
@@ -62,9 +62,22 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
         var cmd2 = args.length > 1 ? args[1] : '';
+        var cmd3 = args.length > 2 ? args[2] : '';
         args = args.splice(1);
 
         if(cmd2 !== '') {
+			if(cmd3 !== '') {
+				switch(cmd.toLowerCase()) {
+					case 'list':
+						switch(cmd2.toLowerCase()) {
+							case 'uns':
+								switch(cmd3.toLowerCase()) {
+									case 'community': sendMsg(channelID, unsc); break;
+								}
+						}
+						break;
+				}
+			}
             switch(cmd.toLowerCase()) {
                 case 'list':
                     switch(cmd2.toLowerCase()) {
@@ -73,8 +86,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         case 'storm': sendMsg(channelID, storm); break;
                         case 'community': sendMsg(channelID, community); break;
                         case 's4': sendMsg(channelID, s4); break;
-                        case 'unsgcommunity': sendMsg(channelID, unsgc); break;
-                        case 'unsgc': sendMsg(channelID, unsgc); break;
+                        case 'unscommunity': sendMsg(channelID, unsc); break;
+                        case 'unsc': sendMsg(channelID, unsc); break;
+                        case 'uns': sendMsg(channelID, unsc); break;
                         case 'arashiboards': sendMsg(channelID, arashi); break;
                         case 'ab': sendMsg(channelID, arashi); break;
                         case 'bleach': sendMsg(channelID, bleach); break;
@@ -127,10 +141,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'sallymirror': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/sallymirror.jpg"); break;
                 case 'sallystance': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/sallystance.png"); break;
                 case 'sallyumad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/sallyumad.png"); break;
-                case 'thirstysally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally.jpg"); break;
-                case 'thirst': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally.jpg"); break;
-                case 'thirstysally2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally2.jpg"); break;
-                case 'thirst2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally2.jpg"); break;
+                case 'thirstysally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally2.jpg"); break;
+                case 'thirst': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally2.jpg"); break;
+                case 'thirstysally2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally.jpg"); break;
+                case 'thirst2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/thirstysally.jpg"); break;
                 case 'ubsally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/ubsally.png"); break;
                 
                 
