@@ -61,8 +61,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
-        //var cmd2 = args.Length > 1 ? args[1] : '';
+        var cmd2 = args.length > 1 ? args[1] : '';
 		logger.info(args.length);
+		logger.info(cmd + " plus " + cmd2);
         args = args.splice(1);
 
         if(cmd2 !== '') {
