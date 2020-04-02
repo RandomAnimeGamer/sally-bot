@@ -7,7 +7,7 @@ var refresh = true;
 
 var categories = 'Please select a category: \n```\n Sally \n Naruto \n Storm \n Community \n S4 \n UNSCommunity Emotes \n ArashiBoards \n Bleach \n Other```\nExample command: `!list Storm`';
 
-var sally = '```\n Sally: \n calmsally/csally \n delet - deletin \n madsally/msally \n perfectsally/psally - perfectsallyfull/psallyfull \n realsally \n ripinsally1 - ripinsally2 \n rnrsally - rnrsally2 \n sally \n sallygud \n sallymirror \n sallystance \n sallyumad \n thirstysally/thirst - thirstysally2/thirst2 \n ubsally \n \n ibuse \n ibuseback \n ibusecheeks \n ibusefull \n ibuselel \n ibusespit \n ibuseu2 \n ibusewat```';
+var sally = '```\n Sally: \n calmsally/csally \n delet - deletin \n madsally/msally \n perfectsally/psally - perfectsallyfull/psallyfull \n realsally \n ripinsally1 - ripinsally2 \n rnrsally - rnrsally2 \n sally - sally2 - sally3 - sally4 \n sallygud \n sallymirror \n sallystance \n sallyumad \n thirstysally/thirst - thirstysally2/thirst2 \n ubsally \n \n ibuse \n ibuseback \n ibusecheeks \n ibusefull \n ibuselel \n ibusespit \n ibuseu2 \n ibusewat```';
 
 var naruto = '```\n Naruto: \n bkank \n bkankrf \n charge \n ggez \n kankrf \n laternerd \n madbito \n madsauce \n madshirama \n narutodab \n orop \n otk \n saucewat \n sausage \n technoparty \n tobithink/tt \n tooeasy \n umff/crow \n wat```';
 
@@ -131,6 +131,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'rnrsally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/5.png"); break;
                 case 'rnrsally2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/rnrsally2.png"); break;
                 case 'sally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/1.png"); break;
+                case 'sally2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/sally2.png"); break;
+                case 'sally3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/sally3.png"); break;
+                case 'sally4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/sally4.png"); break;
                 case 'sallygud': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/sallygud.png"); break;
                 case 'sallymirror': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/sallymirror.jpg"); break;
                 case 'sallystance': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/sallystance.png"); break;
