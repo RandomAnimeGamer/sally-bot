@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
-var fs = require("fs");
+var fs = require("fs")
+  , file = './elo'
 //var auth = require('./auth.json');
 
 var refresh = true;
@@ -93,16 +94,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				case 'elo':
 					switch(cmd2.toLowerCase()) {
 						case 'register':
-							fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', function(err) {
+							fs.writeFile(file, '\n' + userID + '@' + user + '@' + '0', function(err) {
 								if(err) console.log(err);
-								else console.log("file written successfully " + '\n' + userID + '@:' + user + '@:' + '0');
+								else console.log("file written successfully " + '\n' + userID + '@' + user + '@' + '0');
 							});
 							//fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', (err) => sendMsg(channelID, 'There was an error registering you on our ELO list.'));
 							//sendMsg(channelID, 'You have been added to the ELO Ranking System on Sally Bot! (If you received an error just before this message, please contact R.A.G)');
 						break;
 						case 'top5':
-							var elo_txt = fs.readFileSync("./elo.txt", {"encoding": "utf-8"});
-							var elo_arr = elo_txt.split('@:');
+							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
+							var elo_arr = elo_txt.split('@');
 							var elo_2d = [];
 							while(elo_arr.length) elo_2d.push(elo_arr.splice(0,3));
 							console.log(elo_2d);
