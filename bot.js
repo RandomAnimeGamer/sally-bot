@@ -1,7 +1,6 @@
 var Discord = require('discord.io');
 var logger = require('winston');
-var fs = require("fs")
-  , file = './elo'
+//var fs = require("fs");
 //var auth = require('./auth.json');
 
 var refresh = true;
@@ -91,7 +90,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         case 'other': sendMsg(channelID, other); break;
                     }
                     break;
-				case 'elo':
+				/*case 'elo':
 					switch(cmd2.toLowerCase()) {
 						case 'register':
 							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
@@ -110,7 +109,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							console.log(elo_2d);
 							
 						break;
+						case 'restart':
+							fs.readFileSync('aosiljhntklasrjlaskjrowajrnkoawrjnmlawr', {"encoding": "utf-8"});
+						break;
 					}
+				*/
             }
         }
         else {
