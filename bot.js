@@ -11,7 +11,7 @@ var sally = '```\n Sally: \n calmsally/csally \n delet - deletin \n madsally/msa
 
 var naruto = '```\n Naruto: \n bkank \n bkankrf \n charge \n ggez \n kankrf \n laternerd \n madbito \n madsauce \n madshirama \n narutodab \n orop \n otk \n saucewat \n sausage \n technoparty \n tobithink/tt \n tooeasy \n umff/crow \n wat```';
 
-var storm = '```\n Storm: \n acd \n amodesauce/parryjb \n bluebar \n classic \n dab \n dc \n fullacd \n gen - gen2 - gen3 \n hanzoumad \n howmad \n kuroshika/ks \n list2 \n maskedprimate/mp \n midtier \n mm \n mmgg \n narumad \n nocounter \n noneutral \n ottekoi \n parry \n prereq \n rev \n rq \n s1 \n s3 \n s4 \n s4mash \n s4mechanics \n sakuratilt \n snowfield \n thatsenough/te \n trollzo - trollzo2 ```';
+var storm = '```\n Storm: \n acd \n amodesauce/parryjb \n bluebar \n classic \n credits \n dab \n dc \n dommovement1/dm1 - dommovement20/dm20 \n fullacd \n gen - gen2 - gen3 \n hanzoumad \n howmad \n kuroshika/ks \n list2 \n maskedprimate/mp \n midtier \n mm \n mmgg \n narumad \n nocounter \n noneutral \n ottekoi \n parry \n prereq \n rev \n rq \n s1 \n s3 \n s4 \n s4mash \n s4mechanics \n sakuratilt \n snowfield \n thatsenough/te \n trollzo - trollzo2 ```';
 
 var community = '```\n Community: \n advancedmechanics \n comments \n council4 \n crim \n crimfection \n crimgev \n crucify \n dissagree \n drant1s \n funskill \n gkunaigrab \n grip - grip2 \n himiko \n iguess - iguess2 \n jonah1 - jonah2 \n justminatothings \n lachance \n legit \n legithanzo \n legitking \n legitraze \n loicksama \n meidogg \n nikus4 \n ninjagba \n playco \n polotrying1 - polotrying2 \n poornoobtrash \n ragbanhammer \n razebar \n s2meta \n s3scrubs \n trilogy \n trumeta \n usabanhammer \n und3 \n victory```';
 
@@ -192,8 +192,51 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'parryjb': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/amodesauce.png"); break;
                 case 'bluebar': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/bluebar.png"); break;
                 case 'classic': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/classic.gif"); break;
+                case 'credits': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/credits.png"); break;
                 case 'dab': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/dab.png"); break;
                 case 'dc': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/dc.png"); break;
+
+                case 'dommovement1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm1.gif"); break;
+                case 'dm1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm1.gif"); break;
+                case 'dommovement2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm2.gif"); break;
+                case 'dm2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm2.gif"); break;
+                case 'dommovement3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm3.gif"); break;
+                case 'dm3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm3.gif"); break;
+                case 'dommovement4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm4.gif"); break;
+                case 'dm4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm4.gif"); break;
+                case 'dommovement5': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm5.gif"); break;
+                case 'dm5': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm5.gif"); break;
+                case 'dommovement6': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm6.gif"); break;
+                case 'dm6': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm6.gif"); break;
+                case 'dommovement7': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm7.gif"); break;
+                case 'dm7': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm7.gif"); break;
+                case 'dommovement8': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm8.gif"); break;
+                case 'dm8': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm8.gif"); break;
+                case 'dommovement9': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm9.gif"); break;
+                case 'dm9': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm9.gif"); break;
+                case 'dommovement10': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm10.gif"); break;
+                case 'dm10': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm10.gif"); break;
+                case 'dommovement11': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm11.gif"); break;
+                case 'dm11': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm11.gif"); break;
+                case 'dommovement12': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm12.gif"); break;
+                case 'dm12': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm12.gif"); break;
+                case 'dommovement13': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm13.gif"); break;
+                case 'dm13': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm13.gif"); break;
+                case 'dommovement14': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm14.gif"); break;
+                case 'dm14': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm14.gif"); break;
+                case 'dommovement15': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm15.gif"); break;
+                case 'dm15': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm15.gif"); break;
+                case 'dommovement16': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm16.gif"); break;
+                case 'dm16': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm16.gif"); break;
+                case 'dommovement17': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm17.gif"); break;
+                case 'dm17': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm17.gif"); break;
+                case 'dommovement18': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm18.gif"); break;
+                case 'dm18': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm18.gif"); break;
+                case 'dommovement19': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm19.gif"); break;
+                case 'dm19': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm19.gif"); break;
+                case 'dommovement20': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm20.gif"); break;
+                case 'dm20': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/dm20.gif"); break;
+
                 case 'fullacd': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/fullACD2.gif"); break;
                 case 'gen': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/Gen.jpg"); break;
                 case 'gen2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/gen2.png"); break;
