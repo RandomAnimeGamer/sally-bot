@@ -101,9 +101,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							var elo_txt = fs.readFileSync("./elo.txt", {"encoding": "utf-8"});
 							var elo_arr = elo_txt.split('@:');
 							var elo_2d = [];
-							whiel(elo_arr.length) {
-								elo_2d.push(elo_arr.splice(0,3));
-							}
+							while(elo_arr.length) elo_2d.push(elo_arr.splice(0,3));
 							console.log(elo_2d);
 							
 						break;
