@@ -6,23 +6,14 @@ var refresh = true;
 
 
 var categories = 'Please select a category: \n```\n Sally \n Naruto \n Storm \n Community \n S4 \n UNSCommunity Emotes \n ArashiBoards \n Bleach \n Other```\nExample command: `!list Storm`';
-
 var sally = '```\n Sally: \n calmsally/csally \n delet - deletin \n madsally/msally \n perfectsally/psally - perfectsallyfull/psallyfull \n realsally \n ripinsally1 - ripinsally2 \n rnrsally - rnrsally2 \n sally - sally2 - sally3 - sally4 \n sallygud \n sallymirror \n sallystance \n sallyumad \n thirstysally/thirst - thirstysally2/thirst2 \n ubsally \n \n ibuse \n ibuseback \n ibusecheeks \n ibusefull \n ibuselel \n ibusespit \n ibuseu2 \n ibusewat```';
-
 var naruto = '```\n Naruto: \n bkank \n bkankrf \n charge \n ggez \n kankrf \n laternerd \n madbito \n madsauce \n madshirama \n narutodab \n orop \n otk \n saucewat \n sausage \n technoparty \n tobithink/tt \n tooeasy \n umff/crow \n wat```';
-
 var storm = '```\n Storm: \n acd \n amodesauce/parryjb \n bluebar \n classic \n credits \n dab \n dc \n dommovement1/dm1 - dommovement20/dm20 \n fullacd \n gen - gen2 - gen3 \n hanzoumad \n howmad \n kuroshika/ks \n list2 \n maskedprimate/mp \n midtier \n mm \n mmgg \n narumad \n nocounter \n noneutral \n ottekoi \n parry \n prereq \n rev \n rq \n s1 \n s3 \n s4 \n s4mash \n s4mechanics \n sakuratilt \n snowfield \n thatsenough/te \n trollzo - trollzo2 ```';
-
 var community = '```\n Community: \n advancedmechanics \n comments \n council4 \n crim \n crimfection \n crimgev \n descrub \n dissagree \n drant1s \n funskill \n gkunaigrab \n grip - grip2 \n himiko \n iguess - iguess2 \n jonah1 - jonah2 \n justminatothings \n lachance \n legit \n legitburial \n legithanzo \n legitking \n legitraze \n loicksama \n meidogg \n nikus4 \n ninjagba \n playco \n polotrying1 - polotrying2 \n poornoobtrash \n ragbanhammer \n razebar \n s2meta \n s3scrubs \n trilogy \n trumeta \n usabanhammer \n und3 \n victory```';
-
 var s4 = '```\n Storm: \n amode \n bromance1 - bromance2 \n calmkabuto/calmbuto \n chidori \n doubleamode \n frenemies \n kaku2 \n jubi \n obidara \n lowtier \n madbito1 - madbito2 \n madteam7 \n mwink \n noobcrusher \n nostalgiablind1 - nostalgiablind2 \n nothingpersonell \n playings4 \n madguy \n rasengan \n srssauce \n talknojutsu \n mevsnewgens/mmvsm/yellowfooled111';
-
 var unsc = '```\n UNSCommunity Emotes \n ashkekchem \n dashgud \n doge \n elkek \n eyes - eyes2 \n frenchdara \n froge \n fullpain \n hyperlum/hlum \n hyperqr/hqr \n hyperthink/hthink \n hyperthonk/hthonk \n kek - kek2 \n kekaku \n kekatsuki \n kyle \n lilkek \n minatodfa/mdfa \n okkekoi \n qrs \n realum \n same - same2 \n thesepain \n uhuh - uhuhuh```';
-
 var arashi = '```\n  ArashiBoards: \n 98 \n backhand \n blackguy \n bsnsguy \n bsnsidfa \n calmghost \n calmguy \n carltonplz \n clap \n cmon \n comeatme \n coolgal \n coolguy \n coolidfa \n coolpalm \n coorguy \n cry \n danzoqr \n deadchatcat - deadchatcat2 \n desk \n despeh \n disdarui \n docqr \n fallenmoment \n freezypop \n ecsalute \n edpalm \n edpipe \n ecquite \n ed \n ec \n full98 \n fuuma \n grannyplz \n hyes \n idfa \n itachifacepalm \n japqr \n lightrf \n lum/lutherumad \n mad \n madghost \n madkuzu \n matsumad \n matsurf \n mkidfa \n music \n narahaha \n naruqr \n ninja \n no \n nokashi \n o \n obiorb \n ouch \n pipeguy \n plzguy \n plzkarin \n qr/quantitativereasoning \n rage \n ragequit \n reirf \n scatman \n sekiei \n slowbito \n slowburn \n slowguy \n slowidfa \n slowsuji - slowsuji2 \n slowzo \n smugguy \n snaking \n srsgal \n srsguy \n thatguy \n thatpain \n thisguy \n thisidfa \n thispalm \n thispain \n thissmile \n trollnoki \n uwat \n victory \n victorypalm \n wessanbus \n yugidfa```';
-
 var bleach = '```\n Bleach: \n id \n mayurilit \n mayurirf \n suzumebachi1/sb1 - suzumebachi2/sb2 - suzumebachi3/sb3 - suzumebachi4/sb4```';
-
 var etc = '```\n Other: 360a \n bbtag - bbtag2 \n bestgirl \n bestgirlrf \n bestgirlrffull \n casual \n dk \n falcodab \n friend \n granddad \n itshappenin \n mood \n moviegames \n psn \n rufr \n sonye3 \n 10outta10 \n dancingallnight - dancingallnight2 \n discord \n keikaku \n mute \n tru \n watermark```';
 
 
