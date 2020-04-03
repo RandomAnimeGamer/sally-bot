@@ -13,7 +13,7 @@ var naruto = '```\n Naruto: \n bkank \n bkankrf \n charge \n ggez \n kankrf \n l
 
 var storm = '```\n Storm: \n acd \n amodesauce/parryjb \n bluebar \n classic \n credits \n dab \n dc \n dommovement1/dm1 - dommovement20/dm20 \n fullacd \n gen - gen2 - gen3 \n hanzoumad \n howmad \n kuroshika/ks \n list2 \n maskedprimate/mp \n midtier \n mm \n mmgg \n narumad \n nocounter \n noneutral \n ottekoi \n parry \n prereq \n rev \n rq \n s1 \n s3 \n s4 \n s4mash \n s4mechanics \n sakuratilt \n snowfield \n thatsenough/te \n trollzo - trollzo2 ```';
 
-var community = '```\n Community: \n advancedmechanics \n comments \n council4 \n crim \n crimfection \n crimgev \n crucify \n dissagree \n drant1s \n funskill \n gkunaigrab \n grip - grip2 \n himiko \n iguess - iguess2 \n jonah1 - jonah2 \n justminatothings \n lachance \n legit \n legithanzo \n legitking \n legitraze \n loicksama \n meidogg \n nikus4 \n ninjagba \n playco \n polotrying1 - polotrying2 \n poornoobtrash \n ragbanhammer \n razebar \n s2meta \n s3scrubs \n trilogy \n trumeta \n usabanhammer \n und3 \n victory```';
+var community = '```\n Community: \n advancedmechanics \n comments \n council4 \n crim \n crimfection \n crimgev \n crucify \n dissagree \n drant1s \n funskill \n gkunaigrab \n grip - grip2 \n himiko \n iguess - iguess2 \n jonah1 - jonah2 \n justminatothings \n lachance \n legit \n legitburial \n legithanzo \n legitking \n legitraze \n loicksama \n meidogg \n nikus4 \n ninjagba \n playco \n polotrying1 - polotrying2 \n poornoobtrash \n ragbanhammer \n razebar \n s2meta \n s3scrubs \n trilogy \n trumeta \n usabanhammer \n und3 \n victory```';
 
 var s4 = '```\n Storm: \n amode \n bromance1 - bromance2 \n calmkabuto/calmbuto \n chidori \n doubleamode \n frenemies \n kaku2 \n jubi \n obidara \n lowtier \n madbito1 - madbito2 \n madteam7 \n mwink \n noobcrusher \n nostalgiablind1 - nostalgiablind2 \n nothingpersonell \n playings4 \n madguy \n rasengan \n srssauce \n talknojutsu \n mevsnewgens/mmvsm/yellowfooled111';
 
@@ -296,6 +296,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'justminatothings': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/justminatothings.PNG"); break;
                 case 'lachance': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/lachance.jpeg"); break;
                 case 'legit': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/legit.png"); break;
+                case 'legitburial': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/legitburial.png"); break;
                 case 'legithanzo': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/legithanzo.png"); break;
                 case 'legitking': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/legitking.png"); break;
                 case 'legitraze': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/legitraze.png"); break;
@@ -453,7 +454,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'pipeguy': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/pipeguy.png"); break;
                 case 'plzguy': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/plzguy.png"); break;
                 case 'plzkarin': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/plzkarin.png"); break;
-                case 'qr': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/qr-1.png"); break;
+                case 'qr': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/qr-2020.png"); break;
                 case 'quantitativereasoning': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/qr-1.png"); break;
                 case 'rage': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/rage.png"); break;
                 case 'ragequit': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/ragequit.png"); break;
