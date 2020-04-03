@@ -310,7 +310,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 
                 
                 
-                // UNSG Community
+                // UNS Community
                 case 'ashkekchem': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/ashkekchem.png"); break;
                 case 'dashgud': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/dashgud.png"); break;
                 case 'doge': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/doge.png"); break;
@@ -320,6 +320,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'frenchdara': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/mad.png"); break;
                 case 'froge': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/froge.png"); break;
                 case 'fullpain': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/fullpain.gif"); break;
+                case 'getmad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/late-clr/getmad.png"); break;
                 case 'hyperlum': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hyperlum.png"); break;
                 case 'hlum': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hyperlum.png"); break;
                 case 'hyperqr': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/hyperqr.png"); break;
