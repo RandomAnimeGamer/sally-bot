@@ -1,9 +1,9 @@
 var Discord = require('discord.io');
 var logger = require('winston');
+var fs = require("fs");
 //var auth = require('./auth.json');
 
 var refresh = true;
-
 
 var categories = 'Please select a category: \n```\n Sally \n Naruto \n Storm \n Community \n S4 \n UNSCommunity Emotes \n ArashiBoards \n Bleach \n Other```\nExample command: `!list Storm`';
 
@@ -25,7 +25,7 @@ var bleach = '```\n Bleach: \n id \n mayurilit \n mayurirf \n suzumebachi1/sb1 -
 
 var etc = '```\n Other: 360a \n bbtag - bbtag2 \n bestgirl \n bestgirlrf \n bestgirlrffull \n casual \n dk \n falcodab \n friend \n granddad \n itshappenin \n mood \n moviegames \n psn \n rufr \n sonye3 \n 10outta10 \n dancingallnight - dancingallnight2 \n discord \n keikaku \n mute \n tru \n watermark```';
 
-
+var k = 30;
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -63,6 +63,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd = args[0];
         var cmd2 = args.length > 1 ? args[1] : '';
         var cmd3 = args.length > 2 ? args[2] : '';
+        var cmd4 = args.length > 3 ? args[3] : '';
         args = args.splice(1);
 
         if(cmd2 !== '') {
@@ -89,6 +90,22 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         case 'other': sendMsg(channelID, other); break;
                     }
                     break;
+				case 'elo':
+					switch(cmd2.toLowerCase()) {
+						case: 'register':
+							fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', (err) => console.log(err));
+							//fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', (err) => sendMsg(channelID, 'There was an error registering you on our ELO list.'));
+							//sendMsg(channelID, 'You have been added to the ELO Ranking System on Sally Bot! (If you received an error just before this message, please contact R.A.G)');
+						break;
+						case: 'top5':
+							var elo_txt = fs.readFileSync("./elo.txt", {"encoding": "utf-8"});
+							var elo_arr = elo_txt.split('@:');
+							var elo_2d = [];
+							whiel(elo_arr.length) elo_2d.push(elo_arr.splice(0,3);
+							console.log(elo_2d);
+							
+						break;
+					}
             }
         }
         else {
@@ -96,6 +113,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             switch(cmd.toLowerCase()) {
                 case 'channel': sendMsg(channelID, channelID); break;
                 case 'list': sendMsg(channelID, categories); break;
+
+
+
+
+				// ELO
+				//case 'elo': 
+					//var elo_txt = fs.readFileSync("./elo.txt", {"encoding": "utf-8"});
+
+
+
                 
                 // Resources
                 case 'gev_locals': sendMsg(channelID, 'https://www.youtube.com/playlist?list=PLFY4qTm8_IdHQTpgEEaT2kVjnUNQJlgl-'); break;
@@ -112,8 +139,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'gen_quotes': sendMsg(channelID, 'https://docs.google.com/document/d/1ps_a1qAlWjdBV91c99kLognj-zBhA3OXRcdGmP2BgA8/edit'); break;
 
 
-
-                
                 // Sally
                 case 'calmsally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/3.png"); break;
                 case 'csally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/3.png"); break;
@@ -145,8 +170,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'ubsally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/ubsally.png"); break;
                 
                 
-                
-                
                 // Ibuse
                 case 'ibuse': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuse.png"); break;
                 case 'ibuseback': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuseback.png"); break;
@@ -156,8 +179,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'ibusespit': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibusespit.png"); break;
                 case 'ibuseu2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibuseu2.png"); break;
                 case 'ibusewat': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/ibusewat.png"); break;
-                
-                
                 
                 
                 // Naruto
@@ -182,8 +203,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'umff': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/umff.jpg"); break;
                 case 'crow': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/umff.jpg"); break;
                 case 'wat': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/wat.png"); break;
-                
-                
                 
                 
                 // Storm
@@ -272,8 +291,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'trollzo2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/trollzo2.png"); break;
                 
                 
-                
-                
                 // Community
                 case 'advancedmechanics': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/advancedmechanics.png"); break;
                 case 'comments': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/latest/comments.png"); break;
@@ -319,8 +336,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'victory': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/victory.png"); break;
                 
                 
-                
-                
                 // S4 Story Images
                 case 'amode': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/amode.png"); break;
                 case 'bromance1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/bromance1.png"); break;
@@ -350,8 +365,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'mevsnewgens': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/yellowfucked.png"); break;
                 case 'mmvsm': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/yellowfucked.png"); break;
                 case 'yellowfooled': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/yellowfucked.png"); break;
-                
-                
                 
                 
                 // UNS Community
@@ -389,8 +402,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'thesepain': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/thesepain.png"); break;
                 case 'uhuh': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/uhuh.jpg"); break;
                 case 'uhuhuh': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/uhuhuh.png"); break;
-                
-                
                 
                 
                 // ArashiBoards
@@ -487,8 +498,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'yugidfa': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/smilies/yugidfa.png"); break;
                 
                 
-                
-                
                 // Bleach
                 case 'id': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/id.png"); break;
                 case 'mayurilit': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/mayurilit.png"); break;
@@ -501,8 +510,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'sb3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/suzumebachi4.png"); break;
                 case 'suzumebachi4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/suzumebachi3.png"); break;
                 case 'sb4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/arcade-edition/suzumebachi3.png"); break;
-                
-                
                 
                 
                 // Other Gaming
@@ -523,8 +530,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'psn': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/plus-r/psn.png"); break;
                 case 'rufr': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/extend/rufr.png"); break;
                 case 'sonye3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/ultimate/sonye3.png"); break;
-                
-                
                 
                 
                 // Other Non-Gaming
