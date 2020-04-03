@@ -94,7 +94,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				case 'elo':
 					switch(cmd2.toLowerCase()) {
 						case 'register':
-							fs.writeFile(file, '\n' + userID + '@' + user + '@' + '0', function(err) {
+							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
+							fs.writeFile(file, elo_txt + '\n' + userID + '@' + user + '@' + '0', function(err) {
 								if(err) console.log(err);
 								else console.log("file written successfully " + '\n' + userID + '@' + user + '@' + '0');
 							});
@@ -102,7 +103,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 							//sendMsg(channelID, 'You have been added to the ELO Ranking System on Sally Bot! (If you received an error just before this message, please contact R.A.G)');
 						break;
 						case 'top5':
-							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
+							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"}).replace('\n','');
 							var elo_arr = elo_txt.split('@');
 							var elo_2d = [];
 							while(elo_arr.length) elo_2d.push(elo_arr.splice(0,3));
