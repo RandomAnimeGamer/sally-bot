@@ -80,7 +80,7 @@ var resources = ['Resources:', '```',
     'Gen cKunai Data - gen_twitch',
     'Gen Tier List - gen_twitch',
     'Gen Matchup Chart - gen_twitch',
-    'Gen Quotes - gen_twitch',
+    'Gen Quotes - gen_twitch```',
     'Example command: `$gev_netplay`'];
 var categories = ['Please select a category:', '```',
     'Sally',
