@@ -593,6 +593,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 case 'isserveridgev': sendMsg(channelID, bot.channels[channelID].guild_id === serverid ? "true" : "false"); break;
                 case 'channellistfordeveloperrag': sendMsg(channelID, 'stringified channel:\n' + JSON.stringify(bot.channels[channelID])); break;
+                case 'isthereachannellisttobeginwithwow': sendMsg(channelID, bot.channels[channelID]); break;
                 
                 case 'channel': sendMsg(channelID, channelID); break;
                 case 'list': sendMsg(channelID, categories); break;
