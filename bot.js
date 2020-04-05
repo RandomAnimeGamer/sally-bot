@@ -427,10 +427,9 @@ bot.on('ready', function (evt) {
     // Parse arrays into strings
     commands = arrayToStr(commands); resources = arrayToStr(resources); categories = arrayToStr(categories);
     all_roles = arrayToStr(all_roles); choose_region = arrayToStr(choose_region);
-    sally = arrayToStr(sally);
-    categories = arrayToStr(categories); bleach = arrayToStr(bleach); etc = arrayToStr(etc);
-    naruto = arrayToStr(naruto); storm = arrayToStr(storm); s4 = arrayToStr(s4);
+    sally = arrayToStr(sally); naruto = arrayToStr(naruto); storm = arrayToStr(storm); s4 = arrayToStr(s4);
     community = arrayToStr(community); unsc = arrayToStr(unsc); arashi = arrayToStr(arashi);
+    bleach = arrayToStr(bleach); etc = arrayToStr(etc);
     logger.info('Parsed arrays to strings successfully.');
 });
 
@@ -637,7 +636,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'commands':
                 case 'cmds':
                 case 'cmd':
-                case 'command': sendMsg(channelID, commands);
+                case 'command': sendMsg(channelID, commands); break;
 
                 case 'list': sendMsg(channelID, categories); break;
                 case 'roles':
