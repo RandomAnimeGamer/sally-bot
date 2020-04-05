@@ -42,36 +42,36 @@ var observer_role = "693983204411047976";
 
 // #region Role Messaging
 var choose_region = ['Please select a region:', '```',
-    '!role player na',
-    '!role player eu',
-    '!role player br```'];
+    '$role player na',
+    '$role player eu',
+    '$role player br```'];
 var all_roles = ['Modder Roles:', '```',
-    'Developer: !role dev',
-    'Artist: !role art',
-    'Global Mechanics Modder: !role mechanics',
-    'Model Modder: !role model',
-    'Moveset Modder: !role moveset',
-    'Texture Modder: !role texture',
-    'Sound Modder: !role sound```', ' ',
+    'Developer: $role dev',
+    'Artist: $role art',
+    'Global Mechanics Modder: $role mechanics',
+    'Model Modder: $role model',
+    'Moveset Modder: $role moveset',
+    'Texture Modder: $role texture',
+    'Sound Modder: $role sound```', ' ',
     'Player Roles:', '```',
-    'Player - NA: !role player na',
-    'Player - EU: !role player eu',
-    'Player - BR: !role player br```',
+    'Player - NA: $role player na',
+    'Player - EU: $role player eu',
+    'Player - BR: $role player br```',
     'Region Roles:', '```',
-    'North America - !role na',
-    'Canada - !role ca',
-    'EU - !role eu',
-    'Russia - !role ru',
-    'Brazil - !role br',
-    'Africa - !role af```',
+    'North America - $role na',
+    'Canada - $role ca',
+    'EU - $role eu',
+    'Russia - $role ru',
+    'Brazil - $role br',
+    'Africa - $role af```',
     'Other Roles:', '```',
-    'Active Competitive Player - !role competitive',
-    'Styleur - !role styleur',
-    'Observer - !role observer```'];
+    'Active Competitive Player - $role competitive',
+    'Styleur - $role styleur',
+    'Observer - $role observer```'];
 // #endregion
 
 // #region General Lists
-var commands = ['Memes: `!list`', 'Roles: `!role`', 'Resources: `!resources`'];
+var commands = ['Memes: `$list`', 'Roles: `$role`', 'Resources: `$resources`'];
 var resources = ['Resources:', '```',
     'Terminology Document - terms',
     'Gev Locals Playlist - gev_locals',
@@ -81,7 +81,7 @@ var resources = ['Resources:', '```',
     'Gen Tier List - gen_twitch',
     'Gen Matchup Chart - gen_twitch',
     'Gen Quotes - gen_twitch',
-    'Example command: `!gev_netplay`'];
+    'Example command: `$gev_netplay`'];
 var categories = ['Please select a category:', '```',
     'Sally',
     'Naruto',
@@ -92,7 +92,7 @@ var categories = ['Please select a category:', '```',
     'ArashiBoards',
     'Bleach',
     'Other```',
-    'Example command: `!list Storm`'];
+    'Example command: `$list Storm`'];
 // #endregion
 // #region Sally Memes
 var sally = ['```', 'Sally:',
@@ -119,7 +119,7 @@ var sally = ['```', 'Sally:',
     'ibusespit',
     'ibuseu2',
     'ibusewat```',
-    'Example command: `!sallyumad`'];
+    'Example command: `$sallyumad`'];
 // #endregion
 // #region Naruto Memes
 var naruto = ['```', 'Naruto:',
@@ -141,7 +141,7 @@ var naruto = ['```', 'Naruto:',
     'tooeasy',
     'umff / crow',
     'wat```',
-    'Example command: `!narutodab`'];
+    'Example command: `$narutodab`'];
 // #endregion
 // #region Storm Memes
 var storm = ['```', 'Storm:',
@@ -180,7 +180,7 @@ var storm = ['```', 'Storm:',
     'snowfield',
     'thatsenough/te',
     'trollzo - trollzo2 ```',
-    'Example command: `!dm5`'];
+    'Example command: `$dm5`'];
 // #endregion
 // #region Community Memes
 var community = ['```', 'Community:',
@@ -222,7 +222,7 @@ var community = ['```', 'Community:',
     'usabanhammer',
     'und3',
     'victory```',
-    'Example command: `!nikus4`'];
+    'Example command: `$nikus4`'];
 // #endregion
 // #region S4 Memes
 var s4 = ['```', 'Storm 4:',
@@ -248,7 +248,7 @@ var s4 = ['```', 'Storm 4:',
     'srssauce',
     'talknojutsu',
     'mevsnewgens / mmvsm / yellowfooled```',
-    'Example command: `!playings4`'];
+    'Example command: `$playings4`'];
 // #endregion
 // #region UNSG Community Memes
 var unsc = ['```', 'UNSGCommunity Emotes',
@@ -276,7 +276,7 @@ var unsc = ['```', 'UNSGCommunity Emotes',
     'same - same2',
     'thesepain',
     'uhuh - uhuhuh```',
-    'Example command: `!kekaku`'];
+    'Example command: `$kekaku`'];
 // #endregion
 // #region ArashiBoards
 var arashi = ['```', 'ArashiBoards:',
@@ -367,7 +367,7 @@ var arashi = ['```', 'ArashiBoards:',
     'victorypalm',
     'wessanbus',
     'yugidfa```',
-    'Example command: `!thisguy`'];
+    'Example command: `$thisguy`'];
 // #endregion
 // #region Bleach
 var bleach = ['```', 'Bleach:',
@@ -378,7 +378,7 @@ var bleach = ['```', 'Bleach:',
     'suzumebachi2 / sb2',
     'suzumebachi3 / sb3',
     'suzumebachi4 / sb4```',
-    'Example command: `!suzumebachi1`'];
+    'Example command: `$suzumebachi1`'];
 // #endregion
 // #region Other
 var etc = ['```', 'Other:',
@@ -405,7 +405,7 @@ var etc = ['```', 'Other:',
     'mute',
     'tru',
     'watermark```',
-    'Example command: `!granddad`'];
+    'Example command: `$granddad`'];
 // #endregion
 
 // Configure logger settings
@@ -447,7 +447,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
 
-    if (message.substring(0, 1) == '!') {
+    if (message.substring(0, 1) == '$') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
         var cmd2 = args.length > 1 ? args[1] : '';
