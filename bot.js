@@ -1049,7 +1049,7 @@ function removeRole(channelID, userID, role) {
 }
 function removeRoles(channelID, userID, role) {
     if (bot.channels[channelID].guild_id === serverid) {
-        for (int i = 0; i < role.length; i++) {
+        for (var i = 0; i < role.length; i++) {
             bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
                 if (err) console.error(err);
                 else console.log(response);
