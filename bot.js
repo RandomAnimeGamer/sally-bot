@@ -8,36 +8,36 @@ var logger = require('winston');
 var refresh = true;
 
 // #region General bot vars
-var serverid = 693620394929815562;
+var serverid = "693620394929815562";
 var k = 30;
 // #endregion
 
 // #region Modding Role IDs
-var dev_role = 693637364320567347;
-var artist_role = 693982211216506930;
-var global_mechanics = 694293631732940850;
-var model_modder = 695315517648404501;
-var moveset_modder = 694293742341062706;
-var texture_modder = 694293639177699420;
-var sound_modder = 694293776570515556;
+var dev_role = "693637364320567347";
+var artist_role = "693982211216506930";
+var global_mechanics = "694293631732940850";
+var model_modder = "695315517648404501";
+var moveset_modder = "694293742341062706";
+var texture_modder = "694293639177699420";
+var sound_modder = "694293776570515556";
 // #endregion
 
 // #region Country/Region Role IDs
-var na_role = 693636860060237864;
-var ca_role = 695356499400065115;
-var eu_role = 693636973218234399;
-var ru_role = 693637027769614347;
-var br_role = 694177000235073537;
-var af_role = 695965738313187349;
-var player_na = 693622671967256656;
-var player_eu = 693984963162538047;
-var player_br = 695793581490831400;
+var na_role = "693636860060237864";
+var ca_role = "695356499400065115";
+var eu_role = "693636973218234399";
+var ru_role = "693637027769614347";
+var br_role = "694177000235073537";
+var af_role = "695965738313187349";
+var player_na = "693622671967256656";
+var player_eu = "693984963162538047";
+var player_br = "695793581490831400";
 // #endregion
 
 // #region Other Role IDs
-var active_competitive = 694232967823753287;
-var styleur_role = 694777461384282154;
-var observer_role = 693983204411047976;
+var active_competitive = "694232967823753287";
+var styleur_role = "694777461384282154";
+var observer_role = "693983204411047976";
 // #endregion
 
 // #region Role Error Messaging
@@ -380,9 +380,10 @@ bot.on('ready', function (evt) {
     refresh = true;
     logger.info('Connected');
     logger.info('Logged in as: ' + bot.username + ' - (' + bot.id + ')\n');
-    sally = arrayToStr(sally);
 
     // Parse arrays into strings
+    choose_region == arrayToStr(choose_region);
+    sally = arrayToStr(sally);
     categories = arrayToStr(categories); bleach = arrayToStr(bleach); etc = arrayToStr(etc);
     naruto = arrayToStr(naruto); storm = arrayToStr(storm); s4 = arrayToStr(s4);
     community = arrayToStr(community); unsc = arrayToStr(unsc); arashi = arrayToStr(arashi);
@@ -590,8 +591,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             
             switch (cmd.toLowerCase()) {
 
-                case 'isserveridgev': sendMsg(channelID, bot.channels[channelID].guild_id == serverid ? "true" : "false"); break;
-     case 'whatismyserveridsallybot': sendMsg(channelID, bot.channels[channelID].guild_id); break;
+                case 'isserveridgev': sendMsg(channelID, bot.channels[channelID].guild_id === serverid ? "true" : "false"); break;
                 case 'channellistfordeveloperrag': sendMsg(channelID, bot.channels[channelID] !== null ? "true" : "false"); break;
                 
                 case 'channel': sendMsg(channelID, channelID); break;
