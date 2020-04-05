@@ -1104,11 +1104,14 @@ function removeRole(channelID, userID, role) {
 function removeRoles(channelID, userID, role) {
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
+            var avail_roles = bot.servers[serverid].members[userID].roles;
             for (var i = 0; i < role.length; i++) {
-                bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
-                    if (err) console.error(err);
-                    else console.log(response);
-                });
+                if (avail_roles.includes(role[i])) {
+                    bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
+                        if (err) console.error(err);
+                        else console.log(response);
+                    });
+                }
             }
         }
     }
