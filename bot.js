@@ -590,11 +590,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         else {
             
             switch (cmd.toLowerCase()) {
-
-                case 'isserveridgev': sendMsg(channelID, bot.channels[channelID].guild_id === serverid ? "true" : "false"); break;
-                case 'channellistfordeveloperrag': sendMsg(channelID, 'stringified channel:\n' + JSON.stringify(bot.channels[channelID])); break;
-                case 'isthereachannellisttobeginwithwow': sendMsg(channelID, bot.channels[channelID] === undefined ? "this is undefined" : "this is not undefined"); break;
-                
                 case 'channel': sendMsg(channelID, channelID); break;
                 case 'list': sendMsg(channelID, categories); break;
 
@@ -1035,28 +1030,34 @@ function sendMsg(channel, text) { bot.sendMessage({ to: channel, message: text }
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
 
 function addRole(channelID, userID, role) {
-    if (bot.channels[channelID].guild_id === serverid) {
-        bot.addToRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
-            if (err) console.error(err);
-            else console.log(response);
-        });
-    }
-}
-function removeRole(channelID, userID, role) {
-    if (bot.channels[channelID].guild_id === serverid) {
-        bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
-            if (err) console.error(err);
-            else console.log(response);
-        });
-    }
-}
-function removeRoles(channelID, userID, role) {
-    if (bot.channels[channelID].guild_id === serverid) {
-        for (var i = 0; i < role.length; i++) {
-            bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
+    if (bot.channels[channelID] !== undefined) {
+        if (bot.channels[channelID].guild_id === serverid) {
+            bot.addToRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
                 if (err) console.error(err);
                 else console.log(response);
             });
+        }
+    }
+}
+function removeRole(channelID, userID, role) {
+    if (bot.channels[channelID] !== undefined) {
+        if (bot.channels[channelID].guild_id === serverid) {
+            bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
+                if (err) console.error(err);
+                else console.log(response);
+            });
+        }
+    }
+}
+function removeRoles(channelID, userID, role) {
+    if (bot.channels[channelID] !== undefined) {
+        if (bot.channels[channelID].guild_id === serverid) {
+            for (var i = 0; i < role.length; i++) {
+                bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
+                    if (err) console.error(err);
+                    else console.log(response);
+                });
+            }
         }
     }
 }
