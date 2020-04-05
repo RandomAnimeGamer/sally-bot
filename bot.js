@@ -40,14 +40,48 @@ var styleur_role = "694777461384282154";
 var observer_role = "693983204411047976";
 // #endregion
 
-// #region Role Error Messaging
+// #region Role Messaging
 var choose_region = ['Please select a region:', '```',
     '!role player na',
     '!role player eu',
     '!role player br```'];
+var all_roles = ['Modder Roles:', '```',
+    'Developer: !role dev',
+    'Artist: !role art',
+    'Global Mechanics Modder: !role mechanics',
+    'Model Modder: !role model',
+    'Moveset Modder: !role moveset',
+    'Texture Modder: !role texture',
+    'Sound Modder: !role sound```', ' ',
+    'Player Roles:', '```',
+    'Player - NA: !role player na',
+    'Player - EU: !role player eu',
+    'Player - BR: !role player br```',
+    'Region Roles:', '```',
+    'North America - !role na',
+    'Canada - !role ca',
+    'EU - !role eu',
+    'Russia - !role ru',
+    'Brazil - !role br',
+    'Africa - !role af```',
+    'Other Roles:', '```',
+    'Active Competitive Player - !role competitive',
+    'Styleur - !role styleur',
+    'Observer - !role observer```'];
 // #endregion
 
-// #region Meme Categories
+// #region General Lists
+var commands = ['Memes: `!list`', 'Roles: `!role`', 'Resources: `!resources`'];
+var resources = ['Resources:', '```',
+    'Terminology Document - terms',
+    'Gev Locals Playlist - gev_locals',
+    'Gev Netplay Playlist - gev_netplay',
+    'Gen Twitch - gen_twitch',
+    'Gen cKunai Data - gen_twitch',
+    'Gen Tier List - gen_twitch',
+    'Gen Matchup Chart - gen_twitch',
+    'Gen Quotes - gen_twitch',
+    'Example command: `!gev_netplay`'];
 var categories = ['Please select a category:', '```',
     'Sally',
     'Naruto',
@@ -84,7 +118,8 @@ var sally = ['```', 'Sally:',
     'ibuselel',
     'ibusespit',
     'ibuseu2',
-    'ibusewat```'];
+    'ibusewat```',
+    'Example command: `!sallyumad`'];
 // #endregion
 // #region Naruto Memes
 var naruto = ['```', 'Naruto:',
@@ -105,7 +140,8 @@ var naruto = ['```', 'Naruto:',
     'tobithink / tt',
     'tooeasy',
     'umff / crow',
-    'wat```'];
+    'wat```',
+    'Example command: `!narutodab`'];
 // #endregion
 // #region Storm Memes
 var storm = ['```', 'Storm:',
@@ -143,7 +179,8 @@ var storm = ['```', 'Storm:',
     'sakuratilt',
     'snowfield',
     'thatsenough/te',
-    'trollzo - trollzo2 ```'];
+    'trollzo - trollzo2 ```',
+    'Example command: `!dm5`'];
 // #endregion
 // #region Community Memes
 var community = ['```', 'Community:',
@@ -184,7 +221,8 @@ var community = ['```', 'Community:',
     'trumeta',
     'usabanhammer',
     'und3',
-    'victory```'];
+    'victory```',
+    'Example command: `!nikus4`'];
 // #endregion
 // #region S4 Memes
 var s4 = ['```', 'Storm 4:',
@@ -209,7 +247,8 @@ var s4 = ['```', 'Storm 4:',
     'rasengan',
     'srssauce',
     'talknojutsu',
-    'mevsnewgens / mmvsm / yellowfooled```'];
+    'mevsnewgens / mmvsm / yellowfooled```',
+    'Example command: `!playings4`'];
 // #endregion
 // #region UNSG Community Memes
 var unsc = ['```', 'UNSGCommunity Emotes',
@@ -236,7 +275,8 @@ var unsc = ['```', 'UNSGCommunity Emotes',
     'realum',
     'same - same2',
     'thesepain',
-    'uhuh - uhuhuh```'];
+    'uhuh - uhuhuh```',
+    'Example command: `!kekaku`'];
 // #endregion
 // #region ArashiBoards
 var arashi = ['```', 'ArashiBoards:',
@@ -326,7 +366,8 @@ var arashi = ['```', 'ArashiBoards:',
     'victory',
     'victorypalm',
     'wessanbus',
-    'yugidfa```'];
+    'yugidfa```',
+    'Example command: `!thisguy`'];
 // #endregion
 // #region Bleach
 var bleach = ['```', 'Bleach:',
@@ -336,7 +377,8 @@ var bleach = ['```', 'Bleach:',
     'suzumebachi1 / sb1',
     'suzumebachi2 / sb2',
     'suzumebachi3 / sb3',
-    'suzumebachi4 / sb4```'];
+    'suzumebachi4 / sb4```',
+    'Example command: `!suzumebachi1`'];
 // #endregion
 // #region Other
 var etc = ['```', 'Other:',
@@ -362,7 +404,8 @@ var etc = ['```', 'Other:',
     'keikaku',
     'mute',
     'tru',
-    'watermark```'];
+    'watermark```',
+    'Example command: `!granddad`'];
 // #endregion
 
 // Configure logger settings
@@ -382,7 +425,8 @@ bot.on('ready', function (evt) {
     logger.info('Logged in as: ' + bot.username + ' - (' + bot.id + ')\n');
 
     // Parse arrays into strings
-    choose_region == arrayToStr(choose_region);
+    commands = arrayToStr(commands); resources = arrayToStr(resources); categories = arrayToStr(categories);
+    all_roles = arrayToStr(all_roles); choose_region = arrayToStr(choose_region);
     sally = arrayToStr(sally);
     categories = arrayToStr(categories); bleach = arrayToStr(bleach); etc = arrayToStr(etc);
     naruto = arrayToStr(naruto); storm = arrayToStr(storm); s4 = arrayToStr(s4);
@@ -590,8 +634,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         else {
             
             switch (cmd.toLowerCase()) {
-                case 'channel': sendMsg(channelID, channelID); break;
+                case 'commands':
+                case 'cmds':
+                case 'cmd':
+                case 'command': sendMsg(channelID, commands);
+
                 case 'list': sendMsg(channelID, categories); break;
+                case 'roles':
+                case 'role': sendMsg(channelID, all_roles); break;
+                case 'resource':
+                case 'resources': sendMsg(channelID, resources); break;
 
 				// #region ELO (Removed)
 				//case 'elo': 
@@ -599,6 +651,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 // #endregion
 
                 // #region Resources (TODO: Move to a "resource" command?)
+                case 'term':
+                case 'terms':
+                case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/1AgfeLN2lToy6D2KYoSAXz3FDlHXRE-Szx1kwJVqblPM/edit'); break;
                 case 'gev_locals': sendMsg(channelID, 'https://www.youtube.com/playlist?list=PLFY4qTm8_IdHQTpgEEaT2kVjnUNQJlgl-'); break;
                 case 'gev_netplay': sendMsg(channelID, 'https://www.youtube.com/playlist?list=PLFY4qTm8_IdGdTEo80ZjHuNk2nmJsQTwB'); break;
                 case 'gen_twitch': sendMsg(channelID, 'https://www.twitch.tv/UNSGCommunity'); break;
@@ -607,9 +662,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'gen_tiers': sendMsg(channelID, 'https://docs.google.com/drawings/d/1Qy83BggQ0N2RpYb3bwKcb0eEj2dqmLpe3DNuWG_JzL8/edit'); break;
                 case 'gen_mu':
                 case 'gen_mus': sendMsg(channelID, 'https://docs.google.com/spreadsheets/d/1wzkzkGx0ws3F0VkRz9soOyE1bBsohN4Tjq9Nhrq4F6Y/edit#gid=0'); break;
-                case 'term':
-                case 'terms':
-                case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/1AgfeLN2lToy6D2KYoSAXz3FDlHXRE-Szx1kwJVqblPM/edit'); break;
                 case 'gen_quote':
                 case 'gen_quotes': sendMsg(channelID, 'https://docs.google.com/document/d/1ps_a1qAlWjdBV91c99kLognj-zBhA3OXRcdGmP2BgA8/edit'); break;
                 // #endregion
