@@ -8,7 +8,7 @@ var logger = require('winston');
 var refresh = true;
 
 // #region General bot vars
-var serverid = 0;
+var serverid = 693620394929815562;
 var k = 30;
 // #endregion
 
@@ -432,20 +432,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             case 'player':
                                 switch (cmd3.toLowerCase()) {
                                     case 'na':
-                                        addRole(userID, player_na);
-                                        removeRoles(userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                        addRole(channelID, userID, player_na);
+                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
                                             player_eu, player_br]);
                                         break;
                                     case 'eu':
-                                        addRole(userID, player_eu);
-                                        removeRoles(userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                        addRole(channelID, userID, player_eu);
+                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
                                             player_na, player_br]);
                                         break;
                                     case 'br':
-                                        addRole(userID, player_br);
-                                        removeRoles(userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                        addRole(channelID, userID, player_br);
+                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
                                             player_na, player_eu]);
                                         break;
@@ -482,76 +482,76 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         case 'player': sendMsg(channelID, choose_region); break;
                         // #region Modding Roles
                         case 'dev':
-                            addRole(userID, dev_role);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, dev_role);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'art':
-                            addRole(userID, artist_role);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, artist_role);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'mechanics':
-                            addRole(userID, global_mechanics);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, global_mechanics);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'model':
-                            addRole(userID, model_modder);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, model_modder);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'moveset':
-                            addRole(userID, moveset_modder);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, moveset_modder);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'texture':
-                            addRole(userID, texture_modder);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, texture_modder);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'sound':
-                            addRole(userID, sound_modder);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, sound_modder);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         // #endregion
 
                         // #region Competitive/Styler/Observer Roles
                         case 'competitive':
-                            addRole(userID, active_competitive);
-                            removeRoles(userID, [player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, active_competitive);
+                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'styler':
                         case 'styleur':
-                            addRole(userID, styleur_role);
-                            removeRoles(userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role,
+                            addRole(channelID, userID, styleur_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role,
                                 active_competitive, dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder]);
                         break;
                         case 'observer':
-                            addRole(userID, observer_role);
-                            removeRoles(userID, [active_competitive, styleur_role, player_na, player_eu, player_br]);
+                            addRole(channelID, userID, observer_role);
+                            removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br]);
                         break;
                         // #endregion
 
                         // #region Non-Player Regions
                         case 'na':
-                            addRole(userID, na_role);
-                            removeRoles(userID, [ca_role, eu_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, na_role);
+                            removeRoles(channelID, userID, [ca_role, eu_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'ca':
-                            addRole(userID, ca_role);
-                            removeRoles(userID, [na_role, eu_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, ca_role);
+                            removeRoles(channelID, userID, [na_role, eu_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'eu':
-                            addRole(userID, eu_role);
-                            removeRoles(userID, [na_role, ca_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, eu_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'ru':
-                            addRole(userID, ru_role);
-                            removeRoles(userID, [na_role, ca_role, eu_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, ru_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'br':
-                            addRole(userID, br_role);
-                            removeRoles(userID, [na_role, ca_role, eu_role, ru_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, br_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, af_role, player_na, player_eu, player_br, styleur_role]);
                         break;
                         case 'af':
-                            addRole(userID, af_role);
-                            removeRoles(userID, [na_role, ca_role, eu_role, ru_role, br_role, player_na, player_eu, player_br, styleur_role]);
+                            addRole(channelID, userID, af_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, player_na, player_eu, player_br, styleur_role]);
                             break;
                         // #endregion
                     }
@@ -588,7 +588,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         }
         else {
             
-            switch(cmd.toLowerCase()) {
+            switch (cmd.toLowerCase()) {
+
+                case 'isserveridgev': sendMsg(channelID, bot.channels[channelID].guild_id === serverid ? "true" : "false");
+
                 case 'channel': sendMsg(channelID, channelID); break;
                 case 'list': sendMsg(channelID, categories); break;
 
@@ -1028,23 +1031,29 @@ function sendEmbed(channel, imgurl) { bot.sendMessage({ to: channel, message: ''
 function sendMsg(channel, text) { bot.sendMessage({ to: channel, message: text }); }
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
 
-function addRole(userID, role) {
-    bot.addToRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
-        if (err) console.error(err);
-        else console.log(response);
-    });
-}
-function removeRole(userID, role) {
-    bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
-        if (err) console.error(err);
-        else console.log(response);
-    });
-}
-function removeRoles(userID, role) {
-    for (int i = 0; i < role.length; i++) {
-        bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
+function addRole(channelID, userID, role) {
+    if (bot.channels[channelID].guild_id === serverid) {
+        bot.addToRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
             if (err) console.error(err);
             else console.log(response);
         });
+    }
+}
+function removeRole(channelID, userID, role) {
+    if (bot.channels[channelID].guild_id === serverid) {
+        bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
+            if (err) console.error(err);
+            else console.log(response);
+        });
+    }
+}
+function removeRoles(channelID, userID, role) {
+    if (bot.channels[channelID].guild_id === serverid) {
+        for (int i = 0; i < role.length; i++) {
+            bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
+                if (err) console.error(err);
+                else console.log(response);
+            });
+        }
     }
 }
