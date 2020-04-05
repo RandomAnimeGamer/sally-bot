@@ -592,7 +592,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             switch (cmd.toLowerCase()) {
 
                 case 'isserveridgev': sendMsg(channelID, bot.channels[channelID].guild_id === serverid ? "true" : "false"); break;
-                case 'channellistfordeveloperrag': sendMsg(channelID, bot.channels[channelID] !== null ? "true" : "false"); break;
+                case 'channellistfordeveloperrag': sendMsg(channelID, JSON.stringify(bot.channels[channelID])); break;
                 
                 case 'channel': sendMsg(channelID, channelID); break;
                 case 'list': sendMsg(channelID, categories); break;
