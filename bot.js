@@ -29,9 +29,11 @@ var eu_role = "693636973218234399";
 var ru_role = "693637027769614347";
 var br_role = "694177000235073537";
 var af_role = "695965738313187349";
+var c4_role = "";
 var player_na = "693622671967256656";
 var player_eu = "693984963162538047";
 var player_br = "695793581490831400";
+var player_c4 = "";
 // #endregion
 
 // #region Other Role IDs
@@ -44,7 +46,8 @@ var observer_role = "693983204411047976";
 var choose_region = ['Please select a region:', '```',
     '$role player na',
     '$role player eu',
-    '$role player br```'];
+    '$role player br',
+    '$role player c4```'];
 var all_roles = ['Modder Roles:', '```',
     'Developer: $role dev',
     'Artist: $role art',
@@ -454,6 +457,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd3 = args.length > 2 ? args[2] : '';
         var cmd4 = args.length > 3 ? args[3] : '';
         args = args.splice(1);
+        console.log('cmd1: ' + cmd);
+        console.log('cmd2: ' + cmd2);
+        console.log('cmd3: ' + cmd3);
+        console.log('cmd4: ' + cmd4);
+
 
         if(cmd2 !== '') {
             if (cmd3 !== '') {
@@ -652,7 +660,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 // #region Resources (TODO: Move to a "resource" command?)
                 case 'term':
                 case 'terms':
-                case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/1AgfeLN2lToy6D2KYoSAXz3FDlHXRE-Szx1kwJVqblPM/edit'); break;
+                case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/12sKcsTPqmB__HZi1cKBF6CoZtdB8_ja5sV5Lo7EcPn4/edit?usp=sharing'); break;
                 case 'gev_locals': sendMsg(channelID, 'https://www.youtube.com/playlist?list=PLFY4qTm8_IdHQTpgEEaT2kVjnUNQJlgl-'); break;
                 case 'gev_netplay': sendMsg(channelID, 'https://www.youtube.com/playlist?list=PLFY4qTm8_IdGdTEo80ZjHuNk2nmJsQTwB'); break;
                 case 'gen_twitch': sendMsg(channelID, 'https://www.twitch.tv/UNSGCommunity'); break;
