@@ -40,6 +40,7 @@ var player_c4 = "";
 var active_competitive = "694232967823753287";
 var styleur_role = "694777461384282154";
 var observer_role = "693983204411047976";
+var new_member = "696791374342914068";
 // #endregion
 
 // #region Role Messaging
@@ -1091,8 +1092,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
      }
 });
 
-function sendEmbed(channel, imgurl) { bot.sendMessage({ to: channel, message: '', embed: { image: { url: imgurl } } }); }
-function sendMsg(channel, text) { bot.sendMessage({ to: channel, message: text }); }
+function sendEmbed(channel, imgurl) {
+    bot.sendMessage({ to: channel, message: '', embed: { image: { url: imgurl } } });
+    console.log(imgurl);
+}
+function sendMsg(channel, text) {
+    bot.sendMessage({ to: channel, message: text });
+    console.log(text);
+}
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
 
 function addRole(channelID, userID, role) {
