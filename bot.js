@@ -88,6 +88,8 @@ function setListsProper() {
     commands = ['Memes: `$list`', 'Roles: `$role` (Only works in UNS: Gev Community)', 'Resources: `$resources`'];
     resources = ['Resources:', '```',
         'Terminology Document - terms',
+        'What is Gev? - gev',
+        'Current Gev Players - players',
         'Gev Locals Playlist - gev_locals',
         'Gev Netplay Playlist - gev_netplay',
         'Gen Twitch - gen_twitch',
@@ -214,6 +216,7 @@ function setListsProper() {
         'iguess - iguess2',
         'infallidom - infallidom2',
         'jeffyanger',
+        'jeffycombos',
         'jonah1 - jonah2',
         'justminatothings',
         'lachance',
@@ -228,6 +231,7 @@ function setListsProper() {
         'nikus4',
         'ninjagba',
         'playco',
+        'plsno10-0',
         'polotrying1 / pt1  -  polotrying2 / pt2',
         'poornoobtrash',
         'ragbanhammer',
@@ -277,6 +281,7 @@ function setListsProper() {
         'frenchdara',
         'froge',
         'fullpain',
+        'getmad / gm  - getmadsharingan / gms',
         'hyperlum / hlum',
         'hyperqr / hqr',
         'hyperthink / hthink',
@@ -725,6 +730,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 // #endregion
 
                 // #region Resources (TODO: Move to a "resource" command?)
+                case 'gev': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev.png"); break;
+                case 'players': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/players.png"); break;
                 case 'term':
                 case 'terms':
                 case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/12sKcsTPqmB__HZi1cKBF6CoZtdB8_ja5sV5Lo7EcPn4/edit?usp=sharing'); break;
