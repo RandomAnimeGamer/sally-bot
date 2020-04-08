@@ -483,7 +483,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " sent a curse word on " +
-                            today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`"
                     });
                     return;
@@ -496,7 +496,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " sent a curse word on " +
-                            today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`"
                     });
                 }
