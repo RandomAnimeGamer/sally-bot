@@ -480,9 +480,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 if (msg.includes(curse_words[i])) {
                     var today = new Date();
                     sendMsg(channelID, "Don't curse, <@" + userID + ">");
-                    bot.users.get("98484620286246912").send(user + " sent a curse word on " +
-                        today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
-                        " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`");
+                    bot.sendMessage({
+                        to: "98484620286246912",
+                        message: user + " sent a curse word on " +
+                            today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`"
+                    });
                     return;
                 }
             }
@@ -490,9 +493,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 if (msg.includes(blaspheming[i])) {
                     var today = new Date();
                     sendMsg(channelID, "Don't blaspheme, <@" + userID + ">");
-                    bot.users.get("98484620286246912").send(user + " sent a curse word on " +
-                        today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
-                        " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`");
+                    bot.sendMessage({
+                        to: "98484620286246912",
+                        message: user + " sent a curse word on " +
+                            today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`"
+                    });
                 }
             }
         //}
