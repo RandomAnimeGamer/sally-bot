@@ -43,40 +43,13 @@ var observer_role = "693983204411047976";
 var new_member = "696791374342914068";
 // #endregion
 
-// #region Role Messaging
-var choose_region = ['Please select a region:', '```',
-    '$role player na',
-    '$role player eu',
-    '$role player br',
-    '$role player c4```'];
-var all_roles = ['Modder Roles:', '```',
-    'Developer: $role dev',
-    'Artist: $role art',
-    'Global Mechanics Modder: $role mechanics',
-    'Model Modder: $role model',
-    'Moveset Modder: $role moveset',
-    'Texture Modder: $role texture',
-    'Sound Modder: $role sound```', ' ',
-    'Player Roles:', '```',
-    'Player - NA: $role player na',
-    'Player - EU: $role player eu',
-    'Player - BR: $role player br```',
-    'Region Roles:', '```',
-    'North America - $role na',
-    'Canada - $role ca',
-    'EU - $role eu',
-    'Russia - $role ru',
-    'Brazil - $role br',
-    'Africa - $role af```',
-    'Other Roles:', '```',
-    'Active Competitive Player - $role competitive',
-    'Styleur - $role styleur',
-    'Observer - $role observer```'];
-// #endregion
+var choose_region = '';
+var all_roles = '';
 
 var commands = ''; var resources = ''; var categories = '';
 var sally = ''; var naruto = ''; var storm = ''; var community = '';
 var s4 = ''; var unsc = ''; var arashi = ''; var bleach = ''; var etc = '';
+var curse_words = ''; var blaspheming = '';
 
 function setListsProper() {
 
@@ -451,6 +424,11 @@ function setListsProper() {
         'watermark```',
         'Example command: `$granddad`'];
     // #endregion
+
+    // #region Banned Words
+    curse_words = ['ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    blaspheming = ['my god', 'god why'];
+    // #endregion
 }
 
 
@@ -494,6 +472,31 @@ bot.on('disconnect', function(erMsg, code) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
+
+    //if (bot.channels[channelID] !== undefined) {
+        //if (bot.channels[channelID].guild_id === serverid) {
+            var msg = message.split(' ');
+            for (var i = 0; i < curse_words.length; i++) {
+                if (msg.includes(curse_words[i])) {
+                    var today = new Date();
+                    sendMsg(channelID, "Don't curse, <@" + userID + ">");
+                    client.users.get("98484620286246912").send(user + " sent a curse word on " +
+                        today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
+                        " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`");
+                    return;
+                }
+            }
+            for (var i = 0; i < blaspheming.length; i++) {
+                if (msg.includes(blaspheming[i])) {
+                    var today = new Date();
+                    sendMsg(channelID, "Don't blaspheme, <@" + userID + ">");
+                    client.users.get("98484620286246912").send(user + " sent a curse word on " +
+                        today.getDate() + "/" + (today.GetMonth() + 1) + "/" + today.getFullYear() +
+                        " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message.content + "`");
+                }
+            }
+        //}
+    //}
 
     if (message.substring(0, 1) == '$') {
         var args = message.substring(1).split(' ');
