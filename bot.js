@@ -470,11 +470,8 @@ bot.on('disconnect', function(erMsg, code) {
 });
 
 bot.on('message', function (user, userID, channelID, message, evt) {
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `!`
-
-    //if (bot.channels[channelID] !== undefined) {
-        //if (bot.channels[channelID].guild_id === serverid) {
+    if (bot.channels[channelID] !== undefined) {
+        if (bot.channels[channelID].guild_id === serverid) {
             var msg = message.split(' ');
             for (var i = 0; i < curse_words.length; i++) {
                 if (msg.includes(curse_words[i])) {
@@ -482,6 +479,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     sendMsg(channelID, "Don't curse, <@" + userID + ">");
                     bot.sendMessage({
                         to: "98484620286246912",
+                        message: user + " sent a curse word on " +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
+                    }); 
+                    bot.sendMessage({
+                        to: "226125976940052481",
                         message: user + " sent a curse word on " +
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
@@ -495,14 +498,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     sendMsg(channelID, "Don't blaspheme, <@" + userID + ">");
                     bot.sendMessage({
                         to: "98484620286246912",
-                        message: user + " sent a curse word on " +
+                        message: user + " blasphemed on " +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
+                    });
+                    bot.sendMessage({
+                        to: "226125976940052481",
+                        message: user + " blasphemed on " +
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
                 }
             }
-        //}
-    //}
+        }
+    }
 
     if (message.substring(0, 1) == '$') {
         var args = message.substring(1).split(' ');
