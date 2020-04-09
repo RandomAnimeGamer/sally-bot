@@ -475,13 +475,14 @@ bot.on('disconnect', function(erMsg, code) {
 });
 
 bot.on('message', function (user, userID, channelID, message, evt) {
+    // #region Message Filters
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
-            var msg = message.split(' ');
+            var msg = message.toLowerCase().split(' ');
             for (var i = 0; i < curse_words.length; i++) {
                 if (msg.includes(curse_words[i])) {
                     var today = new Date();
-                    sendMsg(channelID, "Don't curse, <@" + userID + ">");
+                    sendMsg(channelID, "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid 20th century, said that the devil is near to those who curse.");
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " sent a curse word on " +
@@ -500,7 +501,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             for (var i = 0; i < blaspheming.length; i++) {
                 if (msg.includes(blaspheming[i])) {
                     var today = new Date();
-                    sendMsg(channelID, "Don't blaspheme, <@" + userID + ">");
+                    sendMsg(channelID, "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.");
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " blasphemed on " +
@@ -517,8 +518,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             }
         }
     }
+    // #endregion
 
     if (message.substring(0, 1) == '$') {
+        // #region Prepare String Parsing
         var args = message.substring(1).split(' ');
         var cmd = args[0];
         var cmd2 = args.length > 1 ? args[1] : '';
@@ -526,7 +529,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd4 = args.length > 3 ? args[3] : '';
         args = args.splice(1);
         console.log('cmd1: ' + cmd + ' ' + 'cmd2: ' + cmd2 + ' ' + 'cmd3: ' + cmd3 + ' ' + 'cmd4: ' + cmd4);
-
+        // #endregion
 
         if(cmd2 !== '') {
             if (cmd3 !== '') {
@@ -706,6 +709,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         else {
             
             switch (cmd.toLowerCase()) {
+                // #region Lists
                 case 'c':
                 case 'commands':
                 case 'cmds':
@@ -723,6 +727,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     break;
                 case 'resource':
                 case 'resources': sendMsg(channelID, resources); break;
+                // #endregion
 
 				// #region ELO (Removed)
 				//case 'elo': 
@@ -746,6 +751,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'gen_quote':
                 case 'gen_quotes': sendMsg(channelID, 'https://docs.google.com/document/d/1ps_a1qAlWjdBV91c99kLognj-zBhA3OXRcdGmP2BgA8/edit'); break;
                 // #endregion
+
+                // #region Memes
 
                 // #region Sally Memes
                 case 'calmsally':
@@ -1163,10 +1170,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'tru': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/other-nongaming/tru.jpg"); break;
                 case 'watermark': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/other-nongaming/watermark.jpg"); break;
                 // #endregion
+
+                // #endregion
             }
             
          }
      }
+});
+
+bot.on('guildMemberAdd', function (callback) {
+    if (callback.guild_id === serverid) {
+        addRole(rules_channel, callback.id, new_member);
+        bot.sendMessage({ to: callback.id, message: "Hello, and welcome to Gev Community! Before you can gain access to all of our channels, please first read the Rules and FAQ channels, and then respond with `I agree.` in the Agreement channel." });
+        removeRoles(rules_channel, callback.id, [dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder, na_role, ca_role, eu_role, ru_role, br_role, af_role, c4_role, player_na, player_eu, player_br, player_c4, active_competitive, styleur_role, observer_role, new_member]);
+    }
 });
 
 function sendEmbed(channel, imgurl) {
