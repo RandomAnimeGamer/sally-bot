@@ -9,6 +9,7 @@ var refresh = true;
 
 // #region General bot vars
 var serverid = "693620394929815562";
+var rules_channel = "693638262358540298";
 var k = 30;
 // #endregion
 
@@ -29,11 +30,11 @@ var eu_role = "693636973218234399";
 var ru_role = "693637027769614347";
 var br_role = "694177000235073537";
 var af_role = "695965738313187349";
-var c4_role = "";
+var c4_role = "696325728924598314";
 var player_na = "693622671967256656";
 var player_eu = "693984963162538047";
 var player_br = "695793581490831400";
-var player_c4 = "";
+var player_c4 = "696342581881077810";
 // #endregion
 
 // #region Other Role IDs
