@@ -522,7 +522,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     }
     // #endregion
 
-    if (channelID === agreement_channel && message === 'I agree.') bot.removeRoles(channelID, userID, new_member);
+    if (channelID === agreement_channel && message === 'I agree.') removeRoles(channelID, userID, [new_member]);
 
     if (message.substring(0, 1) == '$') {
         // #region Prepare String Parsing
