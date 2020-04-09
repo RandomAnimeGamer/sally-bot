@@ -10,6 +10,7 @@ var refresh = true;
 // #region General bot vars
 var serverid = "693620394929815562";
 var rules_channel = "693638262358540298";
+var agreement_channel = "696793531817132142";
 var k = 30;
 // #endregion
 
@@ -520,6 +521,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         }
     }
     // #endregion
+
+    if (channelID === agreement_channel && message === 'I agree.') bot.removeRoles(channelID, userID, new_member);
 
     if (message.substring(0, 1) == '$') {
         // #region Prepare String Parsing
