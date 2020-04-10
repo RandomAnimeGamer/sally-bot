@@ -11,6 +11,7 @@ var refresh = true;
 var serverid = "693620394929815562";
 var rules_channel = "693638262358540298";
 var agreement_channel = "696793531817132142";
+var offtopic_channel = "693620394929815565";
 var k = 30;
 // #endregion
 
@@ -78,10 +79,13 @@ function setListsProper() {
         'Player Roles:', '```',
         'Player - NA: $role player na',
         'Player - EU: $role player eu',
-        'Player - BR: $role player br```',
+        'Player - Asia: $role player asia',
+        'Player - BR: $role player br',
+        'Player - C4: $role player c4',
+        'Player - AF: $role player af```',
         'Region Roles:', '```',
         'North America - $role na',
-        'Canada - $role ca',
+        'Central America - $role ca',
         'EU - $role eu',
         'Asia - $role asia',
         'Russia - $role ru',
@@ -540,7 +544,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     }
     // #endregion
 
-    if (channelID === agreement_channel && message === 'I agree.') removeRoles(channelID, userID, [new_member]);
+    if (channelID === agreement_channel && message === 'I agree.') {
+        removeRoles(channelID, userID, [new_member]);
+        bot.sendMessage({ to: offtopic_channel, message: "Hello, <@" + userID + ">! Please select a role from below:" });
+        sendMsg(offtopic_channel, all_roles);
+    }
 
     if (message.substring(0, 1) == '$') {
         // #region Prepare String Parsing
@@ -647,10 +655,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     switch (cmd2.toLowerCase()) {
                         case 'player': sendMsg(channelID, choose_region); break;
                         // #region Modding Roles
-                        case 'dev':
+                        /*case 'dev':
                             addRole(channelID, userID, dev_role);
                             removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
+                        break;*/
                         case 'art':
                             addRole(channelID, userID, artist_role);
                             removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
@@ -1263,8 +1271,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 bot.on('guildMemberAdd', function (callback) {
     if (callback.guild_id === serverid) {
         addRole(rules_channel, callback.id, new_member);
-        bot.sendMessage({ to: callback.id, message: "Hello, and welcome to Gev Community! Before you can gain access to all of our channels, please first read the Rules and FAQ channels, and then respond with `I agree.` in the Agreement channel." });
-        removeRoles(rules_channel, callback.id, [dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder, na_role, ca_role, eu_role, ru_role, br_role, af_role, c4_role, player_na, player_eu, player_br, player_c4, active_competitive, styleur_role, observer_role, new_member]);
+        bot.sendMessage({
+            to: agreement_channel,
+            message: "Hello, and welcome to Gev Community, <@" + callback.id + ">! Before you can gain access to all of our channels, please first read the Rules and FAQ channels, and then respond with `I agree.` in the Agreement channel."
+        });
     }
 });
 
