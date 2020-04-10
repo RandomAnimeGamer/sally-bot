@@ -28,14 +28,18 @@ var sound_modder = "694293776570515556";
 var na_role = "693636860060237864";
 var ca_role = "695356499400065115";
 var eu_role = "693636973218234399";
+var asia = "697831149778632745";
 var ru_role = "693637027769614347";
 var br_role = "694177000235073537";
 var af_role = "695965738313187349";
 var c4_role = "696325728924598314";
+var in_role = "696973968636248076";
 var player_na = "693622671967256656";
 var player_eu = "693984963162538047";
+var player_asia = "697831192099291156";
 var player_br = "695793581490831400";
 var player_c4 = "696342581881077810";
+var player_af = "697898739398082570";
 // #endregion
 
 // #region Other Role IDs
@@ -59,8 +63,10 @@ function setListsProper() {
     choose_region = ['Please select a region:', '```',
         '$role player na',
         '$role player eu',
+        '$role player asia',
         '$role player br',
-        '$role player c4```'];
+        '$role player c4',
+        '$role player af```'];
     all_roles = ['Modder Roles:', '```',
         'Developer: $role dev',
         'Artist: $role art',
@@ -77,8 +83,11 @@ function setListsProper() {
         'North America - $role na',
         'Canada - $role ca',
         'EU - $role eu',
+        'Asia - $role asia',
         'Russia - $role ru',
         'Brazil - $role br',
+        'India - $role in',
+        'C4 - $role c4',
         'Africa - $role af```',
         'Other Roles:', '```',
         'Active Competitive Player - $role competitive',
@@ -558,20 +567,44 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                     case 'na':
                                         addRole(channelID, userID, player_na);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                            asia, c4_role, in_role,
                                             dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_eu, player_br]);
+                                            player_eu, player_br, player_asia, player_c4, player_af]);
                                         break;
                                     case 'eu':
                                         addRole(channelID, userID, player_eu);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                            asia, c4_role, in_role,
                                             dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_br]);
+                                            player_na, player_br, player_asia, player_c4, player_af]);
                                         break;
                                     case 'br':
                                         addRole(channelID, userID, player_br);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                            asia, c4_role, in_role,
                                             dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu]);
+                                            player_na, player_eu, player_asia, player_c4, player_af]);
+                                        break;
+                                    case 'asia':
+                                        addRole(channelID, userID, player_asia);
+                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                            asia, c4_role, in_role,
+                                            dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
+                                            player_na, player_eu, player_br, player_c4, player_af]);
+                                        break;
+                                    case 'c4':
+                                        addRole(channelID, userID, player_c4);
+                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                            asia, c4_role, in_role,
+                                            dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
+                                            player_na, player_eu, player_br, player_asia, player_af]);
+                                        break;
+                                    case 'af':
+                                        addRole(channelID, userID, player_af);
+                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
+                                            asia, c4_role, in_role,
+                                            dev_role, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
+                                            player_na, player_eu, player_br, player_asia, player_c4]);
                                         break;
                                 }
                                 break;
@@ -655,27 +688,48 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         // #region Non-Player Regions
                         case 'na':
                             addRole(channelID, userID, na_role);
-                            removeRoles(channelID, userID, [ca_role, eu_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            removeRoles(channelID, userID, [ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
                         break;
                         case 'ca':
                             addRole(channelID, userID, ca_role);
-                            removeRoles(channelID, userID, [na_role, eu_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            removeRoles(channelID, userID, [na_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
                         break;
                         case 'eu':
                             addRole(channelID, userID, eu_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, ru_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
-                        break;
+                            removeRoles(channelID, userID, [na_role, ca_role, asia, ru_role, br_role, af_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                            break;
+                        case 'asia':
+                            addRole(channelID, userID, asia);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                            break;
                         case 'ru':
                             addRole(channelID, userID, ru_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, br_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, br_role, af_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
                         break;
                         case 'br':
                             addRole(channelID, userID, br_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, af_role, player_na, player_eu, player_br, styleur_role]);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, af_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
                         break;
                         case 'af':
                             addRole(channelID, userID, af_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, player_na, player_eu, player_br, styleur_role]);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, c4_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                            break;
+                        case 'in':
+                            addRole(channelID, userID, in_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                            break;
+                        case 'c4':
+                            addRole(channelID, userID, c4_role);
+                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, in_role,
+                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
                             break;
                         // #endregion
                     }
