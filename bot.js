@@ -451,8 +451,8 @@ function setListsProper() {
     // #endregion
 
     // #region Banned Words
-    curse_words = ['ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
-    blaspheming = ['my god', 'god why'];
+    curse_words = ['wtf', 'lmao', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    blaspheming = ['my god', 'god why', 'gdi', 'omg', 'omfg', 'oml'];
     // #endregion
 }
 
