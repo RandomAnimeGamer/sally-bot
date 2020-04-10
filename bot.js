@@ -506,7 +506,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             for (var i = 0; i < curse_words.length; i++) {
                 if (msg.includes(curse_words[i])) {
                     var today = new Date();
-                    sendMsg(channelID, "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid 20th century, said that the devil is near to those who curse.");
+                    sendMsg(channelID, "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.");
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " sent a curse word on " +
