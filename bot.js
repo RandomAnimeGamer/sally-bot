@@ -551,8 +551,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
     if (channelID === agreement_channel && message === 'I agree.') {
         removeRoles(channelID, userID, [new_member]);
-        bot.sendMessage({ to: offtopic_channel, message: "Hello, <@" + userID + ">! Please select a role from below:" });
-        sendMsg(offtopic_channel, all_roles);
+        bot.sendMessage({ to: offtopic_channel, message: "Hello, <@" + userID + ">! Please select a role from below. \n \n" + all_roles });
     }
 
     if (message.substring(0, 1) == '$') {
