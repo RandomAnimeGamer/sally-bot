@@ -178,17 +178,20 @@ function setListsProper() {
         'acd',
         'amodesauce / parryjb',
         'bluebar',
-        'blurry - blurryjb',
+        'blurry',
+        'chitem',
         'classic',
         'credits',
         'dab',
         'dc',
+        'ding - moneygetsu',
         'dommovement1 / dm1  -  dommovement20 / dm20',
         'fullacd',
         'gen - gen2 - gen3',
         'gevshika',
         'hanzoumad',
         'howmad',
+        'jumpblur',
         'kuroshika / ks',
         'list2',
         'maskedprimate / mp',
@@ -218,7 +221,7 @@ function setListsProper() {
     // #endregion
     // #region Community Memes
     community = ['```', 'Community:',
-        '21xx - 21xx2 - 21xx3',
+        '21xx - 21xx2 - 21xx3 - 22xx',
         'advancedmechanics',
         'comments',
         'council4',
@@ -247,6 +250,9 @@ function setListsProper() {
         'legitking',
         'legitraze',
         'loicksama',
+        'mainacril',
+        'mainottekoi',
+        'mainrag',
         'meidogg',
         'nejikun',
         'nikus4',
@@ -255,19 +261,20 @@ function setListsProper() {
         'perfectminato / pminato',
         'playco',
         'plsno10-0',
-        'polotrying1 / pt1  -  polotrying2 / pt2',
+        'polotrying1 / pt1  -  polotrying2 / pt2  -  polotrying3 / pt3',
         'poornoobtrash',
         'ragbanhammer',
         'razebar',
         's2meta',
         's3scrubs',
         'sallyinterrupt',
-        'taslant - taslanttriple',
+        'taslanttriple',
         'trilogy',
         'trumeta',
         'ufos',
         'und3',
         'usabanhammer',
+        'valantas1',
         'victory',
         'windowsx```',
         'Example command: `$nikus4`'];
@@ -458,8 +465,10 @@ function setListsProper() {
     // #endregion
 
     // #region Banned Words
-    curse_words = ['wtf', 'lmao', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
-    blaspheming = ['my god', 'god why', 'gdi', 'omg', 'omfg', 'oml'];
+    curse_acronyms = ['wtf', 'lmao'];
+    blaspheme_acronyms = ['gdi', 'omg', 'omfg', 'oml'];
+    curse_words = ['tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    blaspheming = ['my god', 'god why'];
     // #endregion
 }
 
@@ -505,11 +514,54 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // #region Message Filters
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
+            var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.";
+            var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.";
+            for (var i = 0; i < curse_acronyms.length; i++) {
+                if (message.includes(curse_acronyms[i])) {
+                    var today = new Date();
+                    sendMsg(channelID, curse_reply);
+                    bot.sendMessage({
+                        to: "98484620286246912",
+                        message: user + " sent a curse word on " +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
+                    });
+                    bot.sendMessage({
+                        to: "226125976940052481",
+                        message: user + " sent a curse word on " +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
+                    });
+                    break;
+                    return;
+                }
+            }
+            for (var i = 0; i < blaspheme_acronyms.length; i++) {
+                if (message.includes(blaspheme_acronyms[i])) {
+                    var today = new Date();
+                    sendMsg(channelID, blaspheme_reply);
+                    bot.sendMessage({
+                        to: "98484620286246912",
+                        message: user + " blasphemed on " +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
+                    });
+                    bot.sendMessage({
+                        to: "226125976940052481",
+                        message: user + " blasphemed on " +
+                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
+                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
+                    });
+                    break;
+                    return;
+                }
+            }
+
             var msg = message.toLowerCase().split(' ');
             for (var i = 0; i < curse_words.length; i++) {
                 if (msg.includes(curse_words[i])) {
                     var today = new Date();
-                    sendMsg(channelID, "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.");
+                    sendMsg(channelID, curse_reply);
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " sent a curse word on " +
@@ -522,13 +574,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
+                    break;
                     return;
                 }
             }
             for (var i = 0; i < blaspheming.length; i++) {
                 if (msg.includes(blaspheming[i])) {
                     var today = new Date();
-                    sendMsg(channelID, "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.");
+                    sendMsg(channelID, blaspheme_reply);
                     bot.sendMessage({
                         to: "98484620286246912",
                         message: user + " blasphemed on " +
@@ -541,6 +594,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
+                    break;
+                    return;
                 }
             }
         }
@@ -899,11 +954,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'parryjb': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/amodesauce.png"); break;
                 case 'bluebar': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/bluebar.png"); break;
                 case 'blurry': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/blurry.jpg"); break;
-                case 'blurryjb': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/blurryjb.jpg"); break;
+                case 'chitem': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/chitem.png"); break;
                 case 'classic': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/classic.gif"); break;
                 case 'credits': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/credits.png"); break;
                 case 'dab': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/dab.png"); break;
                 case 'dc': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/dc.png"); break;
+                case 'ding':
+                case 'moneygetsu': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/ding.png"); break;
                 // #region Dom Movement
                 case 'dommovement1':
                 case 'dm1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/dm1.gif"); break;
@@ -953,6 +1010,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'gevshika': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gevshika.png"); break;
                 case 'hanzoumad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/hanzoumad.jpg"); break;
                 case 'howmad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/howmad.png"); break;
+                case 'jumpblur': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/jumpblur.jpg"); break;
                 case 'kuroshika':
                 case 'ks': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/kuroshika.png"); break;
                 case 'list2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/list2.PNG"); break;
@@ -988,6 +1046,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case '21xx': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/21xx.jpg"); break;
                 case '21xx2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/21xx2.png"); break;
                 case '21xx3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/21xx3.png"); break;
+                case '22xx': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/22xx.png"); break;
                 case 'advancedmechanics': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/advancedmechanics.png"); break;
                 case 'comments': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/comments.png"); break;
                 case 'council4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/council4.png"); break;
@@ -1022,6 +1081,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'legitking': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/legitking.png"); break;
                 case 'legitraze': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/legitraze.png"); break;
                 case 'loicksama': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/loicksama.png"); break;
+                case 'mainacril': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/mainacril.png"); break;
+                case 'mainottekoi': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/mainottekoi.png"); break;
+                case 'mainrag': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/mainrag.png"); break;
                 case 'meidogg': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/meidogg.jpg"); break;
                 case 'nejikun': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/nejikun.png"); break;
                 case 'nikus4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/nikus4-cropped-2.jpg"); break;
@@ -1035,19 +1097,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'polotrying1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying1.png"); break;
                 case 'pt2':
                 case 'polotrying2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying2.png"); break;
+                case 'pt3':
+                case 'polotrying3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying3.png"); break;
                 case 'poornoobtrash': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/poornoobtrash.png"); break;
                 case 'ragbanhammer': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/ragbanhammer.png"); break;
                 case 'razebar': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/razebar.png"); break;
                 case 's2meta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/s2meta.png"); break;
                 case 's3scrubs': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/s3scrubs.png"); break;
                 case 'sallyinterrupt': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/sallyinterrupt.png"); break;
-                case 'taslant1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/taslant1.png"); break;
                 case 'taslanttriple': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/taslanttriple.png"); break;
                 case 'trilogy': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trilogy.png"); break;
                 case 'trumeta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trumeta.png"); break;
                 case 'ufos': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/ufos.png"); break;
                 case 'und3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/und3.png"); break;
                 case 'usabanhammer': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/usabanhammer.png"); break;
+                case 'valantas1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/valantas1.png"); break;
                 case 'victory': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/victory.png"); break;
                 case 'windowsx': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/windowsx.png"); break;
                 // #endregion
