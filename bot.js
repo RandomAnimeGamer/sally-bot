@@ -469,10 +469,8 @@ function setListsProper() {
     // #endregion
 
     // #region Banned Words
-    curse_acronyms = ['wtf', 'lmao', 'lmfao'];
-    blaspheme_acronyms = ['gdi', 'omg', 'omfg'];
-    curse_words = ['oml', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
-    blaspheming = ['my god', 'god why', 'gawd'];
+    curse_words = ['wtf', 'lmao', 'lmfao', 'oml', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    blaspheming = ['gdi', 'omg', 'omfg', 'my god', 'god why', 'gawd'];
     // #endregion
 }
 
@@ -521,50 +519,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
             var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.";
             var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.";
-            for (var i = 0; i < curse_acronyms.length; i++) {
-                if (msgMod.includes(curse_acronyms[i])) {
-                    var today = new Date();
-                    sendMsg(channelID, curse_reply);
-                    bot.sendMessage({
-                        to: "98484620286246912",
-                        message: user + " sent a curse word on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    bot.sendMessage({
-                        to: "226125976940052481",
-                        message: user + " sent a curse word on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    break;
-                    return;
-                }
-            }
-            for (var i = 0; i < blaspheme_acronyms.length; i++) {
-                if (msgMod.includes(blaspheme_acronyms[i])) {
-                    var today = new Date();
-                    sendMsg(channelID, blaspheme_reply);
-                    bot.sendMessage({
-                        to: "98484620286246912",
-                        message: user + " blasphemed on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    bot.sendMessage({
-                        to: "226125976940052481",
-                        message: user + " blasphemed on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    break;
-                    return;
-                }
-            }
-
-            var msg = message.toLowerCase().split(' ');
+            var msg = msgMod.toLowerCase().split(' ');
             for (var i = 0; i < curse_words.length; i++) {
-                if (msgMod.includes(curse_words[i])) {
+                if (msg.includes(curse_words[i])) {
                     var today = new Date();
                     sendMsg(channelID, curse_reply);
                     bot.sendMessage({
@@ -584,7 +541,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             }
             for (var i = 0; i < blaspheming.length; i++) {
-                if (msgMod.includes(blaspheming[i])) {
+                if (msg.includes(blaspheming[i])) {
                     var today = new Date();
                     sendMsg(channelID, blaspheme_reply);
                     bot.sendMessage({
