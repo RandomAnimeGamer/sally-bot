@@ -472,7 +472,7 @@ function setListsProper() {
     curse_acronyms = ['wtf', 'lmao', 'lmfao'];
     blaspheme_acronyms = ['gdi', 'omg', 'omfg'];
     curse_words = ['oml', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
-    blaspheming = ['my god', 'god why'];
+    blaspheming = ['my god', 'god why', 'gawd'];
     // #endregion
 }
 
