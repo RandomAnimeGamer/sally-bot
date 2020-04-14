@@ -109,7 +109,8 @@ function setListsProper() {
         'Gen cKunai Data - gen_twitch',
         'Gen Tier List - gen_twitch',
         'Gen Matchup Chart - gen_twitch',
-        'Gen Quotes - gen_twitch```',
+        'Gen Quotes - gen_twitch',
+        'Rock Paper Scissors - rps```',
         'Example command: `$gev_netplay`'];
     categories = ['Please select a category:', '```',
         'Sally',
@@ -180,11 +181,12 @@ function setListsProper() {
         'bluebar',
         'blurry',
         'chitem',
+        'chrismovement1 / cm1',
         'classic',
         'credits',
         'dab',
         'dc',
-        'ding - moneygetsu',
+        'ding / moneygetsu / mmirl / allyourmoneymatchme',
         'dommovement1 / dm1  -  dommovement20 / dm20',
         'fullacd',
         'gen - gen2 - gen3',
@@ -234,6 +236,7 @@ function setListsProper() {
         'drant1s',
         'funskill',
         'gkunaigrab',
+        'goldenarrow / ga',
         'grip - grip2',
         'himiko',
         'hyperswole / hswole',
@@ -268,6 +271,7 @@ function setListsProper() {
         's2meta',
         's3scrubs',
         'sallyinterrupt',
+        'singlesupportchris / ssc',
         'taslanttriple',
         'trilogy',
         'trumeta',
@@ -465,9 +469,9 @@ function setListsProper() {
     // #endregion
 
     // #region Banned Words
-    curse_acronyms = ['wtf', 'lmao'];
-    blaspheme_acronyms = ['gdi', 'omg', 'omfg', 'oml'];
-    curse_words = ['tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    curse_acronyms = ['wtf', 'lmao', 'lmfao'];
+    blaspheme_acronyms = ['gdi', 'omg', 'omfg'];
+    curse_words = ['oml', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
     blaspheming = ['my god', 'god why'];
     // #endregion
 }
@@ -514,10 +518,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // #region Message Filters
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
+            var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
             var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.";
             var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.";
             for (var i = 0; i < curse_acronyms.length; i++) {
-                if (message.includes(curse_acronyms[i])) {
+                if (msgMod.includes(curse_acronyms[i])) {
                     var today = new Date();
                     sendMsg(channelID, curse_reply);
                     bot.sendMessage({
@@ -537,7 +542,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             }
             for (var i = 0; i < blaspheme_acronyms.length; i++) {
-                if (message.includes(blaspheme_acronyms[i])) {
+                if (msgMod.includes(blaspheme_acronyms[i])) {
                     var today = new Date();
                     sendMsg(channelID, blaspheme_reply);
                     bot.sendMessage({
@@ -559,7 +564,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
             var msg = message.toLowerCase().split(' ');
             for (var i = 0; i < curse_words.length; i++) {
-                if (msg.includes(curse_words[i])) {
+                if (msgMod.includes(curse_words[i])) {
                     var today = new Date();
                     sendMsg(channelID, curse_reply);
                     bot.sendMessage({
@@ -579,7 +584,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             }
             for (var i = 0; i < blaspheming.length; i++) {
-                if (msg.includes(blaspheming[i])) {
+                if (msgMod.includes(blaspheming[i])) {
                     var today = new Date();
                     sendMsg(channelID, blaspheme_reply);
                     bot.sendMessage({
@@ -864,7 +869,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 // #region Resources (TODO: Move to a "resource" command?)
                 case 'gev': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev.png"); break;
-                case 'players': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/players.png"); break;
+                case 'players': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/players-1.png"); break;
                 case 'term':
                 case 'terms':
                 case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/12sKcsTPqmB__HZi1cKBF6CoZtdB8_ja5sV5Lo7EcPn4/edit?usp=sharing'); break;
@@ -878,6 +883,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'gen_mus': sendMsg(channelID, 'https://docs.google.com/spreadsheets/d/1wzkzkGx0ws3F0VkRz9soOyE1bBsohN4Tjq9Nhrq4F6Y/edit#gid=0'); break;
                 case 'gen_quote':
                 case 'gen_quotes': sendMsg(channelID, 'https://docs.google.com/document/d/1ps_a1qAlWjdBV91c99kLognj-zBhA3OXRcdGmP2BgA8/edit'); break;
+                case 'rps': sendMsg(channelID, 'https://streamable.com/e6oehu'); break;
                 // #endregion
 
                 // #region Memes
@@ -955,11 +961,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'bluebar': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/bluebar.png"); break;
                 case 'blurry': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/blurry.jpg"); break;
                 case 'chitem': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/chitem.png"); break;
+                case 'cm1':
+                case 'chrismovement1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/chrismovement1.mp4"); break;
                 case 'classic': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/classic.gif"); break;
                 case 'credits': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/credits.png"); break;
                 case 'dab': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/dab.png"); break;
                 case 'dc': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/dc.png"); break;
                 case 'ding':
+                case 'mmirl':
+                case 'allyourmoneymatchme':
                 case 'moneygetsu': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/ding.png"); break;
                 // #region Dom Movement
                 case 'dommovement1':
@@ -1059,6 +1069,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'drant1s': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/drant1s.png"); break;
                 case 'funskill': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/funskill.png"); break;
                 case 'gkunaigrab': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/gkunaigrab.png"); break;
+                case 'ga':
+                case 'goldenarrow': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/goldenarrow.png"); break;
                 case 'grip': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/grip.PNG"); break;
                 case 'grip2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/grip2.png"); break;
                 case 'himiko': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/himiko.png"); break;
@@ -1105,6 +1117,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 's2meta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/s2meta.png"); break;
                 case 's3scrubs': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/s3scrubs.png"); break;
                 case 'sallyinterrupt': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/sallyinterrupt.png"); break;
+                case 'ssc':
+                case 'singlesupportchris': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/singlesupportchris.png"); break;
                 case 'taslanttriple': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/taslanttriple.png"); break;
                 case 'trilogy': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trilogy.png"); break;
                 case 'trumeta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trumeta.png"); break;
@@ -1390,4 +1404,24 @@ function removeRoles(channelID, userID, role) {
             }
         }
     }
+}
+
+function removeRepeated(str, inst) {
+    var buffer = '';
+    var found = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (buffer === str[i]) {
+            found++;
+            if (found >= inst) {
+                str = str.substring(0, i) + str.substring(i + 1);
+                i--; found--;
+            }
+            continue;
+        }
+        else {
+            found = 0;
+            buffer = str[i];
+        }
+    }
+    return str;
 }
