@@ -225,6 +225,7 @@ function setListsProper() {
     community = ['```', 'Community:',
         '21xx - 21xx2 - 21xx3 - 22xx',
         'advancedmechanics',
+        'bdom1',
         'comments',
         'council4',
         'crim',
@@ -264,13 +265,14 @@ function setListsProper() {
         'perfectminato / pminato',
         'playco',
         'plsno10-0',
-        'polotrying1 / pt1  -  polotrying2 / pt2  -  polotrying3 / pt3',
+        'polotrying1 / pt1  -  polotrying5 / pt5',
         'poornoobtrash',
         'ragbanhammer',
         'razebar',
         's2meta',
         's3scrubs',
         'sallyinterrupt',
+        'sammashing',
         'singlesupportchris / ssc',
         'taslanttriple',
         'trilogy',
@@ -281,7 +283,7 @@ function setListsProper() {
         'valantas1',
         'victory',
         'windowsx```',
-        'Example command: `$nikus4`'];
+        'Example command: `$polotrying3`'];
     // #endregion
     // #region S4 Memes
     s4 = ['```', 'Storm 4:',
@@ -315,6 +317,7 @@ function setListsProper() {
         'dashgud',
         'doge',
         'elkek',
+        'eternalgms / egms  -  eternalgms2 / egms2',
         'eyes - eyes2',
         'frenchdara',
         'froge',
@@ -327,6 +330,7 @@ function setListsProper() {
         'kek - kek2',
         'kekaku',
         'kekatsuki',
+        'kotoamatsukami',
         'kyle',
         'lilkek',
         'minatodfa / mdfa',
@@ -826,7 +830,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 // #region Resources (TODO: Move to a "resource" command?)
                 case 'gev': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev.png"); break;
-                case 'players': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/players-1.png"); break;
+                case 'players': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/players-2.png"); break;
                 case 'term':
                 case 'terms':
                 case 'terminology': sendMsg(channelID, 'https://docs.google.com/document/d/12sKcsTPqmB__HZi1cKBF6CoZtdB8_ja5sV5Lo7EcPn4/edit?usp=sharing'); break;
@@ -1015,6 +1019,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case '21xx3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/21xx3.png"); break;
                 case '22xx': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/22xx.png"); break;
                 case 'advancedmechanics': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/advancedmechanics.png"); break;
+                case 'bdom1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/bdom1.png"); break;
                 case 'comments': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/comments.png"); break;
                 case 'council4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/council4.png"); break;
                 case 'crim': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/crim.jpg"); break;
@@ -1068,12 +1073,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'polotrying2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying2.png"); break;
                 case 'pt3':
                 case 'polotrying3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying3.png"); break;
+                case 'pt4':
+                case 'polotrying4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying4.png"); break;
+                case 'pt5':
+                case 'polotrying5': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/polotrying5.png"); break;
                 case 'poornoobtrash': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/poornoobtrash.png"); break;
                 case 'ragbanhammer': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/ragbanhammer.png"); break;
                 case 'razebar': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/razebar.png"); break;
                 case 's2meta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/s2meta.png"); break;
                 case 's3scrubs': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/s3scrubs.png"); break;
                 case 'sallyinterrupt': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/sallyinterrupt.png"); break;
+                case 'sammashing': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/sammashing.png"); break;
                 case 'ssc':
                 case 'singlesupportchris': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/singlesupportchris.png"); break;
                 case 'taslanttriple': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/taslanttriple.png"); break;
@@ -1123,6 +1133,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'dashgud': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/dashgud.png"); break;
                 case 'doge': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/doge.png"); break;
                 case 'elkek': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/elkek.png"); break;
+                case 'egms':
+                case 'eternalgms': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/eternalgms.png"); break;
+                case 'egms2':
+                case 'eternalgms2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/eternalgms2.png"); break;
                 case 'eyes': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/eyes.png"); break;
                 case 'eyes2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/eyes2.jpeg"); break;
                 case 'frenchdara': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/frenchdara.png"); break;
@@ -1144,6 +1158,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'kek2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/kek2.jpeg"); break;
                 case 'kekaku': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/kekaku.png"); break;
                 case 'kekatsuki': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/kekatsuki.jpeg"); break;
+                case 'kotoamatsukami': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/kotoamatsukami.jpeg"); break;
                 case 'kyle': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/kyle.png"); break;
                 case 'lilkek': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/lilkek.png"); break;
                 case 'minatodfa':
