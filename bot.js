@@ -167,6 +167,7 @@ function setListsProper() {
         'otk',
         'saucewat',
         'sausage',
+        'sharingan / 3tomoe / 3t',
         'technoparty',
         'tobithink / tt',
         'tooeasy',
@@ -190,11 +191,12 @@ function setListsProper() {
         'dommovement1 / dm1  -  dommovement20 / dm20',
         'fullacd',
         'gen - gen2 - gen3',
+        'gevems',
         'gevshika',
         'hanzoumad',
         'howmad',
         'jumpblur',
-        'kuroshika / ks',
+        'kuroshika / ks / minatokuroshika / mks',
         'list2',
         'maskedprimate / mp',
         'midtier',
@@ -213,6 +215,7 @@ function setListsProper() {
         's1',
         's3',
         's4',
+        's4hinata / whoa',
         's4mash',
         's4mechanics',
         'sakuratilt',
@@ -226,6 +229,7 @@ function setListsProper() {
         '21xx - 21xx2 - 21xx3 - 22xx',
         'advancedmechanics',
         'bdom1',
+        'buffedshika',
         'comments',
         'council4',
         'crim',
@@ -275,10 +279,12 @@ function setListsProper() {
         'sammashing',
         'singlesupportchris / ssc',
         'taslanttriple',
+        'time1 - time2',
         'trilogy',
         'trumeta',
         'ufos',
         'und3',
+        'uns2.0 - uns2.02',
         'usabanhammer',
         'valantas1',
         'victory',
@@ -908,6 +914,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'otk': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/naruto/otk.png"); break;
                 case 'saucewat': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/naruto/saucewat.png"); break;
                 case 'sausage': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/naruto/sausage.jpg"); break;
+                case '3t':
+                case '3tomoe':
+                case 'sharingan': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/naruto/sharingan.png"); break;
                 case 'technoparty': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/naruto/technoparty.gif"); break;
                 case 'tobithink':
                 case 'tt': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/naruto/tobithink.png"); break;
@@ -980,10 +989,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'gen': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/Gen.jpg"); break;
                 case 'gen2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gen2.png"); break;
                 case 'gen3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/Gen3.png"); break;
+                case 'gevems': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gevems.png"); break;
                 case 'gevshika': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gevshika.png"); break;
                 case 'hanzoumad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/hanzoumad.jpg"); break;
                 case 'howmad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/howmad.png"); break;
                 case 'jumpblur': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/jumpblur.jpg"); break;
+                case 'minatokuroshika':
+                case 'mks':
                 case 'kuroshika':
                 case 'ks': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/kuroshika.png"); break;
                 case 'list2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/list2.PNG"); break;
@@ -1005,6 +1017,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 's1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s1.jpg"); break;
                 case 's3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s3.png"); break;
                 case 's4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4.png"); break;
+                case 'whoa':
+                case 's4hinata': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4hinata.jpg"); break;
                 case 's4mash': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4mash.jpg"); break;
                 case 's4mechanics': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4mechanics.jpg"); break;
                 case 'sakuratilt': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/sakuratilt.png"); break;
@@ -1022,6 +1036,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case '22xx': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/22xx.png"); break;
                 case 'advancedmechanics': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/advancedmechanics.png"); break;
                 case 'bdom1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/bdom1.png"); break;
+                case 'buffedshika': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/buffedshika.png"); break;
                 case 'comments': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/comments.png"); break;
                 case 'council4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/council4.png"); break;
                 case 'crim': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/crim.jpg"); break;
@@ -1089,10 +1104,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'ssc':
                 case 'singlesupportchris': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/singlesupportchris.png"); break;
                 case 'taslanttriple': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/taslanttriple.png"); break;
+                case 'time1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/time1.jpg"); break;
+                case 'time2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/time2.png"); break;
                 case 'trilogy': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trilogy.png"); break;
                 case 'trumeta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trumeta.png"); break;
                 case 'ufos': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/ufos.png"); break;
                 case 'und3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/und3.png"); break;
+                case 'uns2.0': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/uns2.0.png"); break;
+                case 'uns2.02': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/uns2.02.png"); break;
                 case 'usabanhammer': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/usabanhammer.png"); break;
                 case 'valantas1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/valantas1.png"); break;
                 case 'victory': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/victory.png"); break;
