@@ -653,151 +653,153 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     // #endregion
                 }
             }
-            switch (cmd.toLowerCase()) {
-                // #region List Commands
-                case 'list':
-                    switch(cmd2.toLowerCase()) {
-                        case 'sally': sendMsg(channelID, sally); break;
-                        case 'naruto': sendMsg(channelID, naruto); break;
-                        case 'storm': sendMsg(channelID, storm); break;
-                        case 'community': sendMsg(channelID, community); break;
-                        case 's4': sendMsg(channelID, s4); break;
-                        case 'unsgcommunity':
-                        case 'unsgc':
-                        case 'unsg': sendMsg(channelID, unsc); break;
-                        case 'arashiboards':
-                        case 'ab': sendMsg(channelID, arashi); break;
-                        case 'bleach': sendMsg(channelID, bleach); break;
-                        case 'other': sendMsg(channelID, other); break;
-                    }
-                    break;
-                // #endregion
+            else {
+                switch (cmd.toLowerCase()) {
+                    // #region List Commands
+                    case 'list':
+                        switch (cmd2.toLowerCase()) {
+                            case 'sally': sendMsg(channelID, sally); break;
+                            case 'naruto': sendMsg(channelID, naruto); break;
+                            case 'storm': sendMsg(channelID, storm); break;
+                            case 'community': sendMsg(channelID, community); break;
+                            case 's4': sendMsg(channelID, s4); break;
+                            case 'unsgcommunity':
+                            case 'unsgc':
+                            case 'unsg': sendMsg(channelID, unsc); break;
+                            case 'arashiboards':
+                            case 'ab': sendMsg(channelID, arashi); break;
+                            case 'bleach': sendMsg(channelID, bleach); break;
+                            case 'other': sendMsg(channelID, other); break;
+                        }
+                        break;
+                    // #endregion
 
-                // #region Roles (Excluding Player - Region)
-                case 'role':
-                    switch (cmd2.toLowerCase()) {
-                        case 'player': sendMsg(channelID, choose_region); break;
-                        // #region Modding Roles
-                        case 'art':
-                            addRole(channelID, userID, artist_role);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        case 'mechanics':
-                            addRole(channelID, userID, global_mechanics);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        case 'model':
-                            addRole(channelID, userID, model_modder);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        case 'moveset':
-                            addRole(channelID, userID, moveset_modder);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        case 'texture':
-                            addRole(channelID, userID, texture_modder);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        case 'sound':
-                            addRole(channelID, userID, sound_modder);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        // #endregion
+                    // #region Roles (Excluding Player - Region)
+                    case 'role':
+                        switch (cmd2.toLowerCase()) {
+                            case 'player': sendMsg(channelID, choose_region); break;
+                            // #region Modding Roles
+                            case 'art':
+                                addRole(channelID, userID, artist_role);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            case 'mechanics':
+                                addRole(channelID, userID, global_mechanics);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            case 'model':
+                                addRole(channelID, userID, model_modder);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            case 'moveset':
+                                addRole(channelID, userID, moveset_modder);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            case 'texture':
+                                addRole(channelID, userID, texture_modder);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            case 'sound':
+                                addRole(channelID, userID, sound_modder);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            // #endregion
 
-                        // #region Competitive/Styler/Observer Roles
-                        case 'competitive':
-                            addRole(channelID, userID, active_competitive);
-                            removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                        break;
-                        case 'styler':
-                        case 'styleur':
-                            addRole(channelID, userID, styleur_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role,
-                                active_competitive, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder]);
-                        break;
-                        case 'observer':
-                            addRole(channelID, userID, observer_role);
-                            removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br]);
-                        break;
-                        // #endregion
+                            // #region Competitive/Styler/Observer Roles
+                            case 'competitive':
+                                addRole(channelID, userID, active_competitive);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                break;
+                            case 'styler':
+                            case 'styleur':
+                                addRole(channelID, userID, styleur_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role,
+                                    active_competitive, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder]);
+                                break;
+                            case 'observer':
+                                addRole(channelID, userID, observer_role);
+                                removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br]);
+                                break;
+                            // #endregion
 
-                        // #region Non-Player Regions
-                        case 'na':
-                            addRole(channelID, userID, na_role);
-                            removeRoles(channelID, userID, [ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                            // #region Non-Player Regions
+                            case 'na':
+                                addRole(channelID, userID, na_role);
+                                removeRoles(channelID, userID, [ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'ca':
+                                addRole(channelID, userID, ca_role);
+                                removeRoles(channelID, userID, [na_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'eu':
+                                addRole(channelID, userID, eu_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, asia, ru_role, br_role, af_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'asia':
+                                addRole(channelID, userID, asia);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'ru':
+                                addRole(channelID, userID, ru_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, br_role, af_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'br':
+                                addRole(channelID, userID, br_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, af_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'af':
+                                addRole(channelID, userID, af_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, c4_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'in':
+                                addRole(channelID, userID, in_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            case 'c4':
+                                addRole(channelID, userID, c4_role);
+                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, in_role,
+                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
+                                break;
+                            // #endregion
+                        }
                         break;
-                        case 'ca':
-                            addRole(channelID, userID, ca_role);
-                            removeRoles(channelID, userID, [na_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                        break;
-                        case 'eu':
-                            addRole(channelID, userID, eu_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, asia, ru_role, br_role, af_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                            break;
-                        case 'asia':
-                            addRole(channelID, userID, asia);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                            break;
-                        case 'ru':
-                            addRole(channelID, userID, ru_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, br_role, af_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                        break;
-                        case 'br':
-                            addRole(channelID, userID, br_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, af_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                        break;
-                        case 'af':
-                            addRole(channelID, userID, af_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, c4_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                            break;
-                        case 'in':
-                            addRole(channelID, userID, in_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                            break;
-                        case 'c4':
-                            addRole(channelID, userID, c4_role);
-                            removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, in_role,
-                                player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                            break;
-                        // #endregion
-                    }
-                break;
-                // #endregion
+                    // #endregion
 
-                // #region ELO (Removed)
-				/*case 'elo':
-					switch(cmd2.toLowerCase()) {
-						case 'register':
-							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
-							fs.writeFile(file, elo_txt + '\n' + userID + '@' + user + '@' + '0', function(err) {
-								if(err) console.log(err);
-								else console.log("file written successfully " + '\n' + userID + '@' + user + '@' + '0');
-							});
-							//fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', (err) => sendMsg(channelID, 'There was an error registering you on our ELO list.'));
-							//sendMsg(channelID, 'You have been added to the ELO Ranking System on Sally Bot! (If you received an error just before this message, please contact R.A.G)');
-						break;
-						case 'top5':
-							var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"}).replace('\n','');
-							var elo_arr = elo_txt.split('@');
-							var elo_2d = [];
-							while(elo_arr.length) elo_2d.push(elo_arr.splice(0,3));
-							console.log(elo_2d);
-							
-						break;
-						case 'restart':
-							fs.readFileSync('aosiljhntklasrjlaskjrowajrnkoawrjnmlawr', {"encoding": "utf-8"});
-						break;
-					}
-				*/
-                // #endregion
+                    // #region ELO (Removed)
+                    /*case 'elo':
+                        switch(cmd2.toLowerCase()) {
+                            case 'register':
+                                var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
+                                fs.writeFile(file, elo_txt + '\n' + userID + '@' + user + '@' + '0', function(err) {
+                                    if(err) console.log(err);
+                                    else console.log("file written successfully " + '\n' + userID + '@' + user + '@' + '0');
+                                });
+                                //fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', (err) => sendMsg(channelID, 'There was an error registering you on our ELO list.'));
+                                //sendMsg(channelID, 'You have been added to the ELO Ranking System on Sally Bot! (If you received an error just before this message, please contact R.A.G)');
+                            break;
+                            case 'top5':
+                                var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"}).replace('\n','');
+                                var elo_arr = elo_txt.split('@');
+                                var elo_2d = [];
+                                while(elo_arr.length) elo_2d.push(elo_arr.splice(0,3));
+                                console.log(elo_2d);
+                            	
+                            break;
+                            case 'restart':
+                                fs.readFileSync('aosiljhntklasrjlaskjrowajrnkoawrjnmlawr', {"encoding": "utf-8"});
+                            break;
+                        }
+                    */
+                    // #endregion
+                }
             }
         }
         else {
