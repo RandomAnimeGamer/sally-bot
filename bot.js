@@ -730,7 +730,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                 break;
                             case 'casual':
                                 addRole(channelID, userID, casual_role);
-                                removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br, observer_role]);
+                                removeRoles(channelID, userID, [active_competitive, styleur_role, na_role, ca_role, eu_role, ru_role, br_role, af_role, observer_role]);
                                 break;
                             case 'observer':
                                 addRole(channelID, userID, observer_role);
