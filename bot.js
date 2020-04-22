@@ -46,6 +46,7 @@ var player_af = "697898739398082570";
 // #region Other Role IDs
 var active_competitive = "694232967823753287";
 var styleur_role = "694777461384282154";
+var casual_role = "702357358499725342";
 var observer_role = "693983204411047976";
 var new_member = "696791374342914068";
 // #endregion
@@ -95,6 +96,7 @@ function setListsProper() {
         'Other Roles:', '```',
         'Active Competitive Player - $role competitive',
         'Styleur - $role styleur',
+        'Casual Player - $role casual',
         'Observer - $role observer```'];
     // #endregion
 
@@ -579,7 +581,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
     if (channelID === agreement_channel && message === 'I agree.') {
         removeRoles(channelID, userID, [new_member]);
-        bot.sendMessage({ to: offtopic_channel, message: "Hello, <@" + userID + ">! Please select a role from below. \n \n" + all_roles });
+        bot.sendMessage({ to: offtopic_channel, message: "Welcome, <@" + userID + ">! Are you a Casual Player, Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the command \"$\" \n \n" + all_roles });
     }
 
     if (message.substring(0, 1) == '$') {
@@ -714,20 +716,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                 break;
                             // #endregion
 
-                            // #region Competitive/Styler/Observer Roles
+                            // #region Competitive/Styler/Casual/Observer Roles
                             case 'competitive':
                                 addRole(channelID, userID, active_competitive);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
+                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role, casual_role]);
                                 break;
                             case 'styler':
                             case 'styleur':
                                 addRole(channelID, userID, styleur_role);
                                 removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role,
-                                    active_competitive, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder]);
+                                    active_competitive, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
+                                    casual_role]);
+                                break;
+                            case 'casual':
+                                addRole(channelID, userID, casual_role);
+                                removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br, observer_role]);
                                 break;
                             case 'observer':
                                 addRole(channelID, userID, observer_role);
-                                removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br]);
+                                removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br, casual_role]);
                                 break;
                             // #endregion
 
