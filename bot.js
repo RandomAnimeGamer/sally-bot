@@ -549,7 +549,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
-                    bot.deleteMessage({ channelID: channelID, messageID: event.d.id }, function (err) { console.log(err) });
+                    bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
                     break;
                     return;
                 }
@@ -570,7 +570,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
-                    bot.deleteMessage({ channelID: channelID, messageID: event.d.id }, function (err) { console.log(err) });
+                    bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
                     break;
                     return;
                 }
