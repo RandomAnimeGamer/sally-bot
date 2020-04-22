@@ -11,6 +11,7 @@ var refresh = true;
 var serverid = "693620394929815562";
 var rules_channel = "693638262358540298";
 var agreement_channel = "696793531817132142";
+var faq_channel = "693629099327094805";
 var offtopic_channel = "693620394929815565";
 var k = 30;
 // #endregion
@@ -51,7 +52,7 @@ var new_member = "696791374342914068";
 
 var choose_region = '';
 var all_roles = '';
-
+ 
 var commands = ''; var resources = ''; var categories = '';
 var sally = ''; var naruto = ''; var storm = ''; var community = '';
 var s4 = ''; var unsc = ''; var arashi = ''; var bleach = ''; var etc = '';
@@ -527,8 +528,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
             var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
-            var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.";
-            var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.";
+            var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.\n\nPlease read the rules at <#" + rules_channel + ">.";
+            var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.\n\nPlease read the rules at <#" + rules_channel + ">.";
             var msg = msgMod.toLowerCase().split(' ');
             for (var i = 0; i < curse_words.length; i++) {
                 if (msg.includes(curse_words[i])) {
@@ -546,6 +547,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
+                    bot.deleteMessage({ channelID: channelID, messageID: event.d.id }, function (err) { console.log(err) });
                     break;
                     return;
                 }
@@ -566,6 +568,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
                             " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
                     });
+                    bot.deleteMessage({ channelID: channelID, messageID: event.d.id }, function (err) { console.log(err) });
                     break;
                     return;
                 }
@@ -615,42 +618,42 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_eu, player_br, player_asia, player_c4, player_af]);
+                                            player_eu, player_br, player_asia, player_c4, player_af, observer]);
                                         break;
                                     case 'eu':
                                         addRole(channelID, userID, player_eu);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_br, player_asia, player_c4, player_af]);
+                                            player_na, player_br, player_asia, player_c4, player_af, observer]);
                                         break;
                                     case 'br':
                                         addRole(channelID, userID, player_br);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_asia, player_c4, player_af]);
+                                            player_na, player_eu, player_asia, player_c4, player_af, observer]);
                                         break;
                                     case 'asia':
                                         addRole(channelID, userID, player_asia);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_c4, player_af]);
+                                            player_na, player_eu, player_br, player_c4, player_af, observer]);
                                         break;
                                     case 'c4':
                                         addRole(channelID, userID, player_c4);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_asia, player_af]);
+                                            player_na, player_eu, player_br, player_asia, player_af, observer]);
                                         break;
                                     case 'af':
                                         addRole(channelID, userID, player_af);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_asia, player_c4]);
+                                            player_na, player_eu, player_br, player_asia, player_c4, observer]);
                                         break;
                                 }
                                 break;
@@ -1348,7 +1351,7 @@ bot.on('guildMemberAdd', function (callback) {
         addRole(rules_channel, callback.id, new_member);
         bot.sendMessage({
             to: agreement_channel,
-            message: "Hello, and welcome to Gev Community, <@" + callback.id + ">! Before you can gain access to all of our channels, please first read the Rules and FAQ channels, and then respond with `I agree.` in the Agreement channel."
+            message: "Hello, and welcome to Gev Community, <@" + callback.id + ">! Before you can gain access to all of our channels, please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel."
         });
     }
 });
