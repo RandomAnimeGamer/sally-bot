@@ -620,42 +620,42 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_eu, player_br, player_asia, player_c4, player_af, observer]);
+                                            player_eu, player_br, player_asia, player_c4, player_af, observer_role]);
                                         break;
                                     case 'eu':
                                         addRole(channelID, userID, player_eu);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_br, player_asia, player_c4, player_af, observer]);
+                                            player_na, player_br, player_asia, player_c4, player_af, observer_role]);
                                         break;
                                     case 'br':
                                         addRole(channelID, userID, player_br);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_asia, player_c4, player_af, observer]);
+                                            player_na, player_eu, player_asia, player_c4, player_af, observer_role]);
                                         break;
                                     case 'asia':
                                         addRole(channelID, userID, player_asia);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_c4, player_af, observer]);
+                                            player_na, player_eu, player_br, player_c4, player_af, observer_role]);
                                         break;
                                     case 'c4':
                                         addRole(channelID, userID, player_c4);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_asia, player_af, observer]);
+                                            player_na, player_eu, player_br, player_asia, player_af, observer_role]);
                                         break;
                                     case 'af':
                                         addRole(channelID, userID, player_af);
                                         removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
                                             asia, c4_role, in_role,
                                             artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_asia, player_c4, observer]);
+                                            player_na, player_eu, player_br, player_asia, player_c4, observer_role]);
                                         break;
                                 }
                                 break;
