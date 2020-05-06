@@ -103,7 +103,8 @@ function setListsProper() {
         'Styleur - $role styleur',
         'Casual Player - $role casual```',
 
-        '```', 'Observer - $role observer```',
+        'Observer Role:', '```',
+        'Observer - $role observer```',
 
         'Region Roles: ', '```',
         'North America - $role na',
