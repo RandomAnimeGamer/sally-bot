@@ -513,6 +513,8 @@ bot.on('ready', function (evt) {
     community = arrayToStr(community); unsc = arrayToStr(unsc); arashi = arrayToStr(arashi);
     bleach = arrayToStr(bleach); etc = arrayToStr(etc);
     logger.info('Parsed arrays to strings successfully.');
+
+    streamLoop();
 });
 
 bot.on('disconnect', function(erMsg, code) {
@@ -1373,6 +1375,7 @@ function sendMsg(channel, text) {
 }
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
 
+// #region Roles
 function addRole(channelID, userID, role) {
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
@@ -1428,3 +1431,49 @@ function removeRepeated(str, inst) {
     }
     return str;
 }
+// #endregion
+
+// #region Stream Notifs
+
+function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
+        .then(function () { console.log("Sign-in successful"); },
+            function (err) { console.error("Error signing in", err); });
+}
+function loadClient() {
+    gapi.client.setApiKey("YOUR_API_KEY");
+    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+        .then(function () { console.log("GAPI client loaded for API"); },
+            function (err) { console.error("Error loading GAPI client for API", err); });
+}
+// Make sure the client is loaded and sign-in is complete before calling this method.
+function execute() {
+    return gapi.client.youtube.liveBroadcasts.list({
+        "part": "id,contentDetails",
+        "broadcastStatus": "active",
+        "broadcastType": "all"
+    })
+        .then(function (response) {
+            // Handle the results here (response.result has the parsed body).
+            console.log("Response", response);
+        },
+            function (err) { console.error("Execute error", err); });
+}
+gapi.load("client:auth2", function () {
+    gapi.auth2.init({ client_id: "YOUR_CLIENT_ID" });
+});
+
+function streamLoop() {
+    authenticate().then(loadClient);
+    var response = execute();
+    console.log("Response from Google API: ", response);
+    setTimeout(streamLoop, 300);
+}
+
+
+// GET https://www.googleapis.com/youtube/v3/liveBroadcasts
+// https://www.youtube.com/channel/UCycfa0gUSSpRlBT7XGtAowQ
+
+// #endregion
+
