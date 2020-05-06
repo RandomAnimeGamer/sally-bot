@@ -13,11 +13,14 @@ var rules_channel = "693638262358540298";
 var agreement_channel = "696793531817132142";
 var faq_channel = "693629099327094805";
 var offtopic_channel = "693620394929815565";
+var roles_channel = "707393784383799366";
+var active_comp_channel = "694169400366071898";
 var k = 30;
 // #endregion
 
 // #region Modding Role IDs
-var artist_role = "693982211216506930";
+var gfx_role = "693982211216506930";
+var vfx_role = "707433145770836030";
 var global_mechanics = "694293631732940850";
 var model_modder = "695315517648404501";
 var moveset_modder = "694293742341062706";
@@ -35,6 +38,7 @@ var br_role = "694177000235073537";
 var af_role = "695965738313187349";
 var c4_role = "696325728924598314";
 var in_role = "696973968636248076";
+
 var player_na = "693622671967256656";
 var player_eu = "693984963162538047";
 var player_asia = "697831192099291156";
@@ -49,6 +53,12 @@ var styleur_role = "694777461384282154";
 var casual_role = "702357358499725342";
 var observer_role = "693983204411047976";
 var new_member = "696791374342914068";
+// #endregion
+
+// #region Role Arrays
+var modding_roles = [gfx_role, vfx_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder];
+var cas_roles = [casual_role, styleur_role, observer_role, na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role];
+var com_roles = [active_competitive, player_na, player_eu, player_asia, player_br, player_c4, player_af];
 // #endregion
 
 var choose_region = '';
@@ -70,20 +80,32 @@ function setListsProper() {
         '$role player c4',
         '$role player af```'];
     all_roles = ['Modder Roles:', '```',
-        'Artist: $role art',
         'Global Mechanics Modder: $role mechanics',
-        'Model Modder: $role model',
         'Moveset Modder: $role moveset',
-        'Texture Modder: $role texture',
-        'Sound Modder: $role sound```', ' ',
-        'Player Roles:', '```',
+        'Model Modder: $role model',
+        'Sound Modder: $role sound```',
+        'Texture Modder: $role texture```',
+
+        'Artist Roles:', '```',
+        'Artist - Graphics: $role gfx',
+        'Artist - Visual Effects: $role vfx```',
+
+        'Competitive Player Roles:', '```',
+        'Active Competitive Player - $role competitive',
         'Player - North America: $role player na',
         'Player - Europe: $role player eu',
         'Player - Asia: $role player asia',
         'Player - Brazil: $role player br',
         'Player - Middle East: $role player c4',
-        'Player - Africa: $role player af```',
-        'Region Roles:', '```',
+        'Player - Africa: $role player af',
+
+        'Casual Player Roles:', '```',
+        'Styleur - $role styleur',
+        'Casual Player - $role casual```',
+
+        '```', 'Observer - $role observer```',
+
+        'Region Roles: ', '```',
         'North America - $role na',
         'Central America - $role ca',
         'Europe - $role eu',
@@ -92,12 +114,7 @@ function setListsProper() {
         'Brazil - $role br',
         'India - $role in',
         'Middle East - $role c4',
-        'Africa - $role af```',
-        'Other Roles:', '```',
-        'Active Competitive Player - $role competitive',
-        'Styleur - $role styleur',
-        'Casual Player - $role casual',
-        'Observer - $role observer```'];
+        'Africa - $role af```'];
     // #endregion
 
     // #region General Lists
@@ -581,8 +598,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
     if (channelID === agreement_channel && message === 'I agree.') {
         removeRoles(channelID, userID, [new_member]);
-        bot.sendMessage({ to: offtopic_channel, message: "Welcome, <@" + userID + ">! Are you a Casual Player, Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the command \"$\" \n \n" + all_roles });
+        bot.sendMessage({ to: roles_channel, message: "Welcome, <@" + userID + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles });
     }
+
+    if (channelID === active_comp_channel) { addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); break; }
 
     if (message.substring(0, 1) == '$') {
         // #region Prepare String Parsing
@@ -614,49 +633,33 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     case 'role':
                         switch (cmd2.toLowerCase()) {
                             case 'player':
-                                switch (cmd3.toLowerCase()) {
-                                    case 'na':
-                                        addRole(channelID, userID, player_na);
-                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
-                                            asia, c4_role, in_role,
-                                            artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_eu, player_br, player_asia, player_c4, player_af, observer_role]);
-                                        break;
-                                    case 'eu':
-                                        addRole(channelID, userID, player_eu);
-                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
-                                            asia, c4_role, in_role,
-                                            artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_br, player_asia, player_c4, player_af, observer_role]);
-                                        break;
-                                    case 'br':
-                                        addRole(channelID, userID, player_br);
-                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
-                                            asia, c4_role, in_role,
-                                            artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_asia, player_c4, player_af, observer_role]);
-                                        break;
-                                    case 'asia':
-                                        addRole(channelID, userID, player_asia);
-                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
-                                            asia, c4_role, in_role,
-                                            artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_c4, player_af, observer_role]);
-                                        break;
-                                    case 'c4':
-                                        addRole(channelID, userID, player_c4);
-                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
-                                            asia, c4_role, in_role,
-                                            artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_asia, player_af, observer_role]);
-                                        break;
-                                    case 'af':
-                                        addRole(channelID, userID, player_af);
-                                        removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, active_competitive,
-                                            asia, c4_role, in_role,
-                                            artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                            player_na, player_eu, player_br, player_asia, player_c4, observer_role]);
-                                        break;
+                                if (channelID === roles_channel) {
+                                    switch (cmd3.toLowerCase()) {
+                                        case 'na':
+                                            addRole(channelID, userID, player_na);
+                                            removeRoles(channelID, userID, cas_roles);
+                                            break;
+                                        case 'eu':
+                                            addRole(channelID, userID, player_eu);
+                                            removeRoles(channelID, userID, cas_roles);
+                                            break;
+                                        case 'br':
+                                            addRole(channelID, userID, player_br);
+                                            removeRoles(channelID, userID, cas_roles);
+                                            break;
+                                        case 'asia':
+                                            addRole(channelID, userID, player_asia);
+                                            removeRoles(channelID, userID, cas_roles);
+                                            break;
+                                        case 'c4':
+                                            addRole(channelID, userID, player_c4);
+                                            removeRoles(channelID, userID, cas_roles);
+                                            break;
+                                        case 'af':
+                                            addRole(channelID, userID, player_af);
+                                            removeRoles(channelID, userID, cas_roles);
+                                            break;
+                                    }
                                 }
                                 break;
                         }
@@ -687,104 +690,40 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                     // #region Roles (Excluding Player - Region)
                     case 'role':
-                        switch (cmd2.toLowerCase()) {
-                            case 'player': sendMsg(channelID, choose_region); break;
-                            // #region Modding Roles
-                            case 'art':
-                                addRole(channelID, userID, artist_role);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                                break;
-                            case 'mechanics':
-                                addRole(channelID, userID, global_mechanics);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                                break;
-                            case 'model':
-                                addRole(channelID, userID, model_modder);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                                break;
-                            case 'moveset':
-                                addRole(channelID, userID, moveset_modder);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                                break;
-                            case 'texture':
-                                addRole(channelID, userID, texture_modder);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                                break;
-                            case 'sound':
-                                addRole(channelID, userID, sound_modder);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role]);
-                                break;
-                            // #endregion
+                        if (channelID === roles_channel) {
+                            switch (cmd2.toLowerCase()) {
+                                case 'player': sendMsg(channelID, choose_region); break;
 
-                            // #region Competitive/Styler/Casual/Observer Roles
-                            case 'competitive':
-                                addRole(channelID, userID, active_competitive);
-                                removeRoles(channelID, userID, [player_na, player_eu, player_br, styleur_role, casual_role]);
-                                break;
-                            case 'styler':
-                            case 'styleur':
-                                addRole(channelID, userID, styleur_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role,
-                                    active_competitive, artist_role, global_mechanics, model_modder, moveset_modder, texture_modder, sound_modder,
-                                    casual_role]);
-                                break;
-                            case 'casual':
-                                addRole(channelID, userID, casual_role);
-                                removeRoles(channelID, userID, [active_competitive, styleur_role, na_role, ca_role, eu_role, ru_role, br_role, af_role, observer_role]);
-                                break;
-                            case 'observer':
-                                addRole(channelID, userID, observer_role);
-                                removeRoles(channelID, userID, [active_competitive, styleur_role, player_na, player_eu, player_br, casual_role]);
-                                break;
-                            // #endregion
+                                // #region Modding/Artist Roles
+                                case 'gfx': addRole(channelID, userID, gfx_role); break;
+                                case 'vfx': addRole(channelID, userID, vfx_role); break;
+                                case 'mechanics': addRole(channelID, userID, global_mechanics); break;
+                                case 'model': addRole(channelID, userID, model_modder); break;
+                                case 'moveset': addRole(channelID, userID, moveset_modder); break;
+                                case 'texture': addRole(channelID, userID, texture_modder); break;
+                                case 'sound': addRole(channelID, userID, sound_modder); break;
+                                // #endregion
 
-                            // #region Non-Player Regions
-                            case 'na':
-                                addRole(channelID, userID, na_role);
-                                removeRoles(channelID, userID, [ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'ca':
-                                addRole(channelID, userID, ca_role);
-                                removeRoles(channelID, userID, [na_role, eu_role, asia, ru_role, br_role, af_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'eu':
-                                addRole(channelID, userID, eu_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, asia, ru_role, br_role, af_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'asia':
-                                addRole(channelID, userID, asia);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, ru_role, br_role, af_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'ru':
-                                addRole(channelID, userID, ru_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, br_role, af_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'br':
-                                addRole(channelID, userID, br_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, af_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'af':
-                                addRole(channelID, userID, af_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, c4_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'in':
-                                addRole(channelID, userID, in_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, c4_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            case 'c4':
-                                addRole(channelID, userID, c4_role);
-                                removeRoles(channelID, userID, [na_role, ca_role, eu_role, asia, ru_role, br_role, af_role, in_role,
-                                    player_na, player_eu, player_br, player_asia, player_c4, player_af, styleur_role]);
-                                break;
-                            // #endregion
+                                // #region Competitive/Styler/Casual/Observer Roles
+                                case 'competitive': addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); break;
+                                case 'styler':
+                                case 'styleur': addRole(channelID, userID, styleur_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'casual': addRole(channelID, userID, casual_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'observer': removeRoles(channelID, userID, com_roles.concat(cas_roles)); addRole(channelID, userID, observer_role); break;
+                                // #endregion
+
+                                // #region Non-Player Regions
+                                case 'na': addRole(channelID, userID, na_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'ca': addRole(channelID, userID, ca_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'eu': addRole(channelID, userID, eu_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'asia': addRole(channelID, userID, asia); removeRoles(channelID, userID, com_roles); break;
+                                case 'ru': addRole(channelID, userID, ru_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'br': addRole(channelID, userID, br_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'af': addRole(channelID, userID, af_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'in': addRole(channelID, userID, in_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'c4': addRole(channelID, userID, c4_role); removeRoles(channelID, userID, com_roles); break;
+                                // #endregion
+                            }
                         }
                         break;
                     // #endregion
@@ -834,7 +773,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         }
                         break;
 
-                // #endregion
+                    // #endregion
 
                 }
             }
@@ -1380,8 +1319,8 @@ bot.on('guildMemberAdd', function (callback) {
         addRole(rules_channel, callback.id, new_member);
         bot.sendMessage({
             to: agreement_channel,
-            message: "Hello, and welcome to Gev Community, <@" + callback.id + ">! Before you can gain access to all of our channels, please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel."
-        });
+            message: "Hello, and welcome to Gev Community, <@" + callback.id + ">! Please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel. If you have any questions that aren't covered in #faq, don't hesitate to <@226125976940052481>. After you agree with the Rules of the Server, you will gain access to these Categories and all the Channels contained therein:"
+        }).then(sendEmbed(agreement_channel, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev_channels.png"));
     }
 });
 
