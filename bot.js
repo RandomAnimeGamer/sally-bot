@@ -764,6 +764,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                     var msgs; var ids;
                                     console.log(bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
                                         if (err) console.error(err);
+                                        else console.log(response);
                                     }));
                                     msgs = bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
                                         if (err) console.error(err);
