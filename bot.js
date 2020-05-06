@@ -591,7 +591,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd2 = args.length > 1 ? args[1] : '';
         var cmd3 = args.length > 2 ? args[2] : '';
         var cmd4 = args.length > 3 ? args[3] : '';
-        args = args.splice(1);
+        // args = args.splice(1);// TODO: find out the reason for this abomination's existence
         console.log('cmd1: ' + cmd + ' ' + 'cmd2: ' + cmd2 + ' ' + 'cmd3: ' + cmd3 + ' ' + 'cmd4: ' + cmd4);
         // #endregion
 
@@ -815,6 +815,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         }
                     */
                     // #endregion
+
+                    // #region Message Management
+
+                    case 'del':
+                        if (!isNaN(cmd2) && cmd2 > 0) {
+                            if (bot.channels[channelID] !== undefined) {
+                                if (bot.channels[channelID].guild_id === serverid && (userID === "226125976940052481" || userID === "98484620286246912")) {
+                                    var msgs = bot.getMessages({ channelID: channelID, limit: 5 });
+                                    var ids;
+                                    for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; }
+                                    console.log(ids);
+                                }
+                            }
+                        }
+                        break;
+
+                // #endregion
+
                 }
             }
         }
@@ -1348,19 +1366,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 // #endregion
 
-                // #region Message Management
-
-                case 'fkasmngfnjdoihgiehsdwtoahjsti':
-                    console.log(bot.getMessages({
-                        channelID: channelID,
-                        limit: 5
-                    }, function (err, response) {
-                            if (err) console.error(err);
-                            else console.log(response);
-                    }));
-                    break;
-
-                // #endregion
             }
             
          }
