@@ -764,8 +764,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                     var msgs; var ids;
                                     bot.getMessages({ channelID: channelID, limit: 5 }, function (err, response) {
                                         if (err) console.error(err);
-                                        else msgs = response;
+                                        else { msgs = response; console.log(response); }
                                     });
+                                    console.log(msgs);
                                     for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; }
                                     console.log(ids);
                                 }
