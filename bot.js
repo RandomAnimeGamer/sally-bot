@@ -601,7 +601,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         bot.sendMessage({ to: roles_channel, message: "Welcome, <@" + userID + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles });
     }
 
-    if (channelID === active_comp_channel) { addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); break; }
+    if (channelID === active_comp_channel) { addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); }
 
     if (message.substring(0, 1) == '$') {
         // #region Prepare String Parsing
