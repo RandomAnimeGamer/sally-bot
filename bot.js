@@ -513,8 +513,6 @@ bot.on('ready', function (evt) {
     community = arrayToStr(community); unsc = arrayToStr(unsc); arashi = arrayToStr(arashi);
     bleach = arrayToStr(bleach); etc = arrayToStr(etc);
     logger.info('Parsed arrays to strings successfully.');
-
-    streamLoop();
 });
 
 bot.on('disconnect', function(erMsg, code) {
