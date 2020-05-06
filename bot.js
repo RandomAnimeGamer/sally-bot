@@ -83,7 +83,7 @@ function setListsProper() {
         'Global Mechanics Modder: $role mechanics',
         'Moveset Modder: $role moveset',
         'Model Modder: $role model',
-        'Sound Modder: $role sound```',
+        'Sound Modder: $role sound',
         'Texture Modder: $role texture```',
 
         'Artist Roles:', '```',
@@ -97,7 +97,7 @@ function setListsProper() {
         'Player - Asia: $role player asia',
         'Player - Brazil: $role player br',
         'Player - Middle East: $role player c4',
-        'Player - Africa: $role player af',
+        'Player - Africa: $role player af```',
 
         'Casual Player Roles:', '```',
         'Styleur - $role styleur',
