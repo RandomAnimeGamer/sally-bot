@@ -761,13 +761,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         if (!isNaN(cmd2) && cmd2 > 0) {
                             if (bot.channels[channelID] !== undefined) {
                                 if (bot.channels[channelID].guild_id === serverid && (userID === "226125976940052481" || userID === "98484620286246912")) {
-                                    // var ids;
-                                    console.log(bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
+                                    var msgs; var ids;
+                                    msgs = bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
                                         if (err) console.error(err);
-                                        else console.log(response);
-                                    }));
-                                    // for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; }
-                                    // console.log(ids);
+                                        else msgs = response;
+                                    });
+                                    setTimeout(() => {
+                                        for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; }
+                                        console.log(ids);
+                                    }, 500);
                                 }
                             }
                         }
