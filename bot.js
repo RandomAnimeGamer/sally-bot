@@ -762,7 +762,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             if (bot.channels[channelID] !== undefined) {
                                 if (bot.channels[channelID].guild_id === serverid && (userID === "226125976940052481" || userID === "98484620286246912")) {
                                     var msgs; var ids;
-                                    bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
+                                    console.log(bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
+                                        if (err) console.error(err);
+                                    }));
+                                    msgs = bot.getMessages({ channelID: channelID, limit: cmd2 }, function (err, response) {
                                         if (err) console.error(err);
                                         else { msgs = response; console.log(response); }
                                     });
