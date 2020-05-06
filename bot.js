@@ -767,7 +767,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                         else msgs = response;
                                     });
                                     setTimeout(() => {
-                                        for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; if(i > 0) ids += ',' }
+                                        console.log(msgs);
+                                        for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; if(i > 0 && i < msgs.length) ids += ',' }
                                         console.log(ids);
                                     }, 500);
                                 }
