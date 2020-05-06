@@ -822,8 +822,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         if (!isNaN(cmd2) && cmd2 > 0) {
                             if (bot.channels[channelID] !== undefined) {
                                 if (bot.channels[channelID].guild_id === serverid && (userID === "226125976940052481" || userID === "98484620286246912")) {
-                                    var msgs = bot.getMessages({ channelID: channelID, limit: 5 });
-                                    var ids;
+                                    var msgs; var ids;
+                                    bot.getMessages({ channelID: channelID, limit: 5 }, function (err, response) {
+                                        if (err) console.error(err);
+                                        else msgs = response;
+                                    });
                                     for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; }
                                     console.log(ids);
                                 }
