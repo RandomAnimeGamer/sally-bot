@@ -596,7 +596,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
             var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
             var msg = msgMod.toLowerCase();
-            console.log(msg);
 
             if (msg.match(curse_re) != null) {
                 sendMsg(channelID, curse_reply);
@@ -632,7 +631,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd3 = args.length > 2 ? args[2] : '';
         var cmd4 = args.length > 3 ? args[3] : '';
         // args = args.splice(1);// TODO: find out the reason for this abomination's existence
-        console.log('cmd1: ' + cmd + ' ' + 'cmd2: ' + cmd2 + ' ' + 'cmd3: ' + cmd3 + ' ' + 'cmd4: ' + cmd4);
+        // console.log('cmd1: ' + cmd + ' ' + 'cmd2: ' + cmd2 + ' ' + 'cmd3: ' + cmd3 + ' ' + 'cmd4: ' + cmd4);
         // #endregion
 
         if(cmd2 !== '') {
