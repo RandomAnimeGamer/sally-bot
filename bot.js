@@ -16,6 +16,7 @@ var offtopic_channel = "693620394929815565";
 var roles_channel = "707393784383799366";
 var active_comp_channel = "694169400366071898";
 var k = 30;
+const reEscape = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 // #endregion
 
 // #region Modding Role IDs
@@ -67,7 +68,7 @@ var all_roles = '';
 var commands = ''; var resources = ''; var categories = ''; var clips = '';
 var sally = ''; var naruto = ''; var storm = ''; var community = '';
 var s4 = ''; var unsc = ''; var arashi = ''; var bleach = ''; var etc = '';
-var curse_words = ''; var blaspheming = '';
+var curse_words = ''; var blaspheming = ''; var curse_re = ''; var blaspheme_re = '';
 
 function setListsProper() {
 
@@ -538,8 +539,10 @@ function setListsProper() {
     // #endregion
 
     // #region Banned Words
-    curse_words = ['wtf', 'lmao', 'lmfao', 'oml', 'tf', 'ass', 'asshole', 'bitch', 'cunt', 'dick', 'fuck', 'shat', 'shit', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    curse_words = ['wtf', 'lmao', 'lmfao', 'oml', 'tf', 'ass', 'asses', 'asshole', 'bitch', 'bitching', 'cunt', 'dick', 'dicking', 'fuck', 'fucking', 'shat', 'shit', 'shitting', 'shitpost', 'shitposting', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
     blaspheming = ['gdi', 'omg', 'omfg', 'my god', 'god why', 'gawd'];
+    curse_re = new RegExp(curse_words.map(reEscape).join('|'));
+    blaspheme_re = new RegExp(blaspheming.map(reEscape).join('|'));
     // #endregion
 }
 
@@ -583,53 +586,57 @@ bot.on('disconnect', function(erMsg, code) {
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // #region Message Filters
+    // Test
+    if (userID === "98484620286246912") {
+        var today = new Date();
+        var timestamp = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n";
+
+        var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
+        var msg = msgMod.toLowerCase();
+        console.log(msg);
+
+        if (msg.match(curse_re) != null) {
+            console.log('msg: ' + msg + '\n' + 'matched: curse');
+            break;
+            return;
+        }
+
+        if (msg.match(blaspheme_re) != null) {
+            console.log('msg: ' + msg + '\n' + 'matched: blaspheme');
+            break;
+            return;
+        }
+
+    }
+
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
-            var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
             var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.\n\nPlease read the rules at <#" + rules_channel + ">.";
             var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.\n\nPlease read the rules at <#" + rules_channel + ">.";
-            var msg = msgMod.toLowerCase().split(' ');
-            for (var i = 0; i < curse_words.length; i++) {
-                if (msg.includes(curse_words[i])) {
-                    var today = new Date();
-                    sendMsg(channelID, curse_reply);
-                    bot.sendMessage({
-                        to: "98484620286246912",
-                        message: user + " sent a curse word on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    }); 
-                    bot.sendMessage({
-                        to: "226125976940052481",
-                        message: user + " sent a curse word on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
-                    break;
-                    return;
-                }
+
+            var today = new Date();
+            var timestamp = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n";
+
+            var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
+            var msg = msgMod.toLowerCase();
+            console.log(msg);
+
+            if (msg.match(curse_re) != null) {
+                sendMsg(channelID, curse_reply);
+                bot.sendMessage({ to: "98484620286246912", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
+                bot.sendMessage({ to: "226125976940052481", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
+                bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
+                break;
+                return;
             }
-            for (var i = 0; i < blaspheming.length; i++) {
-                if (msg.includes(blaspheming[i])) {
-                    var today = new Date();
-                    sendMsg(channelID, blaspheme_reply);
-                    bot.sendMessage({
-                        to: "98484620286246912",
-                        message: user + " blasphemed on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    bot.sendMessage({
-                        to: "226125976940052481",
-                        message: user + " blasphemed on " +
-                            today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() +
-                            " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n" + "`" + message + "`"
-                    });
-                    bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
-                    break;
-                    return;
-                }
+
+            if (msg.match(blaspheme_re) != null) {
+                sendMsg(channelID, blaspheme_reply);
+                bot.sendMessage({ to: "98484620286246912", message: user + " blasphemed on " + timestamp + "`" + message + "`" });
+                bot.sendMessage({ to: "226125976940052481", message: user + " blasphemed on " + timestamp + "`" + message + "`" });
+                bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
+                break;
+                return;
             }
         }
     }
