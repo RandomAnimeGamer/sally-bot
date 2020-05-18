@@ -597,13 +597,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
         if (msg.match(curse_re) != null) {
             console.log('msg: ' + msg + '\n' + 'matched: curse');
-            break;
             return;
         }
 
         if (msg.match(blaspheme_re) != null) {
             console.log('msg: ' + msg + '\n' + 'matched: blaspheme');
-            break;
             return;
         }
 
@@ -626,7 +624,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({ to: "98484620286246912", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
                 bot.sendMessage({ to: "226125976940052481", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
                 bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
-                break;
                 return;
             }
 
@@ -635,7 +632,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({ to: "98484620286246912", message: user + " blasphemed on " + timestamp + "`" + message + "`" });
                 bot.sendMessage({ to: "226125976940052481", message: user + " blasphemed on " + timestamp + "`" + message + "`" });
                 bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
-                break;
                 return;
             }
         }
