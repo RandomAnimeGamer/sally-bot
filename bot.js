@@ -586,27 +586,6 @@ bot.on('disconnect', function(erMsg, code) {
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // #region Message Filters
-    // Test
-    if (userID === "98484620286246912") {
-        var today = new Date();
-        var timestamp = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n";
-
-        var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
-        var msg = msgMod.toLowerCase();
-        console.log(msg);
-
-        if (msg.match(curse_re) != null) {
-            console.log('msg: ' + msg + '\n' + 'matched: curse');
-            return;
-        }
-
-        if (msg.match(blaspheme_re) != null) {
-            console.log('msg: ' + msg + '\n' + 'matched: blaspheme');
-            return;
-        }
-
-    }
-
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
             var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.\n\nPlease read the rules at <#" + rules_channel + ">.";
