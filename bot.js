@@ -540,9 +540,12 @@ function setListsProper() {
 
     // #region Banned Words
     curse_words = ['wtf', 'lmao', 'lmfao', 'oml', 'tf', 'ass', 'asses', 'asshole', 'bitch', 'bitching', 'cunt', 'dick', 'dicking', 'fuck', 'fucking', 'shat', 'shit', 'shitting', 'shitpost', 'shitposting', 'prick', 'slut', 'whore', 'retard', 'retarded', 'damn', 'dammit', 'damnit', 'damm', 'hell', 'piss', 'pissed', 'bastard', 'choad', 'bollocks', 'bugger', 'shag', 'wank', 'wanker', 'twat', 'bloody oath', 'arse', 'nigga', 'niga', 'nigger'];
+    for (var i = 0; i > curse_words.length; i++) {
+        curse_words[i] = '/' + curse_words[i] + '/';
+    }
     blaspheming = ['gdi', 'omg', 'omfg', 'my god', 'god why', 'gawd'];
-    curse_re = new RegExp(curse_words.map(reEscape).join('|'));
-    blaspheme_re = new RegExp(blaspheming.map(reEscape).join('|'));
+    curse_re = new RegExp('\\b' + curse_words.map(reEscape).join('\\b|\\b') + '\\b');
+    blaspheme_re = new RegExp('\\b' + blaspheming.map(reEscape).join('\\b|\\b') + '\\b');
     // #endregion
 }
 
@@ -598,6 +601,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             var msg = msgMod.toLowerCase();
 
             if (msg.match(curse_re) != null) {
+                if (userID === "441517937569038346") {
+
+                }
                 sendMsg(channelID, curse_reply);
                 bot.sendMessage({ to: "98484620286246912", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
                 bot.sendMessage({ to: "226125976940052481", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
