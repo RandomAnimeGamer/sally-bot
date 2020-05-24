@@ -69,6 +69,7 @@ var commands = ''; var resources = ''; var categories = ''; var clips = '';
 var sally = ''; var naruto = ''; var storm = ''; var community = '';
 var s4 = ''; var unsc = ''; var arashi = ''; var bleach = ''; var etc = '';
 var curse_words = ''; var blaspheming = ''; var curse_re = ''; var blaspheme_re = '';
+var bl_servers = ''; var bl_users = ''; var is_admin = '';
 
 function setListsProper() {
 
@@ -547,6 +548,20 @@ function setListsProper() {
     curse_re = new RegExp('\\b' + curse_words.map(reEscape).join('\\b|\\b') + '\\b');
     blaspheme_re = new RegExp('\\b' + blaspheming.map(reEscape).join('\\b|\\b') + '\\b');
     // #endregion
+
+    // #region Blacklisted Servers/Users
+    bl_servers = [
+        "696985247849513010",
+    ];
+    bl_users = [
+        "98484620286246912"// test code for blocking all commands
+    ];
+    var is_admin = [
+        "98484620286246912",// R.A.G
+        "226125976940052481"// Chris
+    ];
+    // #endregion
+
 }
 
 
@@ -588,6 +603,7 @@ bot.on('disconnect', function(erMsg, code) {
 });
 
 bot.on('message', function (user, userID, channelID, message, evt) {
+
     // #region Message Filters
     if (bot.channels[channelID] !== undefined) {
         if (bot.channels[channelID].guild_id === serverid) {
@@ -605,16 +621,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 }
                 sendMsg(channelID, curse_reply);
-                bot.sendMessage({ to: "98484620286246912", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
-                bot.sendMessage({ to: "226125976940052481", message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
+                for (var i = 0; i < is_admin.length; i++) bot.sendMessage({ to: is_admin[i], message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
                 bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
                 return;
             }
 
             if (msg.match(blaspheme_re) != null) {
                 sendMsg(channelID, blaspheme_reply);
-                bot.sendMessage({ to: "98484620286246912", message: user + " blasphemed on " + timestamp + "`" + message + "`" });
-                bot.sendMessage({ to: "226125976940052481", message: user + " blasphemed on " + timestamp + "`" + message + "`" });
+                for (var i = 0; i < is_admin.length; i++) bot.sendMessage({ to: is_admin[i], message: user + " blasphemed on " + timestamp + "`" + message + "`" });
                 bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
                 return;
             }
@@ -628,6 +642,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     }
 
     if (channelID === active_comp_channel) { addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); }
+
+
+    // #region Prevent blacklist commands
+    var blocked = false;
+    for (var i = 0; i < bl_users.length; i++) { if (userID === bl_users[i]) { blocked = true; break; } }
+    if (bot.channels[channelID] !== undefined) {
+        for (var i = 0; i < bl_servers.length; i++) { if (bot.channels[channelID].guild_id === bl_servers[i]) { blocked = true; break; } }
+    }
+    if (blocked) return;
+    // #endregion
 
     if (message.substring(0, 1) == '$') {
         // #region Prepare String Parsing
@@ -1372,6 +1396,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 // #endregion
 
+                // #region Admin
+                case 'whoisusingsallyrn?':
+                    if (is_admin.includes(userID)) {
+                        for (var i = 0; i < bot.servers.count; i++) {
+                            bot.sendMessage({ to: userID, message: "\nServer " + i + ": " + bot.servers[i].name + "\n ID: " + bot.servers[i].id + "\n Members: " });
+                            for (var j = 0; j < bot.servers[i].members; j++) {
+                                bot.sendMessage({ to: userID, message: bot.servers[i].members[j].nick + "\n ID: " + bot.servers[i].members[j].id + "\n" });
+                            }
+                        }
+                    }
+
+
+
+                // #endregion
             }
             
          }
