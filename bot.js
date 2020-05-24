@@ -608,19 +608,19 @@ bot.on('message', message => {
 
             if (msg.match(curse_re) != null) {
                 sendMsg(channelID, curse_reply);
-                /*for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.fetch(is_admin[i]), message.author.username + "#" + message.author.discriminator + " sent a curse word on " + timestamp + "`" + message.content + "`");
+                for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.cache.get(is_admin[i]), message.author.username + "#" + message.author.discriminator + " sent a curse word on " + timestamp + "`" + message.content + "`");
                 message.channel.messages.fetch(message.id)
                     .then(msg => msg.delete())
-                    .catch(console.error);*/
+                    .catch(console.error);
                 return;
             }
 
             if (msg.match(blaspheme_re) != null) {
                 sendMsg(channelID, blaspheme_reply);
-                /*for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.fetch(is_admin[i]), message.author.username + "#" + message.author.discriminator + " blasphemed on " + timestamp + "`" + message.content + "`" );
+                for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.cache.get(is_admin[i]), message.author.username + "#" + message.author.discriminator + " blasphemed on " + timestamp + "`" + message.content + "`" );
                 message.channel.messages.fetch(message.id)
                     .then(msg => msg.delete())
-                    .catch(console.error);*/
+                    .catch(console.error);
                 return;
             }
         }
