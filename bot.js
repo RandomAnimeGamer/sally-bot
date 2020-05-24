@@ -595,8 +595,8 @@ bot.on('message', message => {
     var channelID = message.channel;
 
     // #region Message Filters
-    if (message.guild !== undefined) {
-        if (message.guild.id === serverid) {
+    if (message.guild && message.guild !== undefined) {
+        if (message.guild.id && message.guild.id !== undefined && message.guild.id === serverid) {
             var curse_reply = "Don't curse, <@" + message.author.id + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.\n\nPlease read the rules at <#" + rules_channel + ">.";
             var blaspheme_reply = "<@" + message.author.id + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.\n\nPlease read the rules at <#" + rules_channel + ">.";
 
@@ -631,8 +631,13 @@ bot.on('message', message => {
     // #region Prevent blacklist commands
     var blocked = false;
     for (var i = 0; i < bl_users.length; i++) { if (message.author.id === bl_users[i]) { blocked = true; break; } }
-    if (message.guild !== undefined) {
-        for (var i = 0; i < bl_servers.length; i++) { if (message.guild.id === bl_servers[i]) { blocked = true; break; } }
+    if (message.guild && message.guild !== undefined) {
+        for (var i = 0; i < bl_servers.length; i++) {
+            if (message.guild.id && message.guild.id !== undefined && message.guild.id === bl_servers[i]) {
+                blocked = true;
+                break;
+            }
+        }
     }
     if (blocked) return;
     // #endregion
