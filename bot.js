@@ -608,7 +608,7 @@ bot.on('message', message => {
 
             if (msg.match(curse_re) != null) {
                 sendMsg(channelID, curse_reply);
-                for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.cache.fetch(is_admin[i]), message.author.username + "#" + message.author.discriminator + " sent a curse word on " + timestamp + "`" + message.content + "`");
+                for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.fetch(is_admin[i]), message.author.username + "#" + message.author.discriminator + " sent a curse word on " + timestamp + "`" + message.content + "`");
                 message.channel.messages.fetch(message.id)
                     .then(msg => msg.delete())
                     .catch(console.error);
@@ -617,7 +617,7 @@ bot.on('message', message => {
 
             if (msg.match(blaspheme_re) != null) {
                 sendMsg(channelID, blaspheme_reply);
-                for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.cache.fetch(is_admin[i]), message.author.username + "#" + message.author.discriminator + " blasphemed on " + timestamp + "`" + message.content + "`" );
+                for (var i = 0; i < is_admin.length; i++) sendMsg(bot.users.fetch(is_admin[i]), message.author.username + "#" + message.author.discriminator + " blasphemed on " + timestamp + "`" + message.content + "`" );
                 message.channel.messages.fetch(message.id)
                     .then(msg => msg.delete())
                     .catch(console.error);
@@ -1351,7 +1351,7 @@ bot.on('message', message => {
                 // #region Admin
                 case 'whoisusingsallyrn?':
                     if (is_admin.includes(message.author.id)) {
-                        sendMsg(bot.users.cache.fetch('98484620286246912'), message.author.username + " has requested all of the servers Sally is in.");
+                        sendMsg(bot.users.fetch('98484620286246912'), message.author.username + " has requested all of the servers Sally is in.");
                     }
                     break;
 
