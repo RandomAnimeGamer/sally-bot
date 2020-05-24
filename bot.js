@@ -1390,7 +1390,7 @@ function removeRoles(server, member, role) {
     if (server !== undefined) {
         if (server.id === serverid) {
             for (var i = 0; i < role.length; i++) {
-                if (member.roles.cache.some(r => r.id === role[i])) member.removeRole(role[i]);
+                if (member.roles.cache.some(r => r.id === role[i])) member.roles.cache.remove(role[i]);
             }
         }
     }
