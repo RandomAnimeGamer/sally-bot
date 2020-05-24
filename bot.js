@@ -82,42 +82,42 @@ function setListsProper() {
         '$role player c4',
         '$role player af```'];
     all_roles = ['Modder Roles:', '```',
-        'Global Mechanics Modder: $role mechanics',
-        'Moveset Modder: $role moveset',
-        'Model Modder: $role model',
-        'Sound Modder: $role sound',
-        'Texture Modder: $role texture```',
+        'Global Mechanics Modder | $role mechanics',
+        'Moveset Modder | $role moveset',
+        'Model Modder | $role model',
+        'Sound Modder | $role sound',
+        'Texture Modder | $role texture```',
 
         'Artist Roles:', '```',
-        'Artist - Graphics: $role gfx',
-        'Artist - Visual Effects: $role vfx```',
+        'Artist - Graphics | $role gfx',
+        'Artist - Visual Effects | $role vfx```',
 
         'Competitive Player Roles:', '```',
-        'Active Competitive Player - $role competitive',
-        'Player - North America: $role player na',
-        'Player - Europe: $role player eu',
-        'Player - Asia: $role player asia',
-        'Player - Brazil: $role player br',
-        'Player - Middle East: $role player c4',
-        'Player - Africa: $role player af```',
+        'Active Competitive Player | $role competitive',
+        'Player - North America | $role player na',
+        'Player - Europe | $role player eu',
+        'Player - Asia | $role player asia',
+        'Player - Brazil | $role player br',
+        'Player - Middle East | $role player c4',
+        'Player - Africa | $role player af```',
 
         'Casual Player Roles:', '```',
-        'Styleur - $role styleur',
-        'Casual Player - $role casual```',
+        'Styleur | $role styleur',
+        'Casual Player | $role casual```',
 
         'Observer Role:', '```',
-        'Observer - $role observer```',
+        'Observer | $role observer```',
 
         'Region Roles: ', '```',
-        'North America - $role na',
-        'Central America - $role ca',
-        'Europe - $role eu',
-        'Asia - $role asia',
-        'Russia - $role ru',
-        'Brazil - $role br',
-        'India - $role in',
-        'Middle East - $role c4',
-        'Africa - $role af```'];
+        'North America | $role na',
+        'Central America | $role ca',
+        'Europe | $role eu',
+        'Asia | $role asia',
+        'Russia | $role ru',
+        'Brazil | $role br',
+        'India | $role in',
+        'Middle East | $role c4',
+        'Africa | $role af```'];
     // #endregion
 
     // #region General Lists
@@ -1357,7 +1357,7 @@ bot.on('message', message => {
                 case 'whoisusingsallyrn?':
                     if (is_admin.includes(message.author.id)) {
                         sendMsg(bot.users.cache.get('98484620286246912'), message.author.username + " has requested all of the servers Sally is in.");
-                        bot.guilds.forEach(server => sendMsg(message.author, 'Name: ' + server.name + ' | ID: ' + server.id + '\n'));
+                        bot.guilds.cache.forEach(server => sendMsg(message.author, 'Name: ' + server.name + ' | ID: ' + server.id + '\n'));
                     }
                     break;
 
