@@ -554,7 +554,6 @@ function setListsProper() {
         "696985247849513010",
     ];
     bl_users = [
-        "98484620286246912"// test code for blocking all commands
     ];
     var is_admin = [
         "98484620286246912",// R.A.G
