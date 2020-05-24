@@ -6,6 +6,7 @@
     "author": "RandomAnimeGamer",
     "dependencies": {
         "discord.io": "github:woor/discord.io#gateway_v6",
+        "discord.js": "^12.2.0",
         "winston": "^2.4.1",
         "ws": "^7.1.2"
     }

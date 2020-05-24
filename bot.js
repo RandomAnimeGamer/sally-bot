@@ -1,8 +1,6 @@
 // #region Imports
-var Discord = require('discord.io');
-var logger = require('winston');
-//var fs = require("fs");
-//var auth = require('./auth.json');
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 // #endregion
 
 var refresh = true;
@@ -64,12 +62,14 @@ var com_roles = [active_competitive, player_na, player_eu, player_asia, player_b
 
 var choose_region = '';
 var all_roles = '';
- 
+
+// #region List Placeholders
 var commands = ''; var resources = ''; var categories = ''; var clips = '';
 var sally = ''; var naruto = ''; var storm = ''; var community = '';
 var s4 = ''; var unsc = ''; var arashi = ''; var bleach = ''; var etc = '';
 var curse_words = ''; var blaspheming = ''; var curse_re = ''; var blaspheme_re = '';
 var bl_servers = ''; var bl_users = ''; var is_admin = '';
+// #endregion
 
 function setListsProper() {
 
@@ -563,23 +563,11 @@ function setListsProper() {
 
 }
 
-
-
-// Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client({
-   token: process.env.BOT_TOKEN,
-   autorun: true
-});
-bot.on('ready', function (evt) {
+bot.once('ready', () => {
     refresh = true;
-    logger.info('Connected');
-    logger.info('Logged in as: ' + bot.username + ' - (' + bot.id + ')\n');
+    console.log('Ready!');
+    console.log('Logged in as: ' + bot.user.username + ' - (' + bot.user.id + ')\n');
 
     // Parse arrays into strings
     setListsProper();
@@ -588,79 +576,81 @@ bot.on('ready', function (evt) {
     sally = arrayToStr(sally); naruto = arrayToStr(naruto); storm = arrayToStr(storm); s4 = arrayToStr(s4);
     community = arrayToStr(community); unsc = arrayToStr(unsc); arashi = arrayToStr(arashi);
     bleach = arrayToStr(bleach); etc = arrayToStr(etc);
-    logger.info('Parsed arrays to strings successfully.');
+    console.log('Parsed arrays to strings successfully.');
 });
+bot.login(process.env.BOT_TOKEN);
 
-bot.on('disconnect', function(erMsg, code) {
-    console.log('----- Bot disconnected from Discord with code', code, 'for reason:', erMsg, '-----');
+bot.on('disconnect', function(event) {
+    console.log('----- Bot disconnected from Discord -----');
     if(refresh) {
         console.log('Attempting to reconnect...\n');
-        setTimeout(bot.connect.bind(bot), 1000);
+        setTimeout(bot.login(process.env.BOT_TOKEN), 1000);
     } else {
         console.log('No reconnect requested...\n');
     }
 });
 
-bot.on('message', function (user, userID, channelID, message, evt) {
+bot.on('message', message => {
+    if (message.author.bot) return;
+    var channelID = message.channel;
 
     // #region Message Filters
-    if (bot.channels[channelID] !== undefined) {
-        if (bot.channels[channelID].guild_id === serverid) {
-            var curse_reply = "Don't curse, <@" + userID + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.\n\nPlease read the rules at <#" + rules_channel + ">.";
-            var blaspheme_reply = "<@" + userID + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.\n\nPlease read the rules at <#" + rules_channel + ">.";
+    if (message.guild !== undefined) {
+        if (message.guild.id === serverid) {
+            var curse_reply = "Don't curse, <@" + message.author.id + ">; it calls down real evil. Padre Pio, Stigmatist and Catholic Priest who lived in the mid-20th century, said that the devil is near to those who curse.\n\nPlease read the rules at <#" + rules_channel + ">.";
+            var blaspheme_reply = "<@" + message.author.id + ">, don't blaspheme! Our Lord showed Sister Mary of St. Peter in 1843, how much blasphemy hurt Him, \"more grievously than all other sins,\" as she put it, by having her visualize it as \"a poisoned arrow continually wounding His Divine Heart.\" \n\nShe continues in her autobiography, \"after that He revealed to me that He wanted to give me a 'Golden Arrow' which would have the power of wounding Him delightfully, and which would also heal those other wounds inflicted by the malice of sinners,\" with torrents of graces emanating from it!\" \n\nMay the most holy, most sacred, most adorable, most incomprehensible and unutterable Name of God be always praised, blessed, loved, adored and glorified in Heaven, on earth, and under the earth, by all the creatures of God, and by the Sacred Heart of Our Lord Jesus Christ, in the Most Holy Sacrament of the Altar. Amen.\n\nPlease read the rules at <#" + rules_channel + ">.";
 
             var today = new Date();
             var timestamp = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + " at " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "\n";
 
-            var msgMod = removeRepeated(message, 2) + ' ' + removeRepeated(message, 1) + ' ' + message;
+            var msgMod = removeRepeated(message.content, 2) + ' ' + removeRepeated(message.content, 1) + ' ' + message.content;
             var msg = msgMod.toLowerCase();
 
             if (msg.match(curse_re) != null) {
-                if (userID === "441517937569038346") {
-
-                }
                 sendMsg(channelID, curse_reply);
-                for (var i = 0; i < is_admin.length; i++) bot.sendMessage({ to: is_admin[i], message: user + " sent a curse word on " + timestamp + "`" + message + "`" });
-                bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
+                for (var i = 0; i < is_admin.length; i++) sendMsg(is_admin[i], message.author.username + " sent a curse word on " + timestamp + "`" + message.content + "`");
+                message.channel.messages.fetch(message.id)
+                    .then(msg => msg.delete())
+                    .catch(console.error);
                 return;
             }
 
             if (msg.match(blaspheme_re) != null) {
                 sendMsg(channelID, blaspheme_reply);
-                for (var i = 0; i < is_admin.length; i++) bot.sendMessage({ to: is_admin[i], message: user + " blasphemed on " + timestamp + "`" + message + "`" });
-                bot.deleteMessage({ channelID: channelID, messageID: evt.d.id }, function (err) { console.log(err) });
+                for (var i = 0; i < is_admin.length; i++) sendMsg(is_admin[i], message.author.username + " blasphemed on " + timestamp + "`" + message.content + "`" );
+                message.channel.messages.fetch(message.id)
+                    .then(msg => msg.delete())
+                    .catch(console.error);
                 return;
             }
         }
     }
     // #endregion
 
-    if (channelID === agreement_channel && message === 'I agree.') {
-        removeRoles(channelID, userID, [new_member]);
-        bot.sendMessage({ to: roles_channel, message: "Welcome, <@" + userID + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles });
+    if (channelID === agreement_channel && message.content === 'I agree.') {
+        removeRoles(message.guild, message.author, [new_member]);
+        sendMsg(roles_channel, "Welcome, <@" + message.author.id + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles );
     }
 
-    if (channelID === active_comp_channel) { addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); }
+    if (channelID.id === active_comp_channel) { message.member.addRole(active_competitive); removeRoles(message.guild, message.author, cas_roles); }
 
 
     // #region Prevent blacklist commands
     var blocked = false;
-    for (var i = 0; i < bl_users.length; i++) { if (userID === bl_users[i]) { blocked = true; break; } }
-    if (bot.channels[channelID] !== undefined) {
-        for (var i = 0; i < bl_servers.length; i++) { if (bot.channels[channelID].guild_id === bl_servers[i]) { blocked = true; break; } }
+    for (var i = 0; i < bl_users.length; i++) { if (message.author.id === bl_users[i]) { blocked = true; break; } }
+    if (message.guild !== undefined) {
+        for (var i = 0; i < bl_servers.length; i++) { if (message.guild.id === bl_servers[i]) { blocked = true; break; } }
     }
     if (blocked) return;
     // #endregion
 
-    if (message.substring(0, 1) == '$') {
+    if (message.content.substring(0, 1) == '$') {
         // #region Prepare String Parsing
-        var args = message.substring(1).split(' ');
+        var args = message.content.substring(1).split(' ');
         var cmd = args[0];
         var cmd2 = args.length > 1 ? args[1] : '';
         var cmd3 = args.length > 2 ? args[2] : '';
         var cmd4 = args.length > 3 ? args[3] : '';
-        // args = args.splice(1);// TODO: find out the reason for this abomination's existence
-        // console.log('cmd1: ' + cmd + ' ' + 'cmd2: ' + cmd2 + ' ' + 'cmd3: ' + cmd3 + ' ' + 'cmd4: ' + cmd4);
         // #endregion
 
         if(cmd2 !== '') {
@@ -685,28 +675,28 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                 if (channelID === roles_channel) {
                                     switch (cmd3.toLowerCase()) {
                                         case 'na':
-                                            addRole(channelID, userID, player_na);
-                                            removeRoles(channelID, userID, cas_roles);
+                                            message.member.addRole(player_na);
+                                            removeRoles(message.guild, message.author, cas_roles);
                                             break;
                                         case 'eu':
-                                            addRole(channelID, userID, player_eu);
-                                            removeRoles(channelID, userID, cas_roles);
+                                            message.member.addRole(player_eu);
+                                            removeRoles(message.guild, message.author, cas_roles);
                                             break;
                                         case 'br':
-                                            addRole(channelID, userID, player_br);
-                                            removeRoles(channelID, userID, cas_roles);
+                                            message.member.addRole(player_br);
+                                            removeRoles(message.guild, message.author, cas_roles);
                                             break;
                                         case 'asia':
-                                            addRole(channelID, userID, player_asia);
-                                            removeRoles(channelID, userID, cas_roles);
+                                            message.member.addRole(player_asia);
+                                            removeRoles(message.guild, message.author, cas_roles);
                                             break;
                                         case 'c4':
-                                            addRole(channelID, userID, player_c4);
-                                            removeRoles(channelID, userID, cas_roles);
+                                            message.member.addRole(player_c4);
+                                            removeRoles(message.guild, message.author, cas_roles);
                                             break;
                                         case 'af':
-                                            addRole(channelID, userID, player_af);
-                                            removeRoles(channelID, userID, cas_roles);
+                                            message.member.addRole(player_af);
+                                            removeRoles(message.guild, message.author, cas_roles);
                                             break;
                                     }
                                 }
@@ -744,82 +734,48 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                                 case 'player': sendMsg(channelID, choose_region); break;
 
                                 // #region Modding/Artist Roles
-                                case 'gfx': addRole(channelID, userID, gfx_role); break;
-                                case 'vfx': addRole(channelID, userID, vfx_role); break;
-                                case 'mechanics': addRole(channelID, userID, global_mechanics); break;
-                                case 'model': addRole(channelID, userID, model_modder); break;
-                                case 'moveset': addRole(channelID, userID, moveset_modder); break;
-                                case 'texture': addRole(channelID, userID, texture_modder); break;
-                                case 'sound': addRole(channelID, userID, sound_modder); break;
+                                case 'gfx': message.member.addRole(gfx_role); break;
+                                case 'vfx': message.member.addRole(vfx_role); break;
+                                case 'mechanics': message.member.addRole(global_mechanics); break;
+                                case 'model': message.member.addRole(model_modder); break;
+                                case 'moveset': message.member.addRole(moveset_modder); break;
+                                case 'texture': message.member.addRole(texture_modder); break;
+                                case 'sound': message.member.addRole(sound_modder); break;
                                 // #endregion
 
                                 // #region Competitive/Styler/Casual/Observer Roles
-                                case 'competitive': addRole(channelID, userID, active_competitive); removeRoles(channelID, userID, cas_roles); break;
+                                case 'competitive': message.member.addRole(active_competitive); removeRoles(message.guild, message.author, cas_roles); break;
                                 case 'styler':
-                                case 'styleur': addRole(channelID, userID, styleur_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'casual': addRole(channelID, userID, casual_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'observer': removeRoles(channelID, userID, com_roles.concat(cas_roles)); addRole(channelID, userID, observer_role); break;
+                                case 'styleur': message.member.addRole(styleur_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'casual': message.member.addRole(casual_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'observer': removeRoles(message.guild, message.author, com_roles.concat(cas_roles)); message.member.addRole(observer_role); break;
                                 // #endregion
 
                                 // #region Non-Player Regions
-                                case 'na': addRole(channelID, userID, na_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'ca': addRole(channelID, userID, ca_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'eu': addRole(channelID, userID, eu_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'asia': addRole(channelID, userID, asia); removeRoles(channelID, userID, com_roles); break;
-                                case 'ru': addRole(channelID, userID, ru_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'br': addRole(channelID, userID, br_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'af': addRole(channelID, userID, af_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'in': addRole(channelID, userID, in_role); removeRoles(channelID, userID, com_roles); break;
-                                case 'c4': addRole(channelID, userID, c4_role); removeRoles(channelID, userID, com_roles); break;
+                                case 'na': message.member.addRole(na_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'ca': message.member.addRole(ca_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'eu': message.member.addRole(eu_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'asia': message.member.addRole(asia); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'ru': message.member.addRole(ru_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'br': message.member.addRole(br_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'af': message.member.addRole(af_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'in': message.member.addRole(in_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'c4': message.member.addRole(c4_role); removeRoles(message.guild, message.author, com_roles); break;
                                 // #endregion
                             }
                         }
                         break;
                     // #endregion
-
-                    // #region ELO (Removed)
-                    /*case 'elo':
-                        switch(cmd2.toLowerCase()) {
-                            case 'register':
-                                var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"});
-                                fs.writeFile(file, elo_txt + '\n' + userID + '@' + user + '@' + '0', function(err) {
-                                    if(err) console.log(err);
-                                    else console.log("file written successfully " + '\n' + userID + '@' + user + '@' + '0');
-                                });
-                                //fs.writeFile("./elo.text", '\n' + userID + '@:' + user + '@:' + '0', (err) => sendMsg(channelID, 'There was an error registering you on our ELO list.'));
-                                //sendMsg(channelID, 'You have been added to the ELO Ranking System on Sally Bot! (If you received an error just before this message, please contact R.A.G)');
-                            break;
-                            case 'top5':
-                                var elo_txt = fs.readFileSync(file, {"encoding": "utf-8"}).replace('\n','');
-                                var elo_arr = elo_txt.split('@');
-                                var elo_2d = [];
-                                while(elo_arr.length) elo_2d.push(elo_arr.splice(0,3));
-                                console.log(elo_2d);
-                            	
-                            break;
-                            case 'restart':
-                                fs.readFileSync('aosiljhntklasrjlaskjrowajrnkoawrjnmlawr', {"encoding": "utf-8"});
-                            break;
-                        }
-                    */
-                    // #endregion
-
+                    
                     // #region Message Management
 
                     case 'del':
                         if (!isNaN(cmd2) && cmd2 > 0) {
-                            if (bot.channels[channelID] !== undefined) {
-                                if (bot.channels[channelID].guild_id === serverid && (userID === "226125976940052481" || userID === "98484620286246912")) {
-                                    var msgs; var ids;
-                                    msgs = bot.getMessages({ channelID: channelID, before: message.id, limit: cmd2 }, function (err, response) {
-                                        if (err) console.error(err);
-                                        else msgs = response;
-                                    });
-                                    setTimeout(() => {
-                                        console.log(msgs);
-                                        for (var i = 0; i < msgs.length; i++) { ids += msgs[i].id; if(i > 0 && i < msgs.length) ids += ',' }
-                                        console.log(ids);
-                                    }, 500);
+                            if (message.guild !== undefined) {
+                                if (message.guild.id === serverid && (message.author.id === "226125976940052481" || message.author.id === "98484620286246912")) {
+                                    message.channel.bulkDelete(cmd2)
+                                        .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
+                                        .catch(console.error);
                                 }
                             }
                         }
@@ -852,11 +808,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     break;
                 case 'resource':
                 case 'resources': sendMsg(channelID, resources); break;
-                // #endregion
-
-				// #region ELO (Removed)
-				//case 'elo': 
-					//var elo_txt = fs.readFileSync("./elo.txt", {"encoding": "utf-8"});
                 // #endregion
 
                 // #region Resources
@@ -1397,20 +1348,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
                 // #region Admin
                 case 'whoisusingsallyrn?':
-                    if (is_admin.includes(userID)) {
-                        bot.sendMessage({ to: "98484620286246912", message: user + " has requested all of the servers Sally is in." });
-                        console.log(JSON.stringify(bot.servers));
-                        Object.keys(bot.servers).foreach(function (element) {
-                            Object.keys(servers[element]).forEach(function (attribute) {
-                                if (attribute === "name") console.log(attribute + "," + servers[element][attribute]);
-                            });
-                            /*
-                            bot.sendMessage({ to: userID, message: "\nServer: " + element.name + "\n ID: " + element.id + "\n Members: " });
-                            element.members.foreach(membervar => {
-                                bot.sendMessage({ to: userID, message: membervar.nick + "\n ID: " + membervar.id + "\n" });
-                            });
-                            */
-                        });
+                    if (is_admin.includes(message.author.id)) {
+                        sendMsg("98484620286246912", message.author.username + " has requested all of the servers Sally is in.");
                     }
                     break;
 
@@ -1423,60 +1362,32 @@ bot.on('message', function (user, userID, channelID, message, evt) {
      }
 });
 
-bot.on('guildMemberAdd', function (callback) {
-    if (callback.guild_id === serverid) {
-        addRole(rules_channel, callback.id, new_member);
-        bot.sendMessage({
-            to: agreement_channel,
-            message: "Hello, and welcome to Gev Community, <@" + callback.id + ">! Please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel. If you have any questions that aren't covered in <#" + faq_channel + ">, don't hesitate to <@226125976940052481>. After you agree with the Rules of the Server, you will gain access to these Categories and all the Channels contained therein:"
-        });
+bot.on("guildMemberAdd", (member) => {
+    if (member.guild.id === serverid) {
+        member.addRole(new_member);
+        sendMsg(agreement_channel, "Hello, and welcome to Gev Community, <@" + member.id + ">! Please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel. If you have any questions that aren't covered in <#" + faq_channel + ">, don't hesitate to <@226125976940052481>. After you agree with the Rules of the Server, you will gain access to these Categories and all the Channels contained therein:");
         setTimeout(() => { sendEmbed(agreement_channel, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev_channels.png"); }, 250);
         setTimeout(() => { sendEmbed(agreement_channel, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/valantgev.png"); }, 500);
     }
 });
 
 function sendEmbed(channel, imgurl) {
-    bot.sendMessage({ to: channel, message: '', embed: { image: { url: imgurl } } });
+    var new_embed = new Discord.MessageEmbed().setImage(imgurl);
+    channel.send(new_embed);
     console.log(imgurl);
 }
 function sendMsg(channel, text) {
-    bot.sendMessage({ to: channel, message: text });
+    channel.send(text);
     console.log(text);
 }
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
 
 // #region Roles
-function addRole(channelID, userID, role) {
-    if (bot.channels[channelID] !== undefined) {
-        if (bot.channels[channelID].guild_id === serverid) {
-            bot.addToRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
-                if (err) console.error(err);
-                else console.log(response);
-            });
-        }
-    }
-}
-function removeRole(channelID, userID, role) {
-    if (bot.channels[channelID] !== undefined) {
-        if (bot.channels[channelID].guild_id === serverid) {
-            bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role }, function (err, response) {
-                if (err) console.error(err);
-                else console.log(response);
-            });
-        }
-    }
-}
-function removeRoles(channelID, userID, role) {
-    if (bot.channels[channelID] !== undefined) {
-        if (bot.channels[channelID].guild_id === serverid) {
-            var avail_roles = bot.servers[serverid].members[userID].roles;
+function removeRoles(server, member, role) {
+    if (server !== undefined) {
+        if (server.id === serverid) {
             for (var i = 0; i < role.length; i++) {
-                if (avail_roles.includes(role[i])) {
-                    bot.removeFromRole({ "serverID": serverid, "userID": userID, "roleID": role[i] }, function (err, response) {
-                        if (err) console.error(err);
-                        else console.log(response);
-                    });
-                }
+                if (member.roles.some(r => r.id === role[i])) member.removeRole(role[i]);
             }
         }
     }
