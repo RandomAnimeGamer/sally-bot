@@ -1400,11 +1400,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     if (is_admin.includes(userID)) {
                         bot.sendMessage({ to: "98484620286246912", message: user + " has requested all of the servers Sally is in." });
                         console.log(JSON.stringify(bot.servers));
-                        bot.servers.foreach(element => {
+                        Object.keys(bot.servers).foreach(function (element) {
+                            Object.keys(servers[element]).forEach(function (attribute) {
+                                if (attribute === "name") console.log(attribute + "," + servers[element][attribute]);
+                            });
+                            /*
                             bot.sendMessage({ to: userID, message: "\nServer: " + element.name + "\n ID: " + element.id + "\n Members: " });
                             element.members.foreach(membervar => {
                                 bot.sendMessage({ to: userID, message: membervar.nick + "\n ID: " + membervar.id + "\n" });
                             });
+                            */
                         });
                     }
                     break;
