@@ -674,7 +674,7 @@ bot.on('message', message => {
                     case 'role':
                         switch (cmd2.toLowerCase()) {
                             case 'player':
-                                if (channelID === roles_channel) {
+                                if (channelID.id === roles_channel) {
                                     switch (cmd3.toLowerCase()) {
                                         case 'na':
                                             message.member.roles.add(player_na);
@@ -731,7 +731,7 @@ bot.on('message', message => {
 
                     // #region Roles (Excluding Player - Region)
                     case 'role':
-                        if (channelID === roles_channel) {
+                        if (channelID.id === roles_channel) {
                             switch (cmd2.toLowerCase()) {
                                 case 'player': sendMsg(channelID, choose_region); break;
 
