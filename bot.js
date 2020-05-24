@@ -608,7 +608,7 @@ bot.on('message', message => {
 
             if (msg.match(curse_re) != null) {
                 sendMsg(channelID, curse_reply);
-                for (var i = 0; i < is_admin.length; i++) sendMsg(is_admin[i], message.author.username + " sent a curse word on " + timestamp + "`" + message.content + "`");
+                for (var i = 0; i < is_admin.length; i++) sendMsg(message.guild.users.fetch(is_admin[i]), message.author.username + " sent a curse word on " + timestamp + "`" + message.content + "`");
                 message.channel.messages.fetch(message.id)
                     .then(msg => msg.delete())
                     .catch(console.error);
@@ -617,7 +617,7 @@ bot.on('message', message => {
 
             if (msg.match(blaspheme_re) != null) {
                 sendMsg(channelID, blaspheme_reply);
-                for (var i = 0; i < is_admin.length; i++) sendMsg(is_admin[i], message.author.username + " blasphemed on " + timestamp + "`" + message.content + "`" );
+                for (var i = 0; i < is_admin.length; i++) sendMsg(message.guild.users.fetch(is_admin[i]), message.author.username + " blasphemed on " + timestamp + "`" + message.content + "`" );
                 message.channel.messages.fetch(message.id)
                     .then(msg => msg.delete())
                     .catch(console.error);
@@ -627,9 +627,9 @@ bot.on('message', message => {
     }
     // #endregion
 
-    if (channelID === agreement_channel && message.content === 'I agree.') {
+    if (channelID.id === agreement_channel && message.content === 'I agree.') {
         removeRoles(message.guild, message.author, [new_member]);
-        sendMsg(roles_channel, "Welcome, <@" + message.author.id + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles );
+        sendMsg(client.channels.get(roles_channel), "Welcome, <@" + message.author.id + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles );
     }
 
     if (channelID.id === active_comp_channel) { message.member.roles.add(active_competitive); removeRoles(message.guild, message.author, cas_roles); }
@@ -1349,7 +1349,7 @@ bot.on('message', message => {
                 // #region Admin
                 case 'whoisusingsallyrn?':
                     if (is_admin.includes(message.author.id)) {
-                        sendMsg("98484620286246912", message.author.username + " has requested all of the servers Sally is in.");
+                        sendMsg(message.guild.users.fetch('98484620286246912'), message.author.username + " has requested all of the servers Sally is in.");
                     }
                     break;
 
@@ -1365,9 +1365,9 @@ bot.on('message', message => {
 bot.on("guildMemberAdd", (member) => {
     if (member.guild.id === serverid) {
         member.roles.add(new_member);
-        sendMsg(agreement_channel, "Hello, and welcome to Gev Community, <@" + member.id + ">! Please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel. If you have any questions that aren't covered in <#" + faq_channel + ">, don't hesitate to <@226125976940052481>. After you agree with the Rules of the Server, you will gain access to these Categories and all the Channels contained therein:");
-        setTimeout(() => { sendEmbed(agreement_channel, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev_channels.png"); }, 250);
-        setTimeout(() => { sendEmbed(agreement_channel, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/valantgev.png"); }, 500);
+        sendMsg(client.channels.get(agreement_channel), "Hello, and welcome to Gev Community, <@" + member.id + ">! Please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel. If you have any questions that aren't covered in <#" + faq_channel + ">, don't hesitate to <@226125976940052481>. After you agree with the Rules of the Server, you will gain access to these Categories and all the Channels contained therein:");
+        setTimeout(() => { sendEmbed(client.channels.get(agreement_channel), "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev_channels.png"); }, 250);
+        setTimeout(() => { sendEmbed(client.channels.get(agreement_channel), "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/valantgev.png"); }, 500);
     }
 });
 
@@ -1378,6 +1378,10 @@ function sendEmbed(channel, imgurl) {
 }
 function sendMsg(channel, text) {
     channel.send(text);
+    console.log(text);
+}
+function sendDM(user, text) {
+    user.send(text);
     console.log(text);
 }
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
