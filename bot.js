@@ -1399,7 +1399,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 'whoisusingsallyrn?':
                     if (is_admin.includes(userID)) {
                         bot.sendMessage({ to: "98484620286246912", message: user + " has requested all of the servers Sally is in." });
-                        bot.sendMessage({ to: userID, message: bot.servers.stringify() });
+                        bot.sendMessage({ to: userID, message: JSON.stringify(bot.servers) });
                         for (var i = 0; i < bot.servers.count; i++) {
                             bot.sendMessage({ to: userID, message: "\nServer " + i + ": " + bot.servers[i].name + "\n ID: " + bot.servers[i].id + "\n Members: " });
                             for (var j = 0; j < bot.servers[i].members; j++) {
