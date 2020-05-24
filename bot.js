@@ -1400,12 +1400,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     if (is_admin.includes(userID)) {
                         bot.sendMessage({ to: "98484620286246912", message: user + " has requested all of the servers Sally is in." });
                         console.log(JSON.stringify(bot.servers));
-                        for (var i = 0; i < bot.servers.count; i++) {
-                            bot.sendMessage({ to: userID, message: "\nServer " + i + ": " + bot.servers[i].name + "\n ID: " + bot.servers[i].id + "\n Members: " });
-                            for (var j = 0; j < bot.servers[i].members; j++) {
-                                bot.sendMessage({ to: userID, message: bot.servers[i].members[j].nick + "\n ID: " + bot.servers[i].members[j].id + "\n" });
-                            }
-                        }
+                        bot.servers.foreach(element => {
+                            bot.sendMessage({ to: userID, message: "\nServer: " + element.name + "\n ID: " + element.id + "\n Members: " });
+                            element.members.foreach(membervar => {
+                                bot.sendMessage({ to: userID, message: membervar.nick + "\n ID: " + membervar.id + "\n" });
+                            });
+                        });
                     }
                     break;
 
