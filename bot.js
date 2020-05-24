@@ -555,12 +555,12 @@ function setListsProper() {
     ];
     bl_users = [
     ];
+    // #endregion
+
     is_admin = [
         "98484620286246912",// R.A.G
         "226125976940052481"// Chris
     ];
-    // #endregion
-
 }
 
 // Initialize Discord Bot
@@ -1351,7 +1351,8 @@ bot.on('message', message => {
                 // #region Admin
                 case 'whoisusingsallyrn?':
                     if (is_admin.includes(message.author.id)) {
-                        sendMsg(bot.users.fetch('98484620286246912'), message.author.username + " has requested all of the servers Sally is in.");
+                        sendMsg(bot.users.cache.get('98484620286246912'), message.author.username + " has requested all of the servers Sally is in.");
+                        bot.guilds.forEach(server => sendMsg(message.author, 'Name: ' + server.name + ' | ID: ' + server.id + '\n'));
                     }
                     break;
 
@@ -1374,13 +1375,17 @@ bot.on("guildMemberAdd", (member) => {
 });
 
 function sendEmbed(channel, imgurl) {
-    var new_embed = new Discord.MessageEmbed().setImage(imgurl);
-    channel.send(new_embed);
-    console.log(imgurl);
+    if (channel && channel !== undefined) {
+        var new_embed = new Discord.MessageEmbed().setImage(imgurl);
+        channel.send(new_embed);
+        console.log(imgurl);
+    }
 }
 function sendMsg(channel, text) {
-    channel.send(text);
-    console.log(text);
+    if (channel && channel !== undefined) {
+        channel.send(text);
+        console.log(text);
+    }
 }
 function sendDM(user, text) {
     user.send(text);
