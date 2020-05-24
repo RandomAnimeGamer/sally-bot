@@ -628,11 +628,11 @@ bot.on('message', message => {
     // #endregion
 
     if (channelID.id === agreement_channel && message.content === 'I agree.') {
-        removeRoles(message.guild, message.author, [new_member]);
+        removeRoles(message.guild, message.member, [new_member]);
         sendMsg(bot.channels.cache.get(roles_channel), "Welcome, <@" + message.author.id + ">! Are you a Casual Player, Competitive Player, UNS Modder, combination of those or an Observer (Neither Player nor Modder)? Select your appropriate roles from the list below by using the **command prefix \"$\".** *Don't forget to add your region, if it isn't already included in the role!* \n \n" + all_roles );
     }
 
-    if (channelID.id === active_comp_channel) { message.member.roles.add(active_competitive); removeRoles(message.guild, message.author, cas_roles); }
+    if (channelID.id === active_comp_channel) { message.member.roles.add(active_competitive); removeRoles(message.guild, message.member, cas_roles); }
 
 
     // #region Prevent blacklist commands
@@ -676,27 +676,27 @@ bot.on('message', message => {
                                     switch (cmd3.toLowerCase()) {
                                         case 'na':
                                             message.member.roles.add(player_na);
-                                            removeRoles(message.guild, message.author, cas_roles);
+                                            removeRoles(message.guild, message.member, cas_roles);
                                             break;
                                         case 'eu':
                                             message.member.roles.add(player_eu);
-                                            removeRoles(message.guild, message.author, cas_roles);
+                                            removeRoles(message.guild, message.member, cas_roles);
                                             break;
                                         case 'br':
                                             message.member.roles.add(player_br);
-                                            removeRoles(message.guild, message.author, cas_roles);
+                                            removeRoles(message.guild, message.member, cas_roles);
                                             break;
                                         case 'asia':
                                             message.member.roles.add(player_asia);
-                                            removeRoles(message.guild, message.author, cas_roles);
+                                            removeRoles(message.guild, message.member, cas_roles);
                                             break;
                                         case 'c4':
                                             message.member.roles.add(player_c4);
-                                            removeRoles(message.guild, message.author, cas_roles);
+                                            removeRoles(message.guild, message.member, cas_roles);
                                             break;
                                         case 'af':
                                             message.member.roles.add(player_af);
-                                            removeRoles(message.guild, message.author, cas_roles);
+                                            removeRoles(message.guild, message.member, cas_roles);
                                             break;
                                     }
                                 }
@@ -744,23 +744,23 @@ bot.on('message', message => {
                                 // #endregion
 
                                 // #region Competitive/Styler/Casual/Observer Roles
-                                case 'competitive': message.member.roles.add(active_competitive); removeRoles(message.guild, message.author, cas_roles); break;
+                                case 'competitive': message.member.roles.add(active_competitive); removeRoles(message.guild, message.member, cas_roles); break;
                                 case 'styler':
-                                case 'styleur': message.member.roles.add(styleur_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'casual': message.member.roles.add(casual_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'observer': removeRoles(message.guild, message.author, com_roles.concat(cas_roles)); message.member.roles.add(observer_role); break;
+                                case 'styleur': message.member.roles.add(styleur_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'casual': message.member.roles.add(casual_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'observer': removeRoles(message.guild, message.member, com_roles.concat(cas_roles)); message.member.roles.add(observer_role); break;
                                 // #endregion
 
                                 // #region Non-Player Regions
-                                case 'na': message.member.roles.add(na_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'ca': message.member.roles.add(ca_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'eu': message.member.roles.add(eu_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'asia': message.member.roles.add(asia); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'ru': message.member.roles.add(ru_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'br': message.member.roles.add(br_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'af': message.member.roles.add(af_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'in': message.member.roles.add(in_role); removeRoles(message.guild, message.author, com_roles); break;
-                                case 'c4': message.member.roles.add(c4_role); removeRoles(message.guild, message.author, com_roles); break;
+                                case 'na': message.member.roles.add(na_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'ca': message.member.roles.add(ca_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'eu': message.member.roles.add(eu_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'asia': message.member.roles.add(asia); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'ru': message.member.roles.add(ru_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'br': message.member.roles.add(br_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'af': message.member.roles.add(af_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'in': message.member.roles.add(in_role); removeRoles(message.guild, message.member, com_roles); break;
+                                case 'c4': message.member.roles.add(c4_role); removeRoles(message.guild, message.member, com_roles); break;
                                 // #endregion
                             }
                         }
@@ -1386,7 +1386,6 @@ function sendDM(user, text) {
 }
 function arrayToStr(arr) { var str = ''; for (var i = 0; i < arr.length; i++) { str += arr[i] + '\n'; } return str; }
 
-// #region Roles
 function removeRoles(server, member, role) {
     if (server !== undefined) {
         if (server.id === serverid) {
@@ -1416,4 +1415,3 @@ function removeRepeated(str, inst) {
     }
     return str;
 }
-// #endregion
