@@ -555,7 +555,7 @@ function setListsProper() {
     ];
     bl_users = [
     ];
-    var is_admin = [
+    is_admin = [
         "98484620286246912",// R.A.G
         "226125976940052481"// Chris
     ];
