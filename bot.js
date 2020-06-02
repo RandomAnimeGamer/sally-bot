@@ -297,6 +297,7 @@ function setListsProper() {
         'jeffyanger',
         'jeffycombos',
         'jonah1 - jonah2',
+        'josephrekt1 - josephrekt2',
         'justminatothings',
         'khron-os',
         'kotocb',
@@ -341,6 +342,7 @@ function setListsProper() {
         'trumeta',
         'ufos',
         'und3',
+        'uns2',
         'uns2.0 - uns2.02',
         'unsplayers',
         'usabanhammer',
@@ -553,6 +555,7 @@ function setListsProper() {
     // #region Blacklisted Servers/Users
     bl_servers = [
         "696985247849513010",
+        "448989373933813770"
     ];
     bl_users = [
     ];
@@ -1057,6 +1060,8 @@ bot.on('message', message => {
                 case 'jeffycombos': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/jeffycombos.png"); break;
                 case 'jonah1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/jonah1.jpg"); break;
                 case 'jonah2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/jonah2.png"); break;
+                case 'josephrekt1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/JosephRekt1.png.jpg"); break;
+                case 'josephrekt2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/JosephRekt2.png.jpg"); break;
                 case 'justminatothings': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/justminatothings.PNG"); break;
                 case 'khron-os': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/khron-os.jpg"); break;
                 case 'klkifreviews': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/klkifreviews.PNG"); break;
@@ -1118,6 +1123,7 @@ bot.on('message', message => {
                 case 'trumeta': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/trumeta.png"); break;
                 case 'ufos': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/ufos.png"); break;
                 case 'und3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/und3.png"); break;
+                case 'uns2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/UNS2.png"); break;
                 case 'uns2.0': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/uns2.0.png"); break;
                 case 'uns2.02': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/uns2.02.png"); break;
                 case 'unsplayers': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/community/unsplayers.png"); break;
