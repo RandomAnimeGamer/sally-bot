@@ -239,6 +239,7 @@ function setListsProper() {
         'gevshika',
         'hanzoumad',
         'howmad',
+        'howqr',
         'jumpblur',
         'kottekoi',
         'kuroshika / ks / minatokuroshika / mks',
@@ -985,6 +986,7 @@ bot.on('message', message => {
                 case 'gevshika': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gevshika.png"); break;
                 case 'hanzoumad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/hanzoumad.jpg"); break;
                 case 'howmad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/howmad.png"); break;
+                case 'howqr': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/howqr.png"); break;
                 case 'jumpblur': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/jumpblur.jpg"); break;
                 case 'minatokuroshika':
                 case 'mks':
