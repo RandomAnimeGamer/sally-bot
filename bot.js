@@ -169,7 +169,7 @@ function setListsProper() {
     // #region Sally Memes
     sally = ['```', 'Sally:',
         'calmsally / csally',
-        'delet - deletin',
+        'delet - deletin  /  delet2',
         'madsally / msally',
         'perfectsally / psally  -  perfectsallyfull / psallyfull',
         'realsally',
@@ -389,6 +389,7 @@ function setListsProper() {
         'dashgud',
         'doge',
         'elkek',
+        'elsekiei',
         'eternalgms / egms  -  eternalgms2 / egms2',
         'eyes - eyes2',
         'frenchdara',
@@ -853,6 +854,7 @@ bot.on('message', message => {
                 case 'calmsally':
                 case 'csally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/calmsally.png"); break;
                 case 'delet': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/delet.png"); break;
+                case 'delet2': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/delet2.png"); break;
                 case 'deletin': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/deletin.png"); break;
                 case 'madsally':
                 case 'msally': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/sally/madsally.png"); break;
@@ -1184,6 +1186,7 @@ bot.on('message', message => {
                 case 'catha': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/CatHa.gif"); break;
                 case 'dashgud': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/dashgud.png"); break;
                 case 'doge': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/doge.png"); break;
+                case 'elsekiei': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/elsekiei.png"); break;
                 case 'elkek': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/elkek.png"); break;
                 case 'egms':
                 case 'eternalgms': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/eternalgms.png"); break;
