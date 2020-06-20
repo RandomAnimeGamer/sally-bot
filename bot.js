@@ -237,6 +237,7 @@ function setListsProper() {
         'gen - gen2 - gen3',
         'gevems',
         'gevshika',
+        'gksg',
         'hanzoumad',
         'howmad',
         'howqr',
@@ -382,7 +383,9 @@ function setListsProper() {
     // #endregion
     // #region UNSG Community Memes
     unsc = ['```', 'UNSGCommunity Emotes',
+        '3-0 / 30 / 3oh / 3-oh / threeoh / three-oh / three0 / three-0',
         'ashkekchem',
+        'catha',
         'dashgud',
         'doge',
         'elkek',
@@ -632,7 +635,6 @@ bot.on('message', message => {
     }
     // #endregion
 
-
     // #region Prevent blacklist commands
     var blocked = false;
     for (var i = 0; i < bl_users.length; i++) { if (message.author.id === bl_users[i]) { blocked = true; break; } }
@@ -646,7 +648,6 @@ bot.on('message', message => {
     }
     if (blocked) return;
     // #endregion
-
 
     if (channelID.id === agreement_channel && message.content === 'I agree.') {
         removeRoles(message.guild, message.member, [new_member]);
@@ -984,6 +985,7 @@ bot.on('message', message => {
                 case 'gen3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/Gen3.png"); break;
                 case 'gevems': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gevems.png"); break;
                 case 'gevshika': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/gevshika.png"); break;
+                case 'gksg': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/gksg.jpg"); break;
                 case 'hanzoumad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/hanzoumad.jpg"); break;
                 case 'howmad': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/howmad.png"); break;
                 case 'howqr': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/howqr.png"); break;
@@ -1170,7 +1172,16 @@ bot.on('message', message => {
                 // #endregion
                 
                 // #region UNSG Community Emotes
+                case 'three-0':
+                case 'three0':
+                case 'three-oh':
+                case 'threeoh':
+                case '3-oh':
+                case '3oh':
+                case '3-0':
+                case '30': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/3-0.png"); break;
                 case 'ashkekchem': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/ashkekchem.png"); break;
+                case 'catha': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/CatHa.gif"); break;
                 case 'dashgud': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/dashgud.png"); break;
                 case 'doge': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/doge.png"); break;
                 case 'elkek': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/unsgc/elkek.png"); break;
