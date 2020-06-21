@@ -262,6 +262,7 @@ function setListsProper() {
         's1',
         's3',
         's4',
+        's4in2020 - mitsuki',
         's4hinata / whoa',
         's4mash',
         's4mechanics',
@@ -1016,6 +1017,8 @@ bot.on('message', message => {
                 case 's1': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s1.jpg"); break;
                 case 's3': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s3.png"); break;
                 case 's4': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4.png"); break;
+                case 'mitsuki':
+                case 's4in2020': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4in2020.png"); break;
                 case 'whoa':
                 case 's4hinata': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4hinata.jpg"); break;
                 case 's4mash': sendEmbed(channelID, "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/s4mash.jpg"); break;
