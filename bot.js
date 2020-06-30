@@ -7,12 +7,15 @@ var refresh = true;
 
 // #region General bot vars
 var serverid = "693620394929815562";
+var qserverid = "727332352677642281";
 var rules_channel = "693638262358540298";
+var qwelcome_channel = "727332353126694992";
 var agreement_channel = "696793531817132142";
 var faq_channel = "693629099327094805";
 var offtopic_channel = "693620394929815565";
 var roles_channel = "707393784383799366";
 var active_comp_channel = "694169400366071898";
+var qid = "195539200571867137";
 var k = 30;
 const reEscape = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 // #endregion
@@ -52,6 +55,7 @@ var styleur_role = "694777461384282154";
 var casual_role = "702357358499725342";
 var observer_role = "693983204411047976";
 var new_member = "696791374342914068";
+var qnew_member = "727337659306868847";
 // #endregion
 
 // #region Role Arrays
@@ -1402,6 +1406,10 @@ bot.on("guildMemberAdd", (member) => {
         sendMsg(bot.channels.cache.get(agreement_channel), "Hello, and welcome to Gev Community, <@" + member.id + ">! Please first read the <#" + rules_channel + "> and <#" + faq_channel + "> channels, and then respond with `I agree.` in the <#" + agreement_channel + "> channel. If you have any questions that aren't covered in <#" + faq_channel + ">, don't hesitate to <@226125976940052481>. After you agree with the Rules of the Server, you will gain access to these Categories and all the Channels contained therein:");
         setTimeout(() => { sendEmbed(bot.channels.cache.get(agreement_channel), "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/resources/gev_channels.png"); }, 250);
         setTimeout(() => { sendEmbed(bot.channels.cache.get(agreement_channel), "https://raw.githubusercontent.com/RandomAnimeGamer/sally-bot/master/storm/valantgev.png"); }, 500);
+    }
+    if (member.guild.id === qserverid) {
+        member.roles.add(qnew_member);
+        sendMsg(bot.channels.cache.get(qwelcome_channel), "Welcome to the UNS4 Clan Discord Server! If you have a clan, please @<" + qid + "> with your clan name, clan members, and score history to be assigned a custom clan role. If you are not in a clan, you will receive the Free Agent role; this role will allow you to join clans that are accepting new members.Don't be shy!");
     }
 });
 
