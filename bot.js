@@ -791,7 +791,7 @@ bot.on('message', message => {
                     case 'del':
                         if (!isNaN(cmd2) && cmd2 > 0) {
                             if (message.guild !== undefined) {
-                                if (message.guild.id === serverid && (message.author.id === "226125976940052481" || message.author.id === "98484620286246912")) {
+                                if ((message.guild.id === serverid || message.guild.id === qserverid) && (message.author.id === "226125976940052481" || message.author.id === "98484620286246912")) {
                                     message.channel.bulkDelete(cmd2)
                                         .then(messages => console.log(`Bulk deleted ${messages.size} messages`))
                                         .catch(console.error);
@@ -1409,7 +1409,7 @@ bot.on("guildMemberAdd", (member) => {
     }
     if (member.guild.id === qserverid) {
         member.roles.add(qnew_member);
-        sendMsg(bot.channels.cache.get(qwelcome_channel), "Welcome to the UNS4 Clan Discord Server! If you have a clan, please <@" + qid + "> with your clan name, clan members, and score history to be assigned a custom clan role. If you are not in a clan, you will receive the Free Agent role; this role will allow you to join clans that are accepting new members.Don't be shy!");
+        sendMsg(bot.channels.cache.get(qwelcome_channel), "Welcome to the UNS4 Clan Discord Server! If you have a clan, please <@" + qid + "> with your clan name, clan members, and score history to be assigned a custom clan role. If you are not in a clan, you will receive the Free Agent role; this role will allow you to join clans that are accepting new members. Don't be shy!");
     }
 });
 
